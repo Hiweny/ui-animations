@@ -39,19 +39,29 @@ function fallback(text, done) {
   done();
 }
 
-// 回到顶部：滚动超过一屏后淡入，点击平滑回到顶部，并带一圈读进度环
+// 回到顶部：向下滚动时隐藏，向上滚动时浮现，点击平滑回到顶部
 function bindToTop() {
   var btn = document.getElementById('toTop');
   if (!btn) return;
-  var onScroll = function () {
-    if (window.scrollY > 240) btn.classList.add('show');
-    else btn.classList.remove('show');
-  };
+  var lastY = window.scrollY || 0;
+  var ticking = false;
+
+  function update() {
+    var y = window.scrollY || 0;
+    if (y < 120) btn.classList.remove('show');
+    else if (y < lastY - 4) btn.classList.add('show');
+    else if (y > lastY + 4) btn.classList.remove('show');
+    lastY = y;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+
   btn.addEventListener('click', function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
 }
 
 if (document.readyState === 'loading') {

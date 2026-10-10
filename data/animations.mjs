@@ -7,8 +7,6 @@
  *   name        中文名称
  *   desc        简短描述
  *   tags        标签数组
- *   source      来源链接（可空）
- *   author      作者 / 来源说明
  *   html        演示用 HTML
  *   css         演示用 CSS
  *   js          可选：演示用 JS（会与 HTML/CSS 一起出现在复制面板）
@@ -20,8 +18,6 @@ export const animations = [
     name: '星星闪光按钮',
     desc: '按钮四角藏着四颗小星星，鼠标悬停时依次旋转、放大、闪烁，图标同时旋转放大。纯 CSS 驱动，靠 --i 变量错开每颗星的动画延迟。',
     tags: ['button', 'star', 'sparkle', 'hover'],
-    source: '',
-    author: '来源：主人知识库收藏',
     html: `<button class="btn-sparkle">
   <span class="btn-sparkle-star" style="--i:0" aria-hidden="true"></span>
   <span class="btn-sparkle-star" style="--i:1" aria-hidden="true"></span>
@@ -89,140 +85,10 @@ export const animations = [
   },
 
   {
-    slug: 'orbiting-stars-button',
-    name: '星环环绕按钮',
-    desc: '五颗小星星沿一个圆形轨道持续环绕按钮旋转，像行星轨道。用绝对定位 + rotate/translateX 组合，并用 --a 变量给每颗星设置负延迟错开起始角度。',
-    tags: ['button', 'star', 'orbit', '星环'],
-    source: 'https://seangeng.com/writing/the-galaxy-button',
-    author: '灵感：The Galaxy Button（重写实现）',
-    html: `<button class="btn-galaxy">
-  <i class="orbit-star" style="--a:0"></i>
-  <i class="orbit-star" style="--a:72"></i>
-  <i class="orbit-star" style="--a:144"></i>
-  <i class="orbit-star" style="--a:216"></i>
-  <i class="orbit-star" style="--a:288"></i>
-  <span>Galaxy</span>
-</button>`,
-    css: `.btn-galaxy {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  padding: 0.9em 2.2em;
-  border: 0;
-  border-radius: 999px;
-  font: 700 17px/1.2 system-ui, sans-serif;
-  color: #fff;
-  cursor: pointer;
-  background: radial-gradient(120% 160% at 50% 0%, #6366f1, #1e1b4b 75%);
-  box-shadow: 0 12px 30px -14px #6366f1;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.btn-galaxy:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 36px -14px #6366f1;
-}
-.btn-galaxy .orbit-star {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 7px;
-  height: 7px;
-  margin: -3.5px;
-  border-radius: 50%;
-  background: #fde68a;
-  box-shadow: 0 0 10px #fbbf24;
-  pointer-events: none;
-  animation: galaxy-orbit 4s linear infinite;
-  animation-delay: calc(var(--a) * -4s / 360);
-}
-@keyframes galaxy-orbit {
-  from { transform: rotate(0deg) translateX(62px) rotate(0deg); }
-  to   { transform: rotate(360deg) translateX(62px) rotate(-360deg); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .btn-galaxy .orbit-star { animation: none; opacity: 0; }
-}`,
-    previewCss: '',
-  },
-
-  {
-    slug: 'twinkle-starfield',
-    name: '闪烁星空背景',
-    desc: '两层不同密度、不同速度的星点叠加成星空，缓慢明暗呼吸。用 radial-gradient 在重复背景里画星点，不产生任何多余 DOM，适合当 Hero 背景。',
-    tags: ['background', 'star', 'twinkle', '星空'],
-    source: '',
-    author: '本仓库原创',
-    html: `<div class="starfield">
-  <span class="starfield-text">Starfield</span>
-</div>`,
-    css: `.starfield {
-  position: relative;
-  width: 100%;
-  max-width: 420px;
-  height: 190px;
-  border-radius: 16px;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  background: radial-gradient(120% 110% at 50% 0%, #1e1b4b, #05070f 72%);
-  border: 1px solid #1f2937;
-}
-.starfield::before,
-.starfield::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-.starfield::before {
-  background-image:
-    radial-gradient(1.6px 1.6px at 24px 34px, #ffffff, transparent),
-    radial-gradient(1.4px 1.4px at 92px 68px, #fde68a, transparent),
-    radial-gradient(1.8px 1.8px at 140px 26px, #c7d2fe, transparent),
-    radial-gradient(1.2px 1.2px at 60px 118px, #ffffff, transparent),
-    radial-gradient(1.5px 1.5px at 118px 142px, #fca5a5, transparent);
-  background-size: 180px 180px;
-  animation: twinkle 3.6s ease-in-out infinite alternate;
-}
-.starfield::after {
-  background-image:
-    radial-gradient(1.1px 1.1px at 44px 22px, #ffffff, transparent),
-    radial-gradient(1.3px 1.3px at 160px 96px, #a5b4fc, transparent),
-    radial-gradient(1px 1px at 110px 40px, #ffffff, transparent),
-    radial-gradient(1.4px 1.4px at 20px 150px, #fde68a, transparent);
-  background-size: 240px 240px;
-  animation: twinkle 5.2s ease-in-out infinite alternate-reverse;
-}
-.starfield-text {
-  position: relative;
-  z-index: 1;
-  font: 800 26px/1.2 system-ui, sans-serif;
-  letter-spacing: 0.06em;
-  background: linear-gradient(120deg, #c7d2fe, #fde68a, #a5b4fc);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-@keyframes twinkle {
-  from { opacity: 0.22; }
-  to   { opacity: 1; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .starfield::before, .starfield::after { animation: none; opacity: 0.75; }
-}`,
-    previewCss: '',
-  },
-
-  {
     slug: 'star-burst-button',
     name: '点击星星爆裂按钮',
     desc: '点击按钮时从中心向四周迸射出 12 颗小星星，呈放射状飞散并淡出。星星由 JS 动态生成，飞行距离与角度随机。',
-    tags: ['button', 'star', 'click', '粒子'],
-    source: '',
-    author: '本仓库原创',
+    tags: ['button', 'star', 'click'],
     html: `<button class="btn-burst" type="button">点我放星星</button>`,
     css: `.btn-burst {
   position: relative;
@@ -275,97 +141,10 @@ export const animations = [
   },
 
   {
-    slug: 'rainbow-border-button',
-    name: '彩虹旋转描边按钮',
-    desc: '按钮背后藏着一个 conic-gradient 彩虹环，持续旋转，只在边缘露出 2px 成为流动的彩色描边。用 z-index 分层实现，无需 mask。',
-    tags: ['button', 'rainbow', 'border', 'gradient'],
-    source: '',
-    author: '本仓库原创',
-    html: `<button class="btn-rainbow" type="button"><span>Rainbow</span></button>`,
-    css: `.btn-rainbow {
-  position: relative;
-  z-index: 0;
-  padding: 0.9em 2.2em;
-  border: 0;
-  border-radius: 999px;
-  font: 700 17px/1.2 system-ui, sans-serif;
-  color: #e5e7eb;
-  cursor: pointer;
-  background: #0b1020;
-  transition: color 0.3s ease;
-}
-.btn-rainbow::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  border-radius: inherit;
-  z-index: -1;
-  background: conic-gradient(#f43f5e, #f59e0b, #22d3ee, #a855f7, #f43f5e);
-  animation: rainbow-spin 3s linear infinite;
-}
-.btn-rainbow:hover { color: #fff; }
-@keyframes rainbow-spin {
-  to { transform: rotate(360deg); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .btn-rainbow::before { animation: none; }
-}`,
-    previewCss: '',
-  },
-
-  {
-    slug: 'neon-glow-button',
-    name: '霓虹发光按钮',
-    desc: '描边与文字带霓虹光晕并持续呼吸，悬停时整颗按钮亮起白光、背景透出色彩。用 box-shadow 内外双层 + color-mix 控制光晕强度。',
-    tags: ['button', 'neon', 'glow', 'hover'],
-    source: '',
-    author: '本仓库原创',
-    html: `<button class="btn-neon" type="button">Neon</button>`,
-    css: `.btn-neon {
-  --c: #22d3ee;
-  padding: 0.9em 2em;
-  border: 2px solid var(--c);
-  border-radius: 12px;
-  background: transparent;
-  color: var(--c);
-  font: 700 16px/1 system-ui, sans-serif;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  text-shadow: 0 0 8px color-mix(in srgb, var(--c) 70%, transparent);
-  box-shadow:
-    0 0 8px color-mix(in srgb, var(--c) 60%, transparent),
-    inset 0 0 8px color-mix(in srgb, var(--c) 35%, transparent);
-  animation: neon-pulse 2.2s ease-in-out infinite alternate;
-  transition: color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-}
-.btn-neon:hover {
-  color: #fff;
-  background: color-mix(in srgb, var(--c) 18%, transparent);
-  box-shadow:
-    0 0 22px var(--c),
-    inset 0 0 16px color-mix(in srgb, var(--c) 45%, transparent);
-  animation-play-state: paused;
-}
-@keyframes neon-pulse {
-  from { filter: brightness(0.92); }
-  to   { filter: brightness(1.18); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .btn-neon { animation: none; }
-}`,
-    previewCss: '',
-  },
-
-  {
     slug: 'gradient-flow-text',
     name: '流光渐变文字',
     desc: '文字用四色渐变填充并循环流动，像液态金属反光。靠 background-size 放大后用 background-position 位移实现无缝循环。',
-    tags: ['text', 'gradient', 'flow', '流光'],
-    source: '',
-    author: '本仓库原创',
+    tags: ['text', 'gradient', 'flow'],
     html: `<div class="text-flow">Star Flow</div>`,
     css: `.text-flow {
   font: 800 38px/1.2 system-ui, sans-serif;
@@ -391,9 +170,7 @@ export const animations = [
     slug: 'ripple-button',
     name: '点击涟漪按钮',
     desc: '点击位置生成一圈白色涟漪扩散淡出，模拟水面波纹。涟漪大小按按钮尺寸计算，位置跟随鼠标落点。',
-    tags: ['button', 'ripple', 'click', '涟漪'],
-    source: '',
-    author: '本仓库原创',
+    tags: ['button', 'ripple', 'click'],
     html: `<button class="btn-ripple" type="button">点我涟漪</button>`,
     css: `.btn-ripple {
   position: relative;
@@ -443,9 +220,7 @@ export const animations = [
     slug: 'shimmer-button',
     name: '流光扫过按钮',
     desc: '一条倾斜的高光带沿按钮表面循环扫过，像金属反光。用 ::before 伪元素 + skewX 实现，不增加任何多余 DOM。',
-    tags: ['button', 'shimmer', '流光', 'hover'],
-    source: '',
-    author: '本仓库原创',
+    tags: ['button', 'shimmer', 'hover'],
     html: `<button class="btn-shimmer" type="button">Shimmer</button>`,
     css: `.btn-shimmer {
   --c: var(--btn-color, #6366f1);
@@ -490,9 +265,7 @@ export const animations = [
     slug: 'gradient-border-glow',
     name: '渐变流光描边',
     desc: '用 @property 注册角度变量，让一圈 conic-gradient 描边持续旋转，悬停时整圈发光。现代 CSS 单元素实现，无需伪元素堆叠。',
-    tags: ['button', 'border', 'gradient', 'glow'],
-    source: '',
-    author: '本仓库原创',
+    tags: ['button', 'border', 'gradient'],
     html: `<button class="btn-orbit" type="button"><span>Orbit</span></button>`,
     css: `@property --orbit-angle {
   syntax: '<angle>';

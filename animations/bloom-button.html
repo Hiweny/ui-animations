@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/bloom-button.html">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="apple-touch-icon" href="../favicon.svg">
-<link rel="stylesheet" href="../assets/site.css?v=0933aacd">
+<link rel="stylesheet" href="../assets/site.css?v=fe3dd7ee">
 </head>
 <body>
 <div class="bg-fx" aria-hidden="true">
@@ -145,35 +145,36 @@
 
   <section class="code-panel">
     <div class="code-bar">
-      <span class="label">HTML + CSS</span>
-      <button class="copy-btn" type="button" data-copy="#src">复制全部代码</button>
+      <div class="code-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <span class="code-file">bloom-button.html</span>
+      <button class="copy-btn" type="button" data-copy="#src">复制代码</button>
     </div>
-    <pre class="code" id="src"><code>&lt;button class="btn"&gt;
-  &lt;div class="wrapper"&gt;
-    &lt;span class="text"&gt;Flowers&lt;/span&gt;
-    &lt;div class="flower flower1"&gt;&lt;div class="petal"&gt;&lt;/div&gt;&lt;div class="petal two"&gt;&lt;/div&gt;&lt;div class="petal three"&gt;&lt;/div&gt;&lt;div class="petal four"&gt;&lt;/div&gt;&lt;/div&gt;
-    &lt;div class="flower flower2"&gt;&lt;div class="petal"&gt;&lt;/div&gt;&lt;div class="petal two"&gt;&lt;/div&gt;&lt;div class="petal three"&gt;&lt;/div&gt;&lt;div class="petal four"&gt;&lt;/div&gt;&lt;/div&gt;
-    &lt;div class="flower flower3"&gt;&lt;div class="petal"&gt;&lt;/div&gt;&lt;div class="petal two"&gt;&lt;/div&gt;&lt;div class="petal three"&gt;&lt;/div&gt;&lt;div class="petal four"&gt;&lt;/div&gt;&lt;/div&gt;
-    &lt;div class="flower flower4"&gt;&lt;div class="petal"&gt;&lt;/div&gt;&lt;div class="petal two"&gt;&lt;/div&gt;&lt;div class="petal three"&gt;&lt;/div&gt;&lt;div class="petal four"&gt;&lt;/div&gt;&lt;/div&gt;
-    &lt;div class="flower flower5"&gt;&lt;div class="petal"&gt;&lt;/div&gt;&lt;div class="petal two"&gt;&lt;/div&gt;&lt;div class="petal three"&gt;&lt;/div&gt;&lt;div class="petal four"&gt;&lt;/div&gt;&lt;/div&gt;
-    &lt;div class="flower flower6"&gt;&lt;div class="petal"&gt;&lt;/div&gt;&lt;div class="petal two"&gt;&lt;/div&gt;&lt;div class="petal three"&gt;&lt;/div&gt;&lt;div class="petal four"&gt;&lt;/div&gt;&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/button&gt;
+    <pre class="code" id="src"><code><span class="c-punc">&lt;</span><span class="c-tag">button</span> <span class="c-attr">class</span>=<span class="c-str">"btn"</span>&gt;
+  <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"wrapper"</span>&gt;
+    <span class="c-punc">&lt;</span><span class="c-tag">span</span> <span class="c-attr">class</span>=<span class="c-str">"text"</span>&gt;Flowers<span class="c-punc">&lt;/</span><span class="c-tag">span</span>&gt;
+    <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"flower flower1"</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal two"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal three"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal four"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+    <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"flower flower2"</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal two"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal three"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal four"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+    <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"flower flower3"</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal two"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal three"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal four"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+    <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"flower flower4"</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal two"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal three"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal four"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+    <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"flower flower5"</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal two"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal three"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal four"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+    <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"flower flower6"</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal two"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal three"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"petal four"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+  <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+<span class="c-punc">&lt;/</span><span class="c-tag">button</span>&gt;
 
-&lt;style&gt;
+<span class="c-punc">&lt;</span><span class="c-tag">style</span>&gt;
 .btn {
-  height: 4em;
-  width: 12em;
+  height: <span class="c-num">4em</span>;
+  width: <span class="c-num">12em</span>;
   display: flex;
   align-items: center;
   justify-content: center;
   background: transparent;
-  border: 0px solid black;
+  border: <span class="c-num">0px</span> solid black;
   cursor: pointer;
 }
 .wrapper {
-  height: 2em;
-  width: 8em;
+  height: <span class="c-num">2em</span>;
+  width: <span class="c-num">8em</span>;
   position: relative;
   background: transparent;
   display: flex;
@@ -181,61 +182,61 @@
   align-items: center;
 }
 .text {
-  font-size: 17px;
-  z-index: 1;
-  color: #000;
-  padding: 4px 12px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.7);
-  transition: all 0.5s ease;
+  font-size: <span class="c-num">17px</span>;
+  z-index: <span class="c-num">1</span>;
+  color: #<span class="c-num">000</span>;
+  padding: <span class="c-num">4px</span> <span class="c-num">12px</span>;
+  border-radius: <span class="c-num">4px</span>;
+  background: rgba(<span class="c-num">255</span>, <span class="c-num">255</span>, <span class="c-num">255</span>, <span class="c-num">0.7</span>);
+  transition: all <span class="c-num">0.5s</span> ease;
 }
 .flower {
   display: grid;
-  grid-template-columns: 1em 1em;
+  grid-template-columns: <span class="c-num">1em</span> <span class="c-num">1em</span>;
   position: absolute;
-  transition: grid-template-columns 0.8s ease;
+  transition: grid-template-columns <span class="c-num">0.8s</span> ease;
 }
-.flower1 { top: -12px; left: -13px; transform: rotate(5deg); }
-.flower2 { bottom: -5px; left: 8px; transform: rotate(35deg); }
-.flower3 { bottom: -15px; transform: rotate(0deg); }
-.flower4 { top: -14px; transform: rotate(15deg); }
-.flower5 { right: 11px; top: -3px; transform: rotate(25deg); }
-.flower6 { right: -15px; bottom: -15px; transform: rotate(30deg); }
+.flower1 { top: -12px; left: -13px; transform: rotate(<span class="c-num">5deg</span>); }
+.flower2 { bottom: -5px; left: <span class="c-num">8px</span>; transform: rotate(<span class="c-num">35deg</span>); }
+.flower3 { bottom: -15px; transform: rotate(<span class="c-num">0deg</span>); }
+.flower4 { top: -14px; transform: rotate(<span class="c-num">15deg</span>); }
+.flower5 { right: <span class="c-num">11px</span>; top: -3px; transform: rotate(<span class="c-num">25deg</span>); }
+.flower6 { right: -15px; bottom: -15px; transform: rotate(<span class="c-num">30deg</span>); }
 .petal {
-  height: 1em;
-  width: 1em;
-  border-radius: 40% 70% / 7% 90%;
-  background: linear-gradient(#07a6d7, #93e0ee);
-  border: 0.5px solid #96d1ec;
-  z-index: 0;
-  transition: width 0.8s ease, height 0.8s ease;
+  height: <span class="c-num">1em</span>;
+  width: <span class="c-num">1em</span>;
+  border-radius: <span class="c-num">40%</span> <span class="c-num">70%</span> / <span class="c-num">7%</span> <span class="c-num">90%</span>;
+  background: linear-gradient(#<span class="c-num">07</span>a6d7, #<span class="c-num">93</span>e0ee);
+  border: <span class="c-num">0.5px</span> solid #<span class="c-num">96</span>d1ec;
+  z-index: <span class="c-num">0</span>;
+  transition: width <span class="c-num">0.8s</span> ease, height <span class="c-num">0.8s</span> ease;
 }
-.two { transform: rotate(90deg); }
-.three { transform: rotate(270deg); }
-.four { transform: rotate(180deg); }
+.two { transform: rotate(<span class="c-num">90deg</span>); }
+.three { transform: rotate(<span class="c-num">270deg</span>); }
+.four { transform: rotate(<span class="c-num">180deg</span>); }
 .btn:hover .petal {
-  background: linear-gradient(#0761d7, #93bdee);
-  border: 0.5px solid #96b4ec;
+  background: linear-gradient(#<span class="c-num">0761</span>d7, #<span class="c-num">93</span>bdee);
+  border: <span class="c-num">0.5px</span> solid #<span class="c-num">96</span>b4ec;
 }
-.btn:hover .flower { grid-template-columns: 1.5em 1.5em; }
-.btn:hover .flower .petal { width: 1.5em; height: 1.5em; }
-.btn:hover .text { background: rgba(255, 255, 255, 0.4); }
-.btn:hover div.flower1 { animation: 15s linear 0s normal none infinite running flower1; }
-@keyframes flower1 { 0% { transform: rotate(5deg); } 100% { transform: rotate(365deg); } }
-.btn:hover div.flower2 { animation: 13s linear 1s normal none infinite running flower2; }
-@keyframes flower2 { 0% { transform: rotate(35deg); } 100% { transform: rotate(-325deg); } }
-.btn:hover div.flower3 { animation: 16s linear 1s normal none infinite running flower3; }
-@keyframes flower3 { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-.btn:hover div.flower4 { animation: 17s linear 1s normal none infinite running flower4; }
-@keyframes flower4 { 0% { transform: rotate(15deg); } 100% { transform: rotate(375deg); } }
-.btn:hover div.flower5 { animation: 20s linear 1s normal none infinite running flower5; }
-@keyframes flower5 { 0% { transform: rotate(25deg); } 100% { transform: rotate(-335deg); } }
-.btn:hover div.flower6 { animation: 15s linear 1s normal none infinite running flower6; }
-@keyframes flower6 { 0% { transform: rotate(30deg); } 100% { transform: rotate(390deg); } }
-&lt;/style&gt;</code></pre>
+.btn:hover .flower { grid-template-columns: <span class="c-num">1.5em</span> <span class="c-num">1.5em</span>; }
+.btn:hover .flower .petal { width: <span class="c-num">1.5em</span>; height: <span class="c-num">1.5em</span>; }
+.btn:hover .text { background: rgba(<span class="c-num">255</span>, <span class="c-num">255</span>, <span class="c-num">255</span>, <span class="c-num">0.4</span>); }
+.btn:hover div.flower1 { animation: <span class="c-num">15s</span> linear <span class="c-num">0s</span> normal none infinite running flower1; }
+@keyframes flower1 { <span class="c-num">0%</span> { transform: rotate(<span class="c-num">5deg</span>); } <span class="c-num">100%</span> { transform: rotate(<span class="c-num">365deg</span>); } }
+.btn:hover div.flower2 { animation: <span class="c-num">13s</span> linear <span class="c-num">1s</span> normal none infinite running flower2; }
+@keyframes flower2 { <span class="c-num">0%</span> { transform: rotate(<span class="c-num">35deg</span>); } <span class="c-num">100%</span> { transform: rotate(-325deg); } }
+.btn:hover div.flower3 { animation: <span class="c-num">16s</span> linear <span class="c-num">1s</span> normal none infinite running flower3; }
+@keyframes flower3 { <span class="c-num">0%</span> { transform: rotate(<span class="c-num">0deg</span>); } <span class="c-num">100%</span> { transform: rotate(<span class="c-num">360deg</span>); } }
+.btn:hover div.flower4 { animation: <span class="c-num">17s</span> linear <span class="c-num">1s</span> normal none infinite running flower4; }
+@keyframes flower4 { <span class="c-num">0%</span> { transform: rotate(<span class="c-num">15deg</span>); } <span class="c-num">100%</span> { transform: rotate(<span class="c-num">375deg</span>); } }
+.btn:hover div.flower5 { animation: <span class="c-num">20s</span> linear <span class="c-num">1s</span> normal none infinite running flower5; }
+@keyframes flower5 { <span class="c-num">0%</span> { transform: rotate(<span class="c-num">25deg</span>); } <span class="c-num">100%</span> { transform: rotate(-335deg); } }
+.btn:hover div.flower6 { animation: <span class="c-num">15s</span> linear <span class="c-num">1s</span> normal none infinite running flower6; }
+@keyframes flower6 { <span class="c-num">0%</span> { transform: rotate(<span class="c-num">30deg</span>); } <span class="c-num">100%</span> { transform: rotate(<span class="c-num">390deg</span>); } }
+<span class="c-punc">&lt;/</span><span class="c-tag">style</span>&gt;</code></pre>
   </section>
 </div>
-<script src="../assets/site.js?v=0933aacd"></script>
+<script src="../assets/site.js?v=fe3dd7ee"></script>
 <footer class="site-footer">
   <div class="wrap">
     <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub</a>

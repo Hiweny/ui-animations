@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/starry-sky-tunnel.html">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="apple-touch-icon" href="../favicon.svg">
-<link rel="stylesheet" href="../assets/site.css?v=0933aacd">
+<link rel="stylesheet" href="../assets/site.css?v=fe3dd7ee">
 </head>
 <body>
 <div class="bg-fx" aria-hidden="true">
@@ -292,48 +292,49 @@ canvas {
 
   <section class="code-panel">
     <div class="code-bar">
-      <span class="label">HTML + CSS + JS</span>
-      <button class="copy-btn" type="button" data-copy="#src">复制全部代码</button>
+      <div class="code-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <span class="code-file">starry-sky-tunnel.html</span>
+      <button class="copy-btn" type="button" data-copy="#src">复制代码</button>
     </div>
-    <pre class="code" id="src"><code>&lt;canvas id="scene"&gt;&lt;/canvas&gt;
+    <pre class="code" id="src"><code><span class="c-punc">&lt;</span><span class="c-tag">canvas</span> <span class="c-attr">id</span>=<span class="c-str">"scene"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">canvas</span>&gt;
 
-&lt;style&gt;
-* { margin: 0; padding: 0; box-sizing: border-box; }
+<span class="c-punc">&lt;</span><span class="c-tag">style</span>&gt;
+* { margin: <span class="c-num">0</span>; padding: <span class="c-num">0</span>; box-sizing: border-box; }
 html, body {
-  width: 100%; height: 100%;
+  width: <span class="c-num">100%</span>; height: <span class="c-num">100%</span>;
   overflow: hidden;
-  background: #000;
+  background: #<span class="c-num">000</span>;
 }
 canvas {
   display: block;
-  width: 100%; height: 100%;
+  width: <span class="c-num">100%</span>; height: <span class="c-num">100%</span>;
 }
-&lt;/style&gt;
+<span class="c-punc">&lt;/</span><span class="c-tag">style</span>&gt;
 
-&lt;script&gt;
+<span class="c-punc">&lt;</span><span class="c-tag">script</span>&gt;
 (() =&gt; {
-  const canvas = document.getElementById('scene');
-  const ctx = canvas.getContext('2d');
+  const canvas = document.getElementById(<span class="c-str">'scene'</span>);
+  const ctx = canvas.getContext(<span class="c-str">'2d'</span>);
   let W, H, dpr;
-  let time = 0;
+  let time = <span class="c-num">0</span>;
   let particles = [];
-  const PARTICLE_COUNT = 800;
-  const SPEED = 2.5;
+  const PARTICLE_COUNT = <span class="c-num">800</span>;
+  const SPEED = <span class="c-num">2.5</span>;
   const COLORS = [
-    { r: 80, g: 230, b: 255 },
-    { r: 200, g: 100, b: 255 },
-    { r: 255, g: 80, b: 180 },
-    { r: 120, g: 220, b: 255 },
-    { r: 255, g: 255, b: 255 },
-    { r: 255, g: 150, b: 255 },
+    { r: <span class="c-num">80</span>, g: <span class="c-num">230</span>, b: <span class="c-num">255</span> },
+    { r: <span class="c-num">200</span>, g: <span class="c-num">100</span>, b: <span class="c-num">255</span> },
+    { r: <span class="c-num">255</span>, g: <span class="c-num">80</span>, b: <span class="c-num">180</span> },
+    { r: <span class="c-num">120</span>, g: <span class="c-num">220</span>, b: <span class="c-num">255</span> },
+    { r: <span class="c-num">255</span>, g: <span class="c-num">255</span>, b: <span class="c-num">255</span> },
+    { r: <span class="c-num">255</span>, g: <span class="c-num">150</span>, b: <span class="c-num">255</span> },
   ];
   function resize() {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    dpr = Math.min(window.devicePixelRatio || <span class="c-num">1</span>, <span class="c-num">2</span>);
     W = window.innerWidth;
     H = window.innerHeight;
     canvas.width = W * dpr;
     canvas.height = H * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.setTransform(dpr, <span class="c-num">0</span>, <span class="c-num">0</span>, dpr, <span class="c-num">0</span>, <span class="c-num">0</span>);
   }
   function randomColor() {
     return COLORS[Math.floor(Math.random() * COLORS.length)];
@@ -341,33 +342,33 @@ canvas {
   function createParticle() {
     const type = Math.random();
     let shape;
-    if (type &lt; 0.30) shape = 'filled-star';
-    else if (type &lt; 0.50) shape = 'outline-star';
-    else if (type &lt; 0.65) shape = 'dot';
-    else if (type &lt; 0.78) shape = 'cross';
-    else if (type &lt; 0.88) shape = 'glow';
-    else shape = 'sparkle';
+    if (type &lt; <span class="c-num">0.30</span>) shape = <span class="c-str">'filled-star'</span>;
+    else if (type &lt; <span class="c-num">0.50</span>) shape = <span class="c-str">'outline-star'</span>;
+    else if (type &lt; <span class="c-num">0.65</span>) shape = <span class="c-str">'dot'</span>;
+    else if (type &lt; <span class="c-num">0.78</span>) shape = <span class="c-str">'cross'</span>;
+    else if (type &lt; <span class="c-num">0.88</span>) shape = <span class="c-str">'glow'</span>;
+    else shape = <span class="c-str">'sparkle'</span>;
     const color = randomColor();
-    const z = Math.random() * 2000 + 500;
+    const z = Math.random() * <span class="c-num">2000</span> + <span class="c-num">500</span>;
     return {
-      x: (Math.random() - 0.5) * W * 3,
-      y: (Math.random() - 0.5) * H * 3,
+      x: (Math.random() - <span class="c-num">0.5</span>) * W * <span class="c-num">3</span>,
+      y: (Math.random() - <span class="c-num">0.5</span>) * H * <span class="c-num">3</span>,
       z: z,
       baseZ: z,
-      size: 2 + Math.random() * 12,
+      size: <span class="c-num">2</span> + Math.random() * <span class="c-num">12</span>,
       color: color,
       shape: shape,
-      phase: Math.random() * Math.PI * 2,
-      twinkleSpeed: 0.5 + Math.random() * 2,
-      rotation: Math.random() * Math.PI * 2,
-      rotSpeed: (Math.random() - 0.5) * 0.02,
+      phase: Math.random() * Math.PI * <span class="c-num">2</span>,
+      twinkleSpeed: <span class="c-num">0.5</span> + Math.random() * <span class="c-num">2</span>,
+      rotation: Math.random() * Math.PI * <span class="c-num">2</span>,
+      rotSpeed: (Math.random() - <span class="c-num">0.5</span>) * <span class="c-num">0.02</span>,
     };
   }
   function initParticles() {
     particles = [];
-    for (let i = 0; i &lt; PARTICLE_COUNT; i++) {
+    for (let i = <span class="c-num">0</span>; i &lt; PARTICLE_COUNT; i++) {
       const p = createParticle();
-      p.z = Math.random() * 2500;
+      p.z = Math.random() * <span class="c-num">2500</span>;
       particles.push(p);
     }
   }
@@ -376,21 +377,21 @@ canvas {
     ctx.translate(cx, cy);
     ctx.rotate(rotation);
     ctx.beginPath();
-    const spikes = 5;
+    const spikes = <span class="c-num">5</span>;
     const outerR = size;
-    const innerR = size * 0.4;
-    for (let i = 0; i &lt; spikes * 2; i++) {
-      const r = i % 2 === 0 ? outerR : innerR;
-      const a = (i * Math.PI) / spikes - Math.PI / 2;
-      if (i === 0) ctx.moveTo(Math.cos(a) * r, Math.sin(a) * r);
+    const innerR = size * <span class="c-num">0.4</span>;
+    for (let i = <span class="c-num">0</span>; i &lt; spikes * <span class="c-num">2</span>; i++) {
+      const r = i % <span class="c-num">2</span> === <span class="c-num">0</span> ? outerR : innerR;
+      const a = (i * Math.PI) / spikes - Math.PI / <span class="c-num">2</span>;
+      if (i === <span class="c-num">0</span>) ctx.moveTo(Math.cos(a) * r, Math.sin(a) * r);
       else ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r);
     }
     ctx.closePath();
     ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha})`;
-    ctx.shadowColor = `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha * 0.8})`;
-    ctx.shadowBlur = size * 1.5;
+    ctx.shadowColor = `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha * <span class="c-num">0.8</span>})`;
+    ctx.shadowBlur = size * <span class="c-num">1.5</span>;
     ctx.fill();
-    ctx.shadowBlur = 0;
+    ctx.shadowBlur = <span class="c-num">0</span>;
     ctx.restore();
   }
   function drawOutlineStar(cx, cy, size, color, alpha, rotation) {
@@ -398,123 +399,123 @@ canvas {
     ctx.translate(cx, cy);
     ctx.rotate(rotation);
     ctx.beginPath();
-    const spikes = 5;
+    const spikes = <span class="c-num">5</span>;
     const outerR = size;
-    const innerR = size * 0.4;
-    for (let i = 0; i &lt; spikes * 2; i++) {
-      const r = i % 2 === 0 ? outerR : innerR;
-      const a = (i * Math.PI) / spikes - Math.PI / 2;
-      if (i === 0) ctx.moveTo(Math.cos(a) * r, Math.sin(a) * r);
+    const innerR = size * <span class="c-num">0.4</span>;
+    for (let i = <span class="c-num">0</span>; i &lt; spikes * <span class="c-num">2</span>; i++) {
+      const r = i % <span class="c-num">2</span> === <span class="c-num">0</span> ? outerR : innerR;
+      const a = (i * Math.PI) / spikes - Math.PI / <span class="c-num">2</span>;
+      if (i === <span class="c-num">0</span>) ctx.moveTo(Math.cos(a) * r, Math.sin(a) * r);
       else ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r);
     }
     ctx.closePath();
     ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha})`;
-    ctx.lineWidth = Math.max(0.5, size * 0.12);
-    ctx.shadowColor = `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha * 0.6})`;
+    ctx.lineWidth = Math.max(<span class="c-num">0.5</span>, size * <span class="c-num">0.12</span>);
+    ctx.shadowColor = `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha * <span class="c-num">0.6</span>})`;
     ctx.shadowBlur = size;
     ctx.stroke();
-    ctx.shadowBlur = 0;
+    ctx.shadowBlur = <span class="c-num">0</span>;
     ctx.restore();
   }
   function drawCross(cx, cy, size, color, alpha) {
     ctx.save();
     ctx.translate(cx, cy);
     ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha})`;
-    ctx.lineWidth = Math.max(0.5, size * 0.15);
-    ctx.shadowColor = `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha * 0.7})`;
-    ctx.shadowBlur = size * 0.8;
-    const r = size * 0.7;
+    ctx.lineWidth = Math.max(<span class="c-num">0.5</span>, size * <span class="c-num">0.15</span>);
+    ctx.shadowColor = `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha * <span class="c-num">0.7</span>})`;
+    ctx.shadowBlur = size * <span class="c-num">0.8</span>;
+    const r = size * <span class="c-num">0.7</span>;
     ctx.beginPath();
-    ctx.moveTo(0, -r); ctx.lineTo(0, r);
-    ctx.moveTo(-r, 0); ctx.lineTo(r, 0);
+    ctx.moveTo(<span class="c-num">0</span>, -r); ctx.lineTo(<span class="c-num">0</span>, r);
+    ctx.moveTo(-r, <span class="c-num">0</span>); ctx.lineTo(r, <span class="c-num">0</span>);
     ctx.stroke();
-    ctx.shadowBlur = 0;
+    ctx.shadowBlur = <span class="c-num">0</span>;
     ctx.restore();
   }
   function drawGlow(cx, cy, size, color, alpha) {
-    const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, size * 3);
-    grd.addColorStop(0, `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha * 0.6})`);
-    grd.addColorStop(0.5, `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha * 0.2})`);
-    grd.addColorStop(1, `rgba(${color.r}, ${color.g}, ${color.b}, 0)`);
+    const grd = ctx.createRadialGradient(cx, cy, <span class="c-num">0</span>, cx, cy, size * <span class="c-num">3</span>);
+    grd.addColorStop(<span class="c-num">0</span>, `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha * <span class="c-num">0.6</span>})`);
+    grd.addColorStop(<span class="c-num">0.5</span>, `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha * <span class="c-num">0.2</span>})`);
+    grd.addColorStop(<span class="c-num">1</span>, `rgba(${color.r}, ${color.g}, ${color.b}, <span class="c-num">0</span>)`);
     ctx.fillStyle = grd;
     ctx.beginPath();
-    ctx.arc(cx, cy, size * 3, 0, Math.PI * 2);
+    ctx.arc(cx, cy, size * <span class="c-num">3</span>, <span class="c-num">0</span>, Math.PI * <span class="c-num">2</span>);
     ctx.fill();
   }
   function drawDot(cx, cy, size, color, alpha) {
     ctx.beginPath();
-    ctx.arc(cx, cy, Math.max(0.5, size * 0.35), 0, Math.PI * 2);
+    ctx.arc(cx, cy, Math.max(<span class="c-num">0.5</span>, size * <span class="c-num">0.35</span>), <span class="c-num">0</span>, Math.PI * <span class="c-num">2</span>);
     ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha})`;
-    ctx.shadowColor = `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha * 0.8})`;
-    ctx.shadowBlur = size * 1.2;
+    ctx.shadowColor = `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha * <span class="c-num">0.8</span>})`;
+    ctx.shadowBlur = size * <span class="c-num">1.2</span>;
     ctx.fill();
-    ctx.shadowBlur = 0;
+    ctx.shadowBlur = <span class="c-num">0</span>;
   }
   function drawSparkle(cx, cy, size, color, alpha, rotation) {
     ctx.save();
     ctx.translate(cx, cy);
     ctx.rotate(rotation);
     ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha})`;
-    ctx.lineWidth = Math.max(0.5, size * 0.1);
-    ctx.shadowColor = `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha * 0.7})`;
+    ctx.lineWidth = Math.max(<span class="c-num">0.5</span>, size * <span class="c-num">0.1</span>);
+    ctx.shadowColor = `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha * <span class="c-num">0.7</span>})`;
     ctx.shadowBlur = size;
-    const r = size * 0.8;
+    const r = size * <span class="c-num">0.8</span>;
     ctx.beginPath();
-    ctx.moveTo(0, -r); ctx.lineTo(0, r);
-    ctx.moveTo(-r * 0.5, -r * 0.3); ctx.lineTo(r * 0.5, r * 0.3);
-    ctx.moveTo(-r * 0.5, r * 0.3); ctx.lineTo(r * 0.5, -r * 0.3);
+    ctx.moveTo(<span class="c-num">0</span>, -r); ctx.lineTo(<span class="c-num">0</span>, r);
+    ctx.moveTo(-r * <span class="c-num">0.5</span>, -r * <span class="c-num">0.3</span>); ctx.lineTo(r * <span class="c-num">0.5</span>, r * <span class="c-num">0.3</span>);
+    ctx.moveTo(-r * <span class="c-num">0.5</span>, r * <span class="c-num">0.3</span>); ctx.lineTo(r * <span class="c-num">0.5</span>, -r * <span class="c-num">0.3</span>);
     ctx.stroke();
-    ctx.shadowBlur = 0;
+    ctx.shadowBlur = <span class="c-num">0</span>;
     ctx.restore();
   }
   function animate() {
-    time += 0.016;
-    ctx.fillStyle = '#000';
-    ctx.fillRect(0, 0, W, H);
-    const centerX = W / 2;
-    const centerY = H / 2;
-    const focalLength = 400;
+    time += <span class="c-num">0.016</span>;
+    ctx.fillStyle = <span class="c-str">'#000'</span>;
+    ctx.fillRect(<span class="c-num">0</span>, <span class="c-num">0</span>, W, H);
+    const centerX = W / <span class="c-num">2</span>;
+    const centerY = H / <span class="c-num">2</span>;
+    const focalLength = <span class="c-num">400</span>;
     particles.sort((a, b) =&gt; b.z - a.z);
     for (const p of particles) {
-      p.z -= SPEED * (1 + (2500 - p.z) / 2500);
+      p.z <span class="c-attr">-</span>= SPEED * (<span class="c-num">1</span> + (<span class="c-num">2500</span> - p.z) / <span class="c-num">2500</span>);
       p.rotation += p.rotSpeed;
-      if (p.z &lt;= 10) {
+      if (p.z &lt;= <span class="c-num">10</span>) {
         Object.assign(p, createParticle());
-        p.z = 2500;
+        p.z = <span class="c-num">2500</span>;
         continue;
       }
       const scale = focalLength / p.z;
       const sx = centerX + p.x * scale;
       const sy = centerY + p.y * scale;
       const projectedSize = p.size * scale;
-      if (sx &lt; -50 || sx &gt; W + 50 || sy &lt; -50 || sy &gt; H + 50) continue;
-      let alpha = 1;
-      if (p.z &gt; 2000) alpha = (2500 - p.z) / 500;
-      if (p.z &lt; 200) alpha = p.z / 200;
-      alpha = Math.max(0, Math.min(1, alpha));
-      const twinkle = 0.7 + 0.3 * Math.sin(time * p.twinkleSpeed + p.phase);
+      if (sx &lt; -50 || sx &gt; W + <span class="c-num">50</span> || sy &lt; -50 || sy &gt; H + <span class="c-num">50</span>) continue;
+      let alpha = <span class="c-num">1</span>;
+      if (p.z &gt; <span class="c-num">2000</span>) alpha = (<span class="c-num">2500</span> - p.z) / <span class="c-num">500</span>;
+      if (p.z &lt; <span class="c-num">200</span>) alpha = p.z / <span class="c-num">200</span>;
+      alpha = Math.max(<span class="c-num">0</span>, Math.min(<span class="c-num">1</span>, alpha));
+      const twinkle = <span class="c-num">0.7</span> + <span class="c-num">0.3</span> * Math.sin(time * p.twinkleSpeed + p.phase);
       alpha *= twinkle;
-      if (projectedSize &lt; 0.3) {
+      if (projectedSize &lt; <span class="c-num">0.3</span>) {
         ctx.beginPath();
-        ctx.arc(sx, sy, Math.max(0.3, projectedSize), 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${alpha * 0.6})`;
+        ctx.arc(sx, sy, Math.max(<span class="c-num">0.3</span>, projectedSize), <span class="c-num">0</span>, Math.PI * <span class="c-num">2</span>);
+        ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${alpha * <span class="c-num">0.6</span>})`;
         ctx.fill();
         continue;
       }
       switch (p.shape) {
-        case 'filled-star':
+        case <span class="c-str">'filled-star'</span>:
           drawStar(sx, sy, projectedSize, p.color, alpha, p.rotation);
           break;
-        case 'outline-star':
+        case <span class="c-str">'outline-star'</span>:
           drawOutlineStar(sx, sy, projectedSize, p.color, alpha, p.rotation);
           break;
-        case 'cross':
+        case <span class="c-str">'cross'</span>:
           drawCross(sx, sy, projectedSize, p.color, alpha);
           break;
-        case 'glow':
+        case <span class="c-str">'glow'</span>:
           drawGlow(sx, sy, projectedSize, p.color, alpha);
           break;
-        case 'sparkle':
+        case <span class="c-str">'sparkle'</span>:
           drawSparkle(sx, sy, projectedSize, p.color, alpha, p.rotation);
           break;
         default:
@@ -523,15 +524,15 @@ canvas {
     }
     requestAnimationFrame(animate);
   }
-  window.addEventListener('resize', resize);
+  window.addEventListener(<span class="c-str">'resize'</span>, resize);
   resize();
   initParticles();
   animate();
 })();
-&lt;/script&gt;</code></pre>
+<span class="c-punc">&lt;/</span><span class="c-tag">script</span>&gt;</code></pre>
   </section>
 </div>
-<script src="../assets/site.js?v=0933aacd"></script>
+<script src="../assets/site.js?v=fe3dd7ee"></script>
 <footer class="site-footer">
   <div class="wrap">
     <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub</a>

@@ -17,9 +17,9 @@
   </header>
   <main class="grid">
     <article class="card">
-      <a class="card-link" href="animations/sparkle-button.html">
+      <a class="card-link" href="animations/aurora-switch.html">
         <div class="card-stage">
-          <iframe title="星星闪光按钮 预览" loading="lazy" srcdoc="<!doctype html>
+          <iframe title="彩虹光晕开关 预览" loading="lazy" srcdoc="<!doctype html>
 <html lang=&quot;zh-CN&quot;>
 <head>
 <meta charset=&quot;utf-8&quot;>
@@ -27,597 +27,76 @@
 <style>
   html,body{height:100%;margin:0}
   body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
-.btn-sparkle {
-  --c: var(--btn-color, #3b82f6);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5em;
-  font: 600 var(--btn-size, 18px)/1.2 system-ui, sans-serif;
-  cursor: pointer;
+.switch {
+  font-size: 17px;
   position: relative;
-  padding: 0.8em 1.7em;
-  border: 0;
-  border-radius: 2em;
-  background: linear-gradient(135deg, var(--c), color-mix(in srgb, var(--c) 45%, #d946ef));
-  color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+  transform-style: preserve-3d;
+  perspective: 500px;
+  animation: toggle__animation 3s infinite;
 }
-.btn-sparkle-icon {
-  width: 1.1em;
-  height: 1.1em;
-  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-.btn-sparkle-star {
-  position: absolute;
-  width: 1.3em;
-  height: 1.3em;
-  background: color-mix(in srgb, var(--c) 15%, #fbbf24);
-  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
-  transform: scale(0);
-  pointer-events: none;
-}
-.btn-sparkle-star:nth-child(1) { top: -1.1em; left: 0.5em; }
-.btn-sparkle-star:nth-child(2) { top: -0.85em; right: 0; width: 0.85em; height: 0.85em; background: var(--c); }
-.btn-sparkle-star:nth-child(3) { bottom: -1.15em; right: 1.2em; }
-.btn-sparkle-star:nth-child(4) { bottom: -0.55em; left: -0.8em; width: 0.85em; height: 0.85em; background: var(--c); }
-.btn-sparkle:is(:hover, :focus-visible) {
-  transform: translateY(-0.1em);
-  box-shadow: 0 0.4em 1.2em color-mix(in srgb, var(--c) 40%, transparent);
-}
-.btn-sparkle:is(:hover, :focus-visible) .btn-sparkle-icon { transform: rotate(90deg) scale(1.2); }
-.btn-sparkle:is(:hover, :focus-visible) .btn-sparkle-star {
-  animation: btn-sparkle-twinkle 1.2s ease-in-out calc(var(--i) * 0.3s) infinite;
-}
-@keyframes btn-sparkle-twinkle {
-  0%, 100% { transform: scale(0) rotate(0deg); }
-  35%      { transform: scale(1) rotate(45deg); }
-  65%      { transform: scale(0.85) rotate(90deg); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .btn-sparkle, .btn-sparkle *, .btn-sparkle::before, .btn-sparkle::after, .btn-sparkle *::before, .btn-sparkle *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-.btn-sparkle-star { animation: btn-sparkle-twinkle 1.2s ease-in-out calc(var(--i) * 0.3s) infinite; }
-</style>
-</head>
-<body>
-<button class=&quot;btn-sparkle&quot;>
-  <span class=&quot;btn-sparkle-star&quot; style=&quot;--i:0&quot; aria-hidden=&quot;true&quot;></span>
-  <span class=&quot;btn-sparkle-star&quot; style=&quot;--i:1&quot; aria-hidden=&quot;true&quot;></span>
-  <span class=&quot;btn-sparkle-star&quot; style=&quot;--i:2&quot; aria-hidden=&quot;true&quot;></span>
-  <span class=&quot;btn-sparkle-star&quot; style=&quot;--i:3&quot; aria-hidden=&quot;true&quot;></span>
-  <svg class=&quot;btn-sparkle-icon&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot;><path d=&quot;M12 2l2.3 7.7L22 12l-7.7 2.3L12 22l-2.3-7.7L2 12l7.7-2.3z&quot;/></svg>
-  Generate
-</button>
-
-</body>
-</html>"></iframe>
-        </div>
-        <div class="card-body">
-          <h2 class="card-name">星星闪光按钮</h2>
-          <p class="card-desc">按钮四角藏着四颗小星星，鼠标悬停时依次旋转、放大、闪烁，图标同时旋转放大。纯 CSS 驱动，靠 --i 变量错开每颗星的动画延迟。</p>
-          <div class="card-tags"><span class="tag">button</span><span class="tag">star</span><span class="tag">sparkle</span><span class="tag">hover</span></div>
-        </div>
-      </a>
-    </article>
-
-    <article class="card">
-      <a class="card-link" href="animations/star-burst-button.html">
-        <div class="card-stage">
-          <iframe title="点击星星爆裂按钮 预览" loading="lazy" srcdoc="<!doctype html>
-<html lang=&quot;zh-CN&quot;>
-<head>
-<meta charset=&quot;utf-8&quot;>
-<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
-<style>
-  html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
-.btn-burst {
-  position: relative;
-  padding: 0.9em 1.9em;
-  border: 0;
-  border-radius: 999px;
-  font: 700 17px/1.2 system-ui, sans-serif;
-  color: #4a2c00;
-  cursor: pointer;
-  background: linear-gradient(135deg, #fde68a, #fbbf24);
-  box-shadow: 0 12px 26px -14px #f59e0b;
-  transition: transform 0.15s ease;
-}
-.btn-burst:active { transform: scale(0.96); }
-.burst-star {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 10px;
-  height: 10px;
-  margin: -5px;
-  background: #fbbf24;
-  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
-  pointer-events: none;
-  animation: burst 0.9s ease-out forwards;
-}
-@keyframes burst {
-  0%   { transform: translate(0, 0) scale(0.4) rotate(0deg); opacity: 1; }
-  100% { transform: translate(var(--x), var(--y)) scale(1.1) rotate(160deg); opacity: 0; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .burst-star { display: none; }
-}
-
-</style>
-</head>
-<body>
-<button class=&quot;btn-burst&quot; type=&quot;button&quot;>点我放星星</button>
-<script>
-document.querySelectorAll('.btn-burst').forEach(function (btn) {
-  btn.addEventListener('click', function () {
-    for (var i = 0; i < 12; i++) {
-      var s = document.createElement('span');
-      s.className = 'burst-star';
-      var ang = (Math.PI * 2 * i) / 12;
-      var dist = 42 + Math.random() * 40;
-      s.style.setProperty('--x', Math.cos(ang) * dist + 'px');
-      s.style.setProperty('--y', Math.sin(ang) * dist + 'px');
-      btn.appendChild(s);
-      setTimeout(function (el) { return function () { el.remove(); }; }(s), 900);
-    }
-  });
-});
-</script>
-</body>
-</html>"></iframe>
-        </div>
-        <div class="card-body">
-          <h2 class="card-name">点击星星爆裂按钮</h2>
-          <p class="card-desc">点击按钮时从中心向四周迸射出 12 颗小星星，呈放射状飞散并淡出。星星由 JS 动态生成，飞行距离与角度随机。</p>
-          <div class="card-tags"><span class="tag">button</span><span class="tag">star</span><span class="tag">click</span></div>
-        </div>
-      </a>
-    </article>
-
-    <article class="card">
-      <a class="card-link" href="animations/gradient-flow-text.html">
-        <div class="card-stage">
-          <iframe title="流光渐变文字 预览" loading="lazy" srcdoc="<!doctype html>
-<html lang=&quot;zh-CN&quot;>
-<head>
-<meta charset=&quot;utf-8&quot;>
-<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
-<style>
-  html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
-.text-flow {
-  font: 800 38px/1.2 system-ui, sans-serif;
-  letter-spacing: -0.01em;
-  background: linear-gradient(90deg, #818cf8, #22d3ee, #f472b6, #818cf8);
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: text-flow 4s linear infinite;
-}
-@keyframes text-flow {
-  to { background-position: -200% 0; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .text-flow { animation: none; }
-}
-
-</style>
-</head>
-<body>
-<div class=&quot;text-flow&quot;>Star Flow</div>
-
-</body>
-</html>"></iframe>
-        </div>
-        <div class="card-body">
-          <h2 class="card-name">流光渐变文字</h2>
-          <p class="card-desc">文字用四色渐变填充并循环流动，像液态金属反光。靠 background-size 放大后用 background-position 位移实现无缝循环。</p>
-          <div class="card-tags"><span class="tag">text</span><span class="tag">gradient</span><span class="tag">flow</span></div>
-        </div>
-      </a>
-    </article>
-
-    <article class="card">
-      <a class="card-link" href="animations/ripple-button.html">
-        <div class="card-stage">
-          <iframe title="点击涟漪按钮 预览" loading="lazy" srcdoc="<!doctype html>
-<html lang=&quot;zh-CN&quot;>
-<head>
-<meta charset=&quot;utf-8&quot;>
-<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
-<style>
-  html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
-.btn-ripple {
-  position: relative;
-  overflow: hidden;
-  padding: 0.9em 2.2em;
-  border: 0;
-  border-radius: 12px;
-  font: 700 17px/1.2 system-ui, sans-serif;
-  color: #fff;
-  cursor: pointer;
-  background: linear-gradient(135deg, #0ea5e9, #6366f1);
-  box-shadow: 0 12px 26px -14px #6366f1;
-}
-.btn-ripple .ripple {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
-  transform: scale(0);
-  pointer-events: none;
-  animation: ripple-out 0.6s ease-out forwards;
-}
-@keyframes ripple-out {
-  to { transform: scale(2.6); opacity: 0; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .btn-ripple .ripple { display: none; }
-}
-
-</style>
-</head>
-<body>
-<button class=&quot;btn-ripple&quot; type=&quot;button&quot;>点我涟漪</button>
-<script>
-document.querySelectorAll('.btn-ripple').forEach(function (btn) {
-  btn.addEventListener('click', function (e) {
-    var r = btn.getBoundingClientRect();
-    var d = Math.max(r.width, r.height) * 1.2;
-    var s = document.createElement('span');
-    s.className = 'ripple';
-    s.style.width = d + 'px';
-    s.style.height = d + 'px';
-    s.style.left = (e.clientX - r.left - d / 2) + 'px';
-    s.style.top = (e.clientY - r.top - d / 2) + 'px';
-    btn.appendChild(s);
-    setTimeout(function () { s.remove(); }, 620);
-  });
-});
-</script>
-</body>
-</html>"></iframe>
-        </div>
-        <div class="card-body">
-          <h2 class="card-name">点击涟漪按钮</h2>
-          <p class="card-desc">点击位置生成一圈白色涟漪扩散淡出，模拟水面波纹。涟漪大小按按钮尺寸计算，位置跟随鼠标落点。</p>
-          <div class="card-tags"><span class="tag">button</span><span class="tag">ripple</span><span class="tag">click</span></div>
-        </div>
-      </a>
-    </article>
-
-    <article class="card">
-      <a class="card-link" href="animations/shimmer-button.html">
-        <div class="card-stage">
-          <iframe title="流光扫过按钮 预览" loading="lazy" srcdoc="<!doctype html>
-<html lang=&quot;zh-CN&quot;>
-<head>
-<meta charset=&quot;utf-8&quot;>
-<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
-<style>
-  html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
-.btn-shimmer {
-  --c: var(--btn-color, #6366f1);
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  padding: 0.85em 2.1em;
-  border: 0;
-  border-radius: 0.9em;
-  font: 700 17px/1.2 system-ui, sans-serif;
-  color: #fff;
-  cursor: pointer;
-  background: linear-gradient(135deg, var(--c), color-mix(in srgb, var(--c) 40%, #0ea5e9));
-  box-shadow: 0 10px 24px -12px color-mix(in srgb, var(--c) 70%, transparent);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.btn-shimmer::before {
-  content: '';
-  position: absolute;
-  inset: -30% -60%;
-  background: linear-gradient(100deg, transparent 35%, rgba(255, 255, 255, 0.75) 50%, transparent 65%);
-  transform: translateX(-110%) skewX(-18deg);
-  animation: btn-shimmer-sweep 2.6s ease-in-out infinite;
-  pointer-events: none;
-}
-.btn-shimmer:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 32px -14px color-mix(in srgb, var(--c) 85%, transparent);
-}
-@keyframes btn-shimmer-sweep {
-  0%        { transform: translateX(-110%) skewX(-18deg); }
-  55%, 100% { transform: translateX(110%) skewX(-18deg); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .btn-shimmer::before { animation: none; }
-}
-
-</style>
-</head>
-<body>
-<button class=&quot;btn-shimmer&quot; type=&quot;button&quot;>Shimmer</button>
-
-</body>
-</html>"></iframe>
-        </div>
-        <div class="card-body">
-          <h2 class="card-name">流光扫过按钮</h2>
-          <p class="card-desc">一条倾斜的高光带沿按钮表面循环扫过，像金属反光。用 ::before 伪元素 + skewX 实现，不增加任何多余 DOM。</p>
-          <div class="card-tags"><span class="tag">button</span><span class="tag">shimmer</span><span class="tag">hover</span></div>
-        </div>
-      </a>
-    </article>
-
-    <article class="card">
-      <a class="card-link" href="animations/gradient-border-glow.html">
-        <div class="card-stage">
-          <iframe title="渐变流光描边 预览" loading="lazy" srcdoc="<!doctype html>
-<html lang=&quot;zh-CN&quot;>
-<head>
-<meta charset=&quot;utf-8&quot;>
-<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
-<style>
-  html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
-@property --orbit-angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
-}
-
-.btn-orbit {
-  position: relative;
-  padding: 2px;
-  border: 0;
-  border-radius: 999px;
-  cursor: pointer;
-  background: conic-gradient(
-    from var(--orbit-angle),
-    transparent 0deg,
-    #22d3ee 60deg,
-    #a855f7 140deg,
-    transparent 200deg,
-    transparent 360deg
-  );
-  animation: btn-orbit-spin 3.2s linear infinite;
-  transition: filter 0.3s ease, transform 0.25s ease;
-}
-.btn-orbit span {
-  display: block;
-  padding: 0.8em 2.1em;
-  border-radius: 999px;
-  background: #0b1020;
-  color: #e5e7eb;
-  font: 700 17px/1.2 system-ui, sans-serif;
-}
-.btn-orbit:hover {
-  filter: drop-shadow(0 0 14px rgba(168, 85, 247, 0.7));
-  transform: translateY(-2px);
-}
-@keyframes btn-orbit-spin {
-  to { --orbit-angle: 360deg; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .btn-orbit { animation: none; }
-}
-
-</style>
-</head>
-<body>
-<button class=&quot;btn-orbit&quot; type=&quot;button&quot;><span>Orbit</span></button>
-
-</body>
-</html>"></iframe>
-        </div>
-        <div class="card-body">
-          <h2 class="card-name">渐变流光描边</h2>
-          <p class="card-desc">用 @property 注册角度变量，让一圈 conic-gradient 描边持续旋转，悬停时整圈发光。现代 CSS 单元素实现，无需伪元素堆叠。</p>
-          <div class="card-tags"><span class="tag">button</span><span class="tag">border</span><span class="tag">gradient</span></div>
-        </div>
-      </a>
-    </article>
-
-    <article class="card">
-      <a class="card-link" href="animations/aurora-glow-button.html">
-        <div class="card-stage">
-          <iframe title="霓彩光晕按钮 预览" loading="lazy" srcdoc="<!doctype html>
-<html lang=&quot;zh-CN&quot;>
-<head>
-<meta charset=&quot;utf-8&quot;>
-<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
-<style>
-  html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
-.flex {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-.outer-cont {
-  padding: 12px 20px;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-  position: relative;
-  background: linear-gradient(90deg, #5bfcc4, #f593e4, #71a4f0);
-  border-radius: 12px;
-  color: #fff;
-  transition: all 0.3s ease;
-  box-shadow:
-    inset 0px 0px 5px #ffffffa9,
-    inset 0px 35px 30px #000,
-    0px 5px 10px #000000cc;
-  text-shadow: 1px 1px 1px #000;
-}
-.outer-cont::before {
+.switch::before {
   content: &quot;&quot;;
   position: absolute;
-  inset: 0;
-  margin: auto;
-  border-radius: 12px;
-  filter: blur(0);
+  width: 100%; height: 100%;
+  left: 0; top: 0;
+  filter: blur(20px);
   z-index: -1;
-  box-shadow: none;
-  background: conic-gradient(
-    #00000000 80deg,
-    #40baf7,
-    #f34ad7,
-    #5bfcc4,
-    #00000000 280deg
-  );
-  transition: all 0.3s ease;
+  border-radius: 50px;
+  background-color: #d8ff99;
+  background-image: radial-gradient(at 21% 46%, hsla(183,65%,60%,1) 0px, transparent 50%),
+    radial-gradient(at 23% 25%, hsla(359,74%,70%,1) 0px, transparent 50%),
+    radial-gradient(at 20% 1%, hsla(267,83%,75%,1) 0px, transparent 50%),
+    radial-gradient(at 86% 87%, hsla(204,69%,68%,1) 0px, transparent 50%),
+    radial-gradient(at 99% 41%, hsla(171,72%,77%,1) 0px, transparent 50%),
+    radial-gradient(at 55% 24%, hsla(138,60%,62%,1) 0px, transparent 50%);
 }
-.outer-cont:hover::before {
-  filter: blur(15px);
-}
-.outer-cont:active::before {
-  filter: blur(5px);
-  transform: translateY(1px);
-}
-.outer-cont:active {
-  box-shadow:
-    inset 0px 0px 5px #ffffffa9,
-    inset 0px 35px 30px #000;
-  margin-top: 3px;
-}
-
-</style>
-</head>
-<body>
-<div class=&quot;flex&quot;>
-  <button class=&quot;outer-cont&quot;>Ai Button</button>
-</div>
-
-</body>
-</html>"></iframe>
-        </div>
-        <div class="card-body">
-          <h2 class="card-name">霓彩光晕按钮</h2>
-          <p class="card-desc">按钮底色是青粉蓝三色渐变，悬停时背后的一圈锥形彩虹光晕会模糊扩散开来，像极光从边缘溢出。</p>
-          <div class="card-tags"><span class="tag">button</span><span class="tag">gradient</span><span class="tag">glow</span></div>
-        </div>
-      </a>
-    </article>
-
-    <article class="card">
-      <a class="card-link" href="animations/bloom-button.html">
-        <div class="card-stage">
-          <iframe title="花朵绽放按钮 预览" loading="lazy" srcdoc="<!doctype html>
-<html lang=&quot;zh-CN&quot;>
-<head>
-<meta charset=&quot;utf-8&quot;>
-<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
-<style>
-  html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
-.btn {
-  height: 4em;
-  width: 12em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: 0px solid black;
-  cursor: pointer;
-}
-.wrapper {
-  height: 2em;
-  width: 8em;
-  position: relative;
-  background: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.text {
-  font-size: 17px;
-  z-index: 1;
-  color: #000;
-  padding: 4px 12px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.7);
-  transition: all 0.5s ease;
-}
-.flower {
-  display: grid;
-  grid-template-columns: 1em 1em;
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
   position: absolute;
-  transition: grid-template-columns 0.8s ease;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #fdfefedc;
+  transition: .4s;
+  border-radius: 30px;
 }
-.flower1 { top: -12px; left: -13px; transform: rotate(5deg); }
-.flower2 { bottom: -5px; left: 8px; transform: rotate(35deg); }
-.flower3 { bottom: -15px; transform: rotate(0deg); }
-.flower4 { top: -14px; transform: rotate(15deg); }
-.flower5 { right: 11px; top: -3px; transform: rotate(25deg); }
-.flower6 { right: -15px; bottom: -15px; transform: rotate(30deg); }
-.petal {
-  height: 1em;
-  width: 1em;
-  border-radius: 40% 70% / 7% 90%;
-  background: linear-gradient(#07a6d7, #93e0ee);
-  border: 0.5px solid #96d1ec;
-  z-index: 0;
-  transition: width 0.8s ease, height 0.8s ease;
+.slider:before {
+  position: absolute;
+  content: &quot;&quot;;
+  height: 1.4em; width: 1.4em;
+  left: 0.3em; bottom: 0.35em;
+  transition: .4s;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -10px 10px 0px inset, rgba(0, 0, 0, 0.09) 0px -1px 15px -8px;
+  background-color: #ff99fd;
+  background-image: radial-gradient(at 81% 39%, hsla(327,79%,79%,1) 0px, transparent 50%),
+    radial-gradient(at 11% 72%, hsla(264,64%,79%,1) 0px, transparent 50%),
+    radial-gradient(at 23% 20%, hsla(75,98%,71%,1) 0px, transparent 50%);
 }
-.two { transform: rotate(90deg); }
-.three { transform: rotate(270deg); }
-.four { transform: rotate(180deg); }
-.btn:hover .petal {
-  background: linear-gradient(#0761d7, #93bdee);
-  border: 0.5px solid #96b4ec;
+.input__check:checked + .slider { background-color: #17202A; }
+.input__check:checked + .slider:before { transform: translateX(1.5em); }
+@keyframes toggle__animation {
+  0%, 100% { transform: translateY(-10px) rotateX(15deg) rotateY(-20deg); }
+  50% { transform: translateY(0px) rotateX(15deg) rotateY(-20deg); }
 }
-.btn:hover .flower { grid-template-columns: 1.5em 1.5em; }
-.btn:hover .flower .petal { width: 1.5em; height: 1.5em; }
-.btn:hover .text { background: rgba(255, 255, 255, 0.4); }
-.btn:hover div.flower1 { animation: 15s linear 0s normal none infinite running flower1; }
-@keyframes flower1 { 0% { transform: rotate(5deg); } 100% { transform: rotate(365deg); } }
-.btn:hover div.flower2 { animation: 13s linear 1s normal none infinite running flower2; }
-@keyframes flower2 { 0% { transform: rotate(35deg); } 100% { transform: rotate(-325deg); } }
-.btn:hover div.flower3 { animation: 16s linear 1s normal none infinite running flower3; }
-@keyframes flower3 { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-.btn:hover div.flower4 { animation: 17s linear 1s normal none infinite running flower4; }
-@keyframes flower4 { 0% { transform: rotate(15deg); } 100% { transform: rotate(375deg); } }
-.btn:hover div.flower5 { animation: 20s linear 1s normal none infinite running flower5; }
-@keyframes flower5 { 0% { transform: rotate(25deg); } 100% { transform: rotate(-335deg); } }
-.btn:hover div.flower6 { animation: 15s linear 1s normal none infinite running flower6; }
-@keyframes flower6 { 0% { transform: rotate(30deg); } 100% { transform: rotate(390deg); } }
 
 </style>
 </head>
 <body>
-<button class=&quot;btn&quot;>
-  <div class=&quot;wrapper&quot;>
-    <span class=&quot;text&quot;>Flowers</span>
-    <div class=&quot;flower flower1&quot;><div class=&quot;petal&quot;></div><div class=&quot;petal two&quot;></div><div class=&quot;petal three&quot;></div><div class=&quot;petal four&quot;></div></div>
-    <div class=&quot;flower flower2&quot;><div class=&quot;petal&quot;></div><div class=&quot;petal two&quot;></div><div class=&quot;petal three&quot;></div><div class=&quot;petal four&quot;></div></div>
-    <div class=&quot;flower flower3&quot;><div class=&quot;petal&quot;></div><div class=&quot;petal two&quot;></div><div class=&quot;petal three&quot;></div><div class=&quot;petal four&quot;></div></div>
-    <div class=&quot;flower flower4&quot;><div class=&quot;petal&quot;></div><div class=&quot;petal two&quot;></div><div class=&quot;petal three&quot;></div><div class=&quot;petal four&quot;></div></div>
-    <div class=&quot;flower flower5&quot;><div class=&quot;petal&quot;></div><div class=&quot;petal two&quot;></div><div class=&quot;petal three&quot;></div><div class=&quot;petal four&quot;></div></div>
-    <div class=&quot;flower flower6&quot;><div class=&quot;petal&quot;></div><div class=&quot;petal two&quot;></div><div class=&quot;petal three&quot;></div><div class=&quot;petal four&quot;></div></div>
-  </div>
-</button>
+<label class=&quot;switch&quot;>
+  <input type=&quot;checkbox&quot; class=&quot;input__check&quot;>
+  <span class=&quot;slider&quot;></span>
+</label>
 
 </body>
 </html>"></iframe>
         </div>
         <div class="card-body">
-          <h2 class="card-name">花朵绽放按钮</h2>
-          <p class="card-desc">按钮四周藏着六朵小花，悬停时花瓣变大并绕着各自中心缓慢自转，文字底色同时变浅。每朵花由四片花瓣用 grid 拼成。</p>
-          <div class="card-tags"><span class="tag">button</span><span class="tag">flower</span><span class="tag">hover</span></div>
+          <h2 class="card-name">彩虹光晕开关</h2>
+          <p class="card-desc">开关背后是一团由多个彩色径向渐变叠加、模糊 20px 的光晕，整个开关还带轻微的 3D 摆动。拨动时滑块滑到另一侧，轨道变深色。</p>
+          <div class="card-tags"><span class="tag">switch</span><span class="tag">toggle</span><span class="tag">gradient</span></div>
         </div>
       </a>
     </article>
@@ -897,9 +376,9 @@ document.querySelectorAll('.btn-ripple').forEach(function (btn) {
     </article>
 
     <article class="card">
-      <a class="card-link" href="animations/aurora-switch.html">
+      <a class="card-link" href="animations/bloom-button.html">
         <div class="card-stage">
-          <iframe title="彩虹光晕开关 预览" loading="lazy" srcdoc="<!doctype html>
+          <iframe title="花朵绽放按钮 预览" loading="lazy" srcdoc="<!doctype html>
 <html lang=&quot;zh-CN&quot;>
 <head>
 <meta charset=&quot;utf-8&quot;>
@@ -907,84 +386,108 @@ document.querySelectorAll('.btn-ripple').forEach(function (btn) {
 <style>
   html,body{height:100%;margin:0}
   body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
-.switch {
-  font-size: 17px;
-  position: relative;
-  display: inline-block;
-  width: 3.5em;
-  height: 2em;
-  transform-style: preserve-3d;
-  perspective: 500px;
-  animation: toggle__animation 3s infinite;
-}
-.switch::before {
-  content: &quot;&quot;;
-  position: absolute;
-  width: 100%; height: 100%;
-  left: 0; top: 0;
-  filter: blur(20px);
-  z-index: -1;
-  border-radius: 50px;
-  background-color: #d8ff99;
-  background-image: radial-gradient(at 21% 46%, hsla(183,65%,60%,1) 0px, transparent 50%),
-    radial-gradient(at 23% 25%, hsla(359,74%,70%,1) 0px, transparent 50%),
-    radial-gradient(at 20% 1%, hsla(267,83%,75%,1) 0px, transparent 50%),
-    radial-gradient(at 86% 87%, hsla(204,69%,68%,1) 0px, transparent 50%),
-    radial-gradient(at 99% 41%, hsla(171,72%,77%,1) 0px, transparent 50%),
-    radial-gradient(at 55% 24%, hsla(138,60%,62%,1) 0px, transparent 50%);
-}
-.switch input { opacity: 0; width: 0; height: 0; }
-.slider {
-  position: absolute;
+.btn {
+  height: 4em;
+  width: 12em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0px solid black;
   cursor: pointer;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: #fdfefedc;
-  transition: .4s;
-  border-radius: 30px;
 }
-.slider:before {
+.wrapper {
+  height: 2em;
+  width: 8em;
+  position: relative;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text {
+  font-size: 17px;
+  z-index: 1;
+  color: #000;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.7);
+  transition: all 0.5s ease;
+}
+.flower {
+  display: grid;
+  grid-template-columns: 1em 1em;
   position: absolute;
-  content: &quot;&quot;;
-  height: 1.4em; width: 1.4em;
-  left: 0.3em; bottom: 0.35em;
-  transition: .4s;
-  border-radius: 50%;
-  box-shadow: rgba(0, 0, 0, 0.17) 0px -10px 10px 0px inset, rgba(0, 0, 0, 0.09) 0px -1px 15px -8px;
-  background-color: #ff99fd;
-  background-image: radial-gradient(at 81% 39%, hsla(327,79%,79%,1) 0px, transparent 50%),
-    radial-gradient(at 11% 72%, hsla(264,64%,79%,1) 0px, transparent 50%),
-    radial-gradient(at 23% 20%, hsla(75,98%,71%,1) 0px, transparent 50%);
+  transition: grid-template-columns 0.8s ease;
 }
-.input__check:checked + .slider { background-color: #17202A; }
-.input__check:checked + .slider:before { transform: translateX(1.5em); }
-@keyframes toggle__animation {
-  0%, 100% { transform: translateY(-10px) rotateX(15deg) rotateY(-20deg); }
-  50% { transform: translateY(0px) rotateX(15deg) rotateY(-20deg); }
+.flower1 { top: -12px; left: -13px; transform: rotate(5deg); }
+.flower2 { bottom: -5px; left: 8px; transform: rotate(35deg); }
+.flower3 { bottom: -15px; transform: rotate(0deg); }
+.flower4 { top: -14px; transform: rotate(15deg); }
+.flower5 { right: 11px; top: -3px; transform: rotate(25deg); }
+.flower6 { right: -15px; bottom: -15px; transform: rotate(30deg); }
+.petal {
+  height: 1em;
+  width: 1em;
+  border-radius: 40% 70% / 7% 90%;
+  background: linear-gradient(#07a6d7, #93e0ee);
+  border: 0.5px solid #96d1ec;
+  z-index: 0;
+  transition: width 0.8s ease, height 0.8s ease;
 }
+.two { transform: rotate(90deg); }
+.three { transform: rotate(270deg); }
+.four { transform: rotate(180deg); }
+.btn:hover .petal {
+  background: linear-gradient(#0761d7, #93bdee);
+  border: 0.5px solid #96b4ec;
+}
+.btn:hover .flower { grid-template-columns: 1.5em 1.5em; }
+.btn:hover .flower .petal { width: 1.5em; height: 1.5em; }
+.btn:hover .text { background: rgba(255, 255, 255, 0.4); }
+.btn:hover div.flower1 { animation: 15s linear 0s normal none infinite running flower1; }
+@keyframes flower1 { 0% { transform: rotate(5deg); } 100% { transform: rotate(365deg); } }
+.btn:hover div.flower2 { animation: 13s linear 1s normal none infinite running flower2; }
+@keyframes flower2 { 0% { transform: rotate(35deg); } 100% { transform: rotate(-325deg); } }
+.btn:hover div.flower3 { animation: 16s linear 1s normal none infinite running flower3; }
+@keyframes flower3 { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+.btn:hover div.flower4 { animation: 17s linear 1s normal none infinite running flower4; }
+@keyframes flower4 { 0% { transform: rotate(15deg); } 100% { transform: rotate(375deg); } }
+.btn:hover div.flower5 { animation: 20s linear 1s normal none infinite running flower5; }
+@keyframes flower5 { 0% { transform: rotate(25deg); } 100% { transform: rotate(-335deg); } }
+.btn:hover div.flower6 { animation: 15s linear 1s normal none infinite running flower6; }
+@keyframes flower6 { 0% { transform: rotate(30deg); } 100% { transform: rotate(390deg); } }
 
 </style>
 </head>
 <body>
-<label class=&quot;switch&quot;>
-  <input type=&quot;checkbox&quot; class=&quot;input__check&quot;>
-  <span class=&quot;slider&quot;></span>
-</label>
+<button class=&quot;btn&quot;>
+  <div class=&quot;wrapper&quot;>
+    <span class=&quot;text&quot;>Flowers</span>
+    <div class=&quot;flower flower1&quot;><div class=&quot;petal&quot;></div><div class=&quot;petal two&quot;></div><div class=&quot;petal three&quot;></div><div class=&quot;petal four&quot;></div></div>
+    <div class=&quot;flower flower2&quot;><div class=&quot;petal&quot;></div><div class=&quot;petal two&quot;></div><div class=&quot;petal three&quot;></div><div class=&quot;petal four&quot;></div></div>
+    <div class=&quot;flower flower3&quot;><div class=&quot;petal&quot;></div><div class=&quot;petal two&quot;></div><div class=&quot;petal three&quot;></div><div class=&quot;petal four&quot;></div></div>
+    <div class=&quot;flower flower4&quot;><div class=&quot;petal&quot;></div><div class=&quot;petal two&quot;></div><div class=&quot;petal three&quot;></div><div class=&quot;petal four&quot;></div></div>
+    <div class=&quot;flower flower5&quot;><div class=&quot;petal&quot;></div><div class=&quot;petal two&quot;></div><div class=&quot;petal three&quot;></div><div class=&quot;petal four&quot;></div></div>
+    <div class=&quot;flower flower6&quot;><div class=&quot;petal&quot;></div><div class=&quot;petal two&quot;></div><div class=&quot;petal three&quot;></div><div class=&quot;petal four&quot;></div></div>
+  </div>
+</button>
 
 </body>
 </html>"></iframe>
         </div>
         <div class="card-body">
-          <h2 class="card-name">彩虹光晕开关</h2>
-          <p class="card-desc">开关背后是一团由多个彩色径向渐变叠加、模糊 20px 的光晕，整个开关还带轻微的 3D 摆动。拨动时滑块滑到另一侧，轨道变深色。</p>
-          <div class="card-tags"><span class="tag">switch</span><span class="tag">toggle</span><span class="tag">gradient</span></div>
+          <h2 class="card-name">花朵绽放按钮</h2>
+          <p class="card-desc">按钮四周藏着六朵小花，悬停时花瓣变大并绕着各自中心缓慢自转，文字底色同时变浅。每朵花由四片花瓣用 grid 拼成。</p>
+          <div class="card-tags"><span class="tag">button</span><span class="tag">flower</span><span class="tag">hover</span></div>
         </div>
       </a>
     </article>
 
     <article class="card">
-      <a class="card-link" href="animations/back-to-top-button.html">
+      <a class="card-link" href="animations/aurora-glow-button.html">
         <div class="card-stage">
-          <iframe title="悬浮回到顶部按钮 预览" loading="lazy" srcdoc="<!doctype html>
+          <iframe title="霓彩光晕按钮 预览" loading="lazy" srcdoc="<!doctype html>
 <html lang=&quot;zh-CN&quot;>
 <head>
 <meta charset=&quot;utf-8&quot;>
@@ -992,44 +495,488 @@ document.querySelectorAll('.btn-ripple').forEach(function (btn) {
 <style>
   html,body{height:100%;margin:0}
   body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
-.to-top{
-  position:fixed;right:22px;bottom:22px;width:46px;height:46px;
-  border:1px solid #334155;border-radius:50%;
-  display:grid;place-items:center;cursor:pointer;
-  color:#c7d2fe;background:rgba(15,21,36,.85);backdrop-filter:blur(6px);
-  opacity:0;visibility:hidden;transform:translateY(12px);
-  transition:opacity .3s ease,transform .3s ease,visibility .3s ease,box-shadow .3s ease,border-color .3s ease;
-  z-index:50;
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
-.to-top svg{width:20px;height:20px}
-.to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
-.to-top:hover{border-color:#6366f1;color:#fff;box-shadow:0 0 18px color-mix(in srgb,#6366f1 60%,transparent)}
-.to-top:active{transform:translateY(1px) scale(.96)}
+.outer-cont {
+  padding: 12px 20px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  background: linear-gradient(90deg, #5bfcc4, #f593e4, #71a4f0);
+  border-radius: 12px;
+  color: #fff;
+  transition: all 0.3s ease;
+  box-shadow:
+    inset 0px 0px 5px #ffffffa9,
+    inset 0px 35px 30px #000,
+    0px 5px 10px #000000cc;
+  text-shadow: 1px 1px 1px #000;
+}
+.outer-cont::before {
+  content: &quot;&quot;;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: 12px;
+  filter: blur(0);
+  z-index: -1;
+  box-shadow: none;
+  background: conic-gradient(
+    #00000000 80deg,
+    #40baf7,
+    #f34ad7,
+    #5bfcc4,
+    #00000000 280deg
+  );
+  transition: all 0.3s ease;
+}
+.outer-cont:hover::before {
+  filter: blur(15px);
+}
+.outer-cont:active::before {
+  filter: blur(5px);
+  transform: translateY(1px);
+}
+.outer-cont:active {
+  box-shadow:
+    inset 0px 0px 5px #ffffffa9,
+    inset 0px 35px 30px #000;
+  margin-top: 3px;
+}
 
 </style>
 </head>
 <body>
-<button id=&quot;toTop&quot; class=&quot;to-top&quot; type=&quot;button&quot; aria-label=&quot;回到顶部&quot;>
-  <svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.4&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; aria-hidden=&quot;true&quot;><path d=&quot;M12 19V5&quot;/><path d=&quot;M5 12l7-7 7 7&quot;/></svg>
-</button>
-<script>
-var btn=document.querySelector('.to-top');
-if(btn){
-  btn.classList.add('show');
-  window.addEventListener('scroll',function(){
-    if(window.scrollY>240) btn.classList.add('show');
-    else btn.classList.remove('show');
-  },{passive:true});
-  btn.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+<div class=&quot;flex&quot;>
+  <button class=&quot;outer-cont&quot;>Ai Button</button>
+</div>
+
+</body>
+</html>"></iframe>
+        </div>
+        <div class="card-body">
+          <h2 class="card-name">霓彩光晕按钮</h2>
+          <p class="card-desc">按钮底色是青粉蓝三色渐变，悬停时背后的一圈锥形彩虹光晕会模糊扩散开来，像极光从边缘溢出。</p>
+          <div class="card-tags"><span class="tag">button</span><span class="tag">gradient</span><span class="tag">glow</span></div>
+        </div>
+      </a>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="animations/gradient-border-glow.html">
+        <div class="card-stage">
+          <iframe title="渐变流光描边 预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+@property --orbit-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
 }
+
+.btn-orbit {
+  position: relative;
+  padding: 2px;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  background: conic-gradient(
+    from var(--orbit-angle),
+    transparent 0deg,
+    #22d3ee 60deg,
+    #a855f7 140deg,
+    transparent 200deg,
+    transparent 360deg
+  );
+  animation: btn-orbit-spin 3.2s linear infinite;
+  transition: filter 0.3s ease, transform 0.25s ease;
+}
+.btn-orbit span {
+  display: block;
+  padding: 0.8em 2.1em;
+  border-radius: 999px;
+  background: #0b1020;
+  color: #e5e7eb;
+  font: 700 17px/1.2 system-ui, sans-serif;
+}
+.btn-orbit:hover {
+  filter: drop-shadow(0 0 14px rgba(168, 85, 247, 0.7));
+  transform: translateY(-2px);
+}
+@keyframes btn-orbit-spin {
+  to { --orbit-angle: 360deg; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-orbit { animation: none; }
+}
+
+</style>
+</head>
+<body>
+<button class=&quot;btn-orbit&quot; type=&quot;button&quot;><span>Orbit</span></button>
+
+</body>
+</html>"></iframe>
+        </div>
+        <div class="card-body">
+          <h2 class="card-name">渐变流光描边</h2>
+          <p class="card-desc">用 @property 注册角度变量，让一圈 conic-gradient 描边持续旋转，悬停时整圈发光。现代 CSS 单元素实现，无需伪元素堆叠。</p>
+          <div class="card-tags"><span class="tag">button</span><span class="tag">border</span><span class="tag">gradient</span></div>
+        </div>
+      </a>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="animations/shimmer-button.html">
+        <div class="card-stage">
+          <iframe title="流光扫过按钮 预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+.btn-shimmer {
+  --c: var(--btn-color, #6366f1);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 0.85em 2.1em;
+  border: 0;
+  border-radius: 0.9em;
+  font: 700 17px/1.2 system-ui, sans-serif;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--c), color-mix(in srgb, var(--c) 40%, #0ea5e9));
+  box-shadow: 0 10px 24px -12px color-mix(in srgb, var(--c) 70%, transparent);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.btn-shimmer::before {
+  content: '';
+  position: absolute;
+  inset: -30% -60%;
+  background: linear-gradient(100deg, transparent 35%, rgba(255, 255, 255, 0.75) 50%, transparent 65%);
+  transform: translateX(-110%) skewX(-18deg);
+  animation: btn-shimmer-sweep 2.6s ease-in-out infinite;
+  pointer-events: none;
+}
+.btn-shimmer:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -14px color-mix(in srgb, var(--c) 85%, transparent);
+}
+@keyframes btn-shimmer-sweep {
+  0%        { transform: translateX(-110%) skewX(-18deg); }
+  55%, 100% { transform: translateX(110%) skewX(-18deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-shimmer::before { animation: none; }
+}
+
+</style>
+</head>
+<body>
+<button class=&quot;btn-shimmer&quot; type=&quot;button&quot;>Shimmer</button>
+
+</body>
+</html>"></iframe>
+        </div>
+        <div class="card-body">
+          <h2 class="card-name">流光扫过按钮</h2>
+          <p class="card-desc">一条倾斜的高光带沿按钮表面循环扫过，像金属反光。用 ::before 伪元素 + skewX 实现，不增加任何多余 DOM。</p>
+          <div class="card-tags"><span class="tag">button</span><span class="tag">shimmer</span><span class="tag">hover</span></div>
+        </div>
+      </a>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="animations/ripple-button.html">
+        <div class="card-stage">
+          <iframe title="点击涟漪按钮 预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+  padding: 0.9em 2.2em;
+  border: 0;
+  border-radius: 12px;
+  font: 700 17px/1.2 system-ui, sans-serif;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(135deg, #0ea5e9, #6366f1);
+  box-shadow: 0 12px 26px -14px #6366f1;
+}
+.btn-ripple .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(0);
+  pointer-events: none;
+  animation: ripple-out 0.6s ease-out forwards;
+}
+@keyframes ripple-out {
+  to { transform: scale(2.6); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-ripple .ripple { display: none; }
+}
+
+</style>
+</head>
+<body>
+<button class=&quot;btn-ripple&quot; type=&quot;button&quot;>点我涟漪</button>
+<script>
+document.querySelectorAll('.btn-ripple').forEach(function (btn) {
+  btn.addEventListener('click', function (e) {
+    var r = btn.getBoundingClientRect();
+    var d = Math.max(r.width, r.height) * 1.2;
+    var s = document.createElement('span');
+    s.className = 'ripple';
+    s.style.width = d + 'px';
+    s.style.height = d + 'px';
+    s.style.left = (e.clientX - r.left - d / 2) + 'px';
+    s.style.top = (e.clientY - r.top - d / 2) + 'px';
+    btn.appendChild(s);
+    setTimeout(function () { s.remove(); }, 620);
+  });
+});
 </script>
 </body>
 </html>"></iframe>
         </div>
         <div class="card-body">
-          <h2 class="card-name">悬浮回到顶部按钮</h2>
-          <p class="card-desc">固定在右下角的圆形按钮，滚动超过一屏后淡入浮现，点击平滑滚回顶部；悬停时描边与图标亮起光晕。</p>
-          <div class="card-tags"><span class="tag">button</span><span class="tag">scroll</span><span class="tag">utility</span></div>
+          <h2 class="card-name">点击涟漪按钮</h2>
+          <p class="card-desc">点击位置生成一圈白色涟漪扩散淡出，模拟水面波纹。涟漪大小按按钮尺寸计算，位置跟随鼠标落点。</p>
+          <div class="card-tags"><span class="tag">button</span><span class="tag">ripple</span><span class="tag">click</span></div>
+        </div>
+      </a>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="animations/gradient-flow-text.html">
+        <div class="card-stage">
+          <iframe title="流光渐变文字 预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+.text-flow {
+  font: 800 38px/1.2 system-ui, sans-serif;
+  letter-spacing: -0.01em;
+  background: linear-gradient(90deg, #818cf8, #22d3ee, #f472b6, #818cf8);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: text-flow 4s linear infinite;
+}
+@keyframes text-flow {
+  to { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-flow { animation: none; }
+}
+
+</style>
+</head>
+<body>
+<div class=&quot;text-flow&quot;>Star Flow</div>
+
+</body>
+</html>"></iframe>
+        </div>
+        <div class="card-body">
+          <h2 class="card-name">流光渐变文字</h2>
+          <p class="card-desc">文字用四色渐变填充并循环流动，像液态金属反光。靠 background-size 放大后用 background-position 位移实现无缝循环。</p>
+          <div class="card-tags"><span class="tag">text</span><span class="tag">gradient</span><span class="tag">flow</span></div>
+        </div>
+      </a>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="animations/star-burst-button.html">
+        <div class="card-stage">
+          <iframe title="点击星星爆裂按钮 预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+.btn-burst {
+  position: relative;
+  padding: 0.9em 1.9em;
+  border: 0;
+  border-radius: 999px;
+  font: 700 17px/1.2 system-ui, sans-serif;
+  color: #4a2c00;
+  cursor: pointer;
+  background: linear-gradient(135deg, #fde68a, #fbbf24);
+  box-shadow: 0 12px 26px -14px #f59e0b;
+  transition: transform 0.15s ease;
+}
+.btn-burst:active { transform: scale(0.96); }
+.burst-star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin: -5px;
+  background: #fbbf24;
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  pointer-events: none;
+  animation: burst 0.9s ease-out forwards;
+}
+@keyframes burst {
+  0%   { transform: translate(0, 0) scale(0.4) rotate(0deg); opacity: 1; }
+  100% { transform: translate(var(--x), var(--y)) scale(1.1) rotate(160deg); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .burst-star { display: none; }
+}
+
+</style>
+</head>
+<body>
+<button class=&quot;btn-burst&quot; type=&quot;button&quot;>点我放星星</button>
+<script>
+document.querySelectorAll('.btn-burst').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    for (var i = 0; i < 12; i++) {
+      var s = document.createElement('span');
+      s.className = 'burst-star';
+      var ang = (Math.PI * 2 * i) / 12;
+      var dist = 42 + Math.random() * 40;
+      s.style.setProperty('--x', Math.cos(ang) * dist + 'px');
+      s.style.setProperty('--y', Math.sin(ang) * dist + 'px');
+      btn.appendChild(s);
+      setTimeout(function (el) { return function () { el.remove(); }; }(s), 900);
+    }
+  });
+});
+</script>
+</body>
+</html>"></iframe>
+        </div>
+        <div class="card-body">
+          <h2 class="card-name">点击星星爆裂按钮</h2>
+          <p class="card-desc">点击按钮时从中心向四周迸射出 12 颗小星星，呈放射状飞散并淡出。星星由 JS 动态生成，飞行距离与角度随机。</p>
+          <div class="card-tags"><span class="tag">button</span><span class="tag">star</span><span class="tag">click</span></div>
+        </div>
+      </a>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="animations/sparkle-button.html">
+        <div class="card-stage">
+          <iframe title="星星闪光按钮 预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+.btn-sparkle {
+  --c: var(--btn-color, #3b82f6);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  font: 600 var(--btn-size, 18px)/1.2 system-ui, sans-serif;
+  cursor: pointer;
+  position: relative;
+  padding: 0.8em 1.7em;
+  border: 0;
+  border-radius: 2em;
+  background: linear-gradient(135deg, var(--c), color-mix(in srgb, var(--c) 45%, #d946ef));
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-sparkle-icon {
+  width: 1.1em;
+  height: 1.1em;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.btn-sparkle-star {
+  position: absolute;
+  width: 1.3em;
+  height: 1.3em;
+  background: color-mix(in srgb, var(--c) 15%, #fbbf24);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  transform: scale(0);
+  pointer-events: none;
+}
+.btn-sparkle-star:nth-child(1) { top: -1.1em; left: 0.5em; }
+.btn-sparkle-star:nth-child(2) { top: -0.85em; right: 0; width: 0.85em; height: 0.85em; background: var(--c); }
+.btn-sparkle-star:nth-child(3) { bottom: -1.15em; right: 1.2em; }
+.btn-sparkle-star:nth-child(4) { bottom: -0.55em; left: -0.8em; width: 0.85em; height: 0.85em; background: var(--c); }
+.btn-sparkle:is(:hover, :focus-visible) {
+  transform: translateY(-0.1em);
+  box-shadow: 0 0.4em 1.2em color-mix(in srgb, var(--c) 40%, transparent);
+}
+.btn-sparkle:is(:hover, :focus-visible) .btn-sparkle-icon { transform: rotate(90deg) scale(1.2); }
+.btn-sparkle:is(:hover, :focus-visible) .btn-sparkle-star {
+  animation: btn-sparkle-twinkle 1.2s ease-in-out calc(var(--i) * 0.3s) infinite;
+}
+@keyframes btn-sparkle-twinkle {
+  0%, 100% { transform: scale(0) rotate(0deg); }
+  35%      { transform: scale(1) rotate(45deg); }
+  65%      { transform: scale(0.85) rotate(90deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-sparkle, .btn-sparkle *, .btn-sparkle::before, .btn-sparkle::after, .btn-sparkle *::before, .btn-sparkle *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+.btn-sparkle-star { animation: btn-sparkle-twinkle 1.2s ease-in-out calc(var(--i) * 0.3s) infinite; }
+</style>
+</head>
+<body>
+<button class=&quot;btn-sparkle&quot;>
+  <span class=&quot;btn-sparkle-star&quot; style=&quot;--i:0&quot; aria-hidden=&quot;true&quot;></span>
+  <span class=&quot;btn-sparkle-star&quot; style=&quot;--i:1&quot; aria-hidden=&quot;true&quot;></span>
+  <span class=&quot;btn-sparkle-star&quot; style=&quot;--i:2&quot; aria-hidden=&quot;true&quot;></span>
+  <span class=&quot;btn-sparkle-star&quot; style=&quot;--i:3&quot; aria-hidden=&quot;true&quot;></span>
+  <svg class=&quot;btn-sparkle-icon&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot;><path d=&quot;M12 2l2.3 7.7L22 12l-7.7 2.3L12 22l-2.3-7.7L2 12l7.7-2.3z&quot;/></svg>
+  Generate
+</button>
+
+</body>
+</html>"></iframe>
+        </div>
+        <div class="card-body">
+          <h2 class="card-name">星星闪光按钮</h2>
+          <p class="card-desc">按钮四角藏着四颗小星星，鼠标悬停时依次旋转、放大、闪烁，图标同时旋转放大。纯 CSS 驱动，靠 --i 变量错开每颗星的动画延迟。</p>
+          <div class="card-tags"><span class="tag">button</span><span class="tag">star</span><span class="tag">sparkle</span><span class="tag">hover</span></div>
         </div>
       </a>
     </article>

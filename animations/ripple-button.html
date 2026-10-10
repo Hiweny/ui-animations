@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/ripple-button.html">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="apple-touch-icon" href="../favicon.svg">
-<link rel="stylesheet" href="../assets/site.css?v=0933aacd">
+<link rel="stylesheet" href="../assets/site.css?v=fe3dd7ee">
 </head>
 <body>
 <div class="bg-fx" aria-hidden="true">
@@ -106,60 +106,61 @@ document.querySelectorAll('.btn-ripple').forEach(function (btn) {
 
   <section class="code-panel">
     <div class="code-bar">
-      <span class="label">HTML + CSS + JS</span>
-      <button class="copy-btn" type="button" data-copy="#src">复制全部代码</button>
+      <div class="code-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <span class="code-file">ripple-button.html</span>
+      <button class="copy-btn" type="button" data-copy="#src">复制代码</button>
     </div>
-    <pre class="code" id="src"><code>&lt;button class="btn-ripple" type="button"&gt;点我涟漪&lt;/button&gt;
+    <pre class="code" id="src"><code><span class="c-punc">&lt;</span><span class="c-tag">button</span> <span class="c-attr">class</span>=<span class="c-str">"btn-ripple"</span> <span class="c-attr">type</span>=<span class="c-str">"button"</span>&gt;点我涟漪<span class="c-punc">&lt;/</span><span class="c-tag">button</span>&gt;
 
-&lt;style&gt;
+<span class="c-punc">&lt;</span><span class="c-tag">style</span>&gt;
 .btn-ripple {
   position: relative;
   overflow: hidden;
-  padding: 0.9em 2.2em;
-  border: 0;
-  border-radius: 12px;
-  font: 700 17px/1.2 system-ui, sans-serif;
+  padding: <span class="c-num">0.9em</span> <span class="c-num">2.2em</span>;
+  border: <span class="c-num">0</span>;
+  border-radius: <span class="c-num">12px</span>;
+  font: <span class="c-num">700</span> <span class="c-num">17px</span>/<span class="c-num">1.2</span> system-ui, sans-serif;
   color: #fff;
   cursor: pointer;
-  background: linear-gradient(135deg, #0ea5e9, #6366f1);
-  box-shadow: 0 12px 26px -14px #6366f1;
+  background: linear-gradient(<span class="c-num">135deg</span>, #<span class="c-num">0</span>ea5e9, #<span class="c-num">6366</span>f1);
+  box-shadow: <span class="c-num">0</span> <span class="c-num">12px</span> <span class="c-num">26px</span> -14px #<span class="c-num">6366</span>f1;
 }
 .btn-ripple .ripple {
   position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
-  transform: scale(0);
+  border-radius: <span class="c-num">50%</span>;
+  background: rgba(<span class="c-num">255</span>, <span class="c-num">255</span>, <span class="c-num">255</span>, <span class="c-num">0.5</span>);
+  transform: scale(<span class="c-num">0</span>);
   pointer-events: none;
-  animation: ripple-out 0.6s ease-out forwards;
+  animation: ripple-out <span class="c-num">0.6s</span> ease-out forwards;
 }
 @keyframes ripple-out {
-  to { transform: scale(2.6); opacity: 0; }
+  to { transform: scale(<span class="c-num">2.6</span>); opacity: <span class="c-num">0</span>; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .btn-ripple .ripple { display: none; }
 }
-&lt;/style&gt;
+<span class="c-punc">&lt;/</span><span class="c-tag">style</span>&gt;
 
-&lt;script&gt;
-document.querySelectorAll('.btn-ripple').forEach(function (btn) {
-  btn.addEventListener('click', function (e) {
+<span class="c-punc">&lt;</span><span class="c-tag">script</span>&gt;
+document.querySelectorAll(<span class="c-str">'.btn-ripple'</span>).forEach(function (btn) {
+  btn.addEventListener(<span class="c-str">'click'</span>, function (e) {
     var r = btn.getBoundingClientRect();
-    var d = Math.max(r.width, r.height) * 1.2;
-    var s = document.createElement('span');
-    s.className = 'ripple';
-    s.style.width = d + 'px';
-    s.style.height = d + 'px';
-    s.style.left = (e.clientX - r.left - d / 2) + 'px';
-    s.style.top = (e.clientY - r.top - d / 2) + 'px';
+    var d = Math.max(r.width, r.height) * <span class="c-num">1.2</span>;
+    var s = document.createElement(<span class="c-str">'span'</span>);
+    s.className = <span class="c-str">'ripple'</span>;
+    s.style.width = d + <span class="c-str">'px'</span>;
+    s.style.height = d + <span class="c-str">'px'</span>;
+    s.style.left = (e.clientX - r.left - d / <span class="c-num">2</span>) + <span class="c-str">'px'</span>;
+    s.style.top = (e.clientY - r.top - d / <span class="c-num">2</span>) + <span class="c-str">'px'</span>;
     btn.appendChild(s);
-    setTimeout(function () { s.remove(); }, 620);
+    setTimeout(function () { s.remove(); }, <span class="c-num">620</span>);
   });
 });
-&lt;/script&gt;</code></pre>
+<span class="c-punc">&lt;/</span><span class="c-tag">script</span>&gt;</code></pre>
   </section>
 </div>
-<script src="../assets/site.js?v=0933aacd"></script>
+<script src="../assets/site.js?v=fe3dd7ee"></script>
 <footer class="site-footer">
   <div class="wrap">
     <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub</a>

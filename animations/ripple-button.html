@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>点击涟漪按钮 · UI 动效画廊</title>
+<meta name="description" content="点击位置生成一圈白色涟漪扩散淡出，模拟水面波纹。涟漪大小按按钮尺寸计算，位置跟随鼠标落点。">
+<link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/ripple-button.html">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="anim-head">
+    <a class="back-link" href="../index.html">← 返回画廊</a>
+    <h1 class="anim-title">点击涟漪按钮</h1>
+    <p class="anim-desc">点击位置生成一圈白色涟漪扩散淡出，模拟水面波纹。涟漪大小按按钮尺寸计算，位置跟随鼠标落点。</p>
+    <div class="anim-meta">
+      <span class="tag">本仓库原创</span>
+      
+    </div>
+    <p class="anim-url">深链地址：<a href="https://hiweny.github.io/ui-animations/animations/ripple-button.html">https://hiweny.github.io/ui-animations/animations/ripple-button.html</a></p>
+  </header>
+
+  <section class="stage" aria-label="实时预览">
+    <iframe title="点击涟漪按钮 实时预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+  padding: 0.9em 2.2em;
+  border: 0;
+  border-radius: 12px;
+  font: 700 17px/1.2 system-ui, sans-serif;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(135deg, #0ea5e9, #6366f1);
+  box-shadow: 0 12px 26px -14px #6366f1;
+}
+.btn-ripple .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(0);
+  pointer-events: none;
+  animation: ripple-out 0.6s ease-out forwards;
+}
+@keyframes ripple-out {
+  to { transform: scale(2.6); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-ripple .ripple { display: none; }
+}
+
+</style>
+</head>
+<body>
+<button class=&quot;btn-ripple&quot; type=&quot;button&quot;>点我涟漪</button>
+<script>
+document.querySelectorAll('.btn-ripple').forEach(function (btn) {
+  btn.addEventListener('click', function (e) {
+    var r = btn.getBoundingClientRect();
+    var d = Math.max(r.width, r.height) * 1.2;
+    var s = document.createElement('span');
+    s.className = 'ripple';
+    s.style.width = d + 'px';
+    s.style.height = d + 'px';
+    s.style.left = (e.clientX - r.left - d / 2) + 'px';
+    s.style.top = (e.clientY - r.top - d / 2) + 'px';
+    btn.appendChild(s);
+    setTimeout(function () { s.remove(); }, 620);
+  });
+});
+</script>
+</body>
+</html>"></iframe>
+  </section>
+
+  <section class="code-panel">
+    <div class="code-bar">
+      <span class="label">HTML + CSS + JS · 一键复制</span>
+      <button class="copy-btn" type="button" data-copy="#src">复制全部代码</button>
+    </div>
+    <pre class="code" id="src"><code>&lt;button class="btn-ripple" type="button"&gt;点我涟漪&lt;/button&gt;
+
+&lt;style&gt;
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+  padding: 0.9em 2.2em;
+  border: 0;
+  border-radius: 12px;
+  font: 700 17px/1.2 system-ui, sans-serif;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(135deg, #0ea5e9, #6366f1);
+  box-shadow: 0 12px 26px -14px #6366f1;
+}
+.btn-ripple .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(0);
+  pointer-events: none;
+  animation: ripple-out 0.6s ease-out forwards;
+}
+@keyframes ripple-out {
+  to { transform: scale(2.6); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-ripple .ripple { display: none; }
+}
+&lt;/style&gt;
+
+&lt;script&gt;
+document.querySelectorAll('.btn-ripple').forEach(function (btn) {
+  btn.addEventListener('click', function (e) {
+    var r = btn.getBoundingClientRect();
+    var d = Math.max(r.width, r.height) * 1.2;
+    var s = document.createElement('span');
+    s.className = 'ripple';
+    s.style.width = d + 'px';
+    s.style.height = d + 'px';
+    s.style.left = (e.clientX - r.left - d / 2) + 'px';
+    s.style.top = (e.clientY - r.top - d / 2) + 'px';
+    btn.appendChild(s);
+    setTimeout(function () { s.remove(); }, 620);
+  });
+});
+&lt;/script&gt;</code></pre>
+  </section>
+
+  <section class="anim-tags">
+    <h2 class="anim-subtitle">标签</h2>
+    <div class="card-tags"><span class="tag">button</span><span class="tag">ripple</span><span class="tag">click</span><span class="tag">涟漪</span></div>
+  </section>
+</div>
+<script src="../assets/site.js"></script>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>UI 动效画廊 · 持续收集中 · <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub 仓库</a></p>
+  </div>
+</footer>
+</body>
+</html>

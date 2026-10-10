@@ -34,6 +34,20 @@ function attr(v) {
   return String(v).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 }
 
+/** 轻量语法高亮：把合并源码渲染成带彩色 span 的 HTML（输入为原始代码） */
+function highlight(src) {
+  const s = esc(src);
+  const RE = /(&lt;!--[\s\S]*?--&gt;)|(\/\*[\s\S]*?\*\/)|("[^"\n]*"|'[^'\n]*')|(&lt;\/?)([A-Za-z][\w-]*)|([A-Za-z-][\w-]*)(?==)|(?<![\w.-])(\d+(?:\.\d+)?(?:px|em|rem|%|s|ms|vh|vw|deg|fr)?)/g;
+  return s.replace(RE, (m, com, cssCom, str, br, tag, attrName, num) => {
+    if (com || cssCom) return `<span class="c-com">${m}</span>`;
+    if (str) return `<span class="c-str">${m}</span>`;
+    if (br) return `<span class="c-punc">${br}</span><span class="c-tag">${tag}</span>`;
+    if (attrName) return `<span class="c-attr">${attrName}</span>`;
+    if (num) return `<span class="c-num">${num}</span>`;
+    return m;
+  });
+}
+
 /** 实时预览用的独立文档 */
 function previewDoc(a, extraCss = '') {
   return `<!doctype html>\n<html lang="zh-CN">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n<style>\n  html,body{height:100%;margin:0}\n  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}\n${a.css}\n${extraCss}\n</style>\n</head>\n<body>\n${a.html}\n${a.js ? `<script>\n${a.js}\n<\/script>` : ''}\n</body>\n</html>`;
@@ -73,10 +87,11 @@ function detailPage(a) {
 
   <section class="code-panel">
     <div class="code-bar">
-      <span class="label">HTML + CSS${a.js ? ' + JS' : ''}</span>
-      <button class="copy-btn" type="button" data-copy="#src">复制全部代码</button>
+      <div class="code-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <span class="code-file">${a.slug}.html</span>
+      <button class="copy-btn" type="button" data-copy="#src">复制代码</button>
     </div>
-    <pre class="code" id="src"><code>${esc(src)}</code></pre>
+    <pre class="code" id="src"><code>${highlight(src)}</code></pre>
   </section>
 </div>
 <script src="${base}assets/site.js?v=${ASSET_VER}"></script>` +

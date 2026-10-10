@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/shimmer-button.html">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="apple-touch-icon" href="../favicon.svg">
-<link rel="stylesheet" href="../assets/site.css?v=0933aacd">
+<link rel="stylesheet" href="../assets/site.css?v=fe3dd7ee">
 </head>
 <body>
 <div class="bg-fx" aria-hidden="true">
@@ -100,52 +100,53 @@
 
   <section class="code-panel">
     <div class="code-bar">
-      <span class="label">HTML + CSS</span>
-      <button class="copy-btn" type="button" data-copy="#src">复制全部代码</button>
+      <div class="code-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <span class="code-file">shimmer-button.html</span>
+      <button class="copy-btn" type="button" data-copy="#src">复制代码</button>
     </div>
-    <pre class="code" id="src"><code>&lt;button class="btn-shimmer" type="button"&gt;Shimmer&lt;/button&gt;
+    <pre class="code" id="src"><code><span class="c-punc">&lt;</span><span class="c-tag">button</span> <span class="c-attr">class</span>=<span class="c-str">"btn-shimmer"</span> <span class="c-attr">type</span>=<span class="c-str">"button"</span>&gt;Shimmer<span class="c-punc">&lt;/</span><span class="c-tag">button</span>&gt;
 
-&lt;style&gt;
+<span class="c-punc">&lt;</span><span class="c-tag">style</span>&gt;
 .btn-shimmer {
-  --c: var(--btn-color, #6366f1);
+  --c: var(--btn-color, #<span class="c-num">6366</span>f1);
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  padding: 0.85em 2.1em;
-  border: 0;
-  border-radius: 0.9em;
-  font: 700 17px/1.2 system-ui, sans-serif;
+  padding: <span class="c-num">0.85em</span> <span class="c-num">2.1em</span>;
+  border: <span class="c-num">0</span>;
+  border-radius: <span class="c-num">0.9em</span>;
+  font: <span class="c-num">700</span> <span class="c-num">17px</span>/<span class="c-num">1.2</span> system-ui, sans-serif;
   color: #fff;
   cursor: pointer;
-  background: linear-gradient(135deg, var(--c), color-mix(in srgb, var(--c) 40%, #0ea5e9));
-  box-shadow: 0 10px 24px -12px color-mix(in srgb, var(--c) 70%, transparent);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: linear-gradient(<span class="c-num">135deg</span>, var(--c), color-mix(in srgb, var(--c) <span class="c-num">40%</span>, #<span class="c-num">0</span>ea5e9));
+  box-shadow: <span class="c-num">0</span> <span class="c-num">10px</span> <span class="c-num">24px</span> -12px color-mix(in srgb, var(--c) <span class="c-num">70%</span>, transparent);
+  transition: transform <span class="c-num">0.25s</span> ease, box-shadow <span class="c-num">0.25s</span> ease;
 }
 .btn-shimmer::before {
-  content: '';
+  content: <span class="c-str">''</span>;
   position: absolute;
   inset: -30% -60%;
-  background: linear-gradient(100deg, transparent 35%, rgba(255, 255, 255, 0.75) 50%, transparent 65%);
+  background: linear-gradient(<span class="c-num">100deg</span>, transparent <span class="c-num">35%</span>, rgba(<span class="c-num">255</span>, <span class="c-num">255</span>, <span class="c-num">255</span>, <span class="c-num">0.75</span>) <span class="c-num">50%</span>, transparent <span class="c-num">65%</span>);
   transform: translateX(-110%) skewX(-18deg);
-  animation: btn-shimmer-sweep 2.6s ease-in-out infinite;
+  animation: btn-shimmer-sweep <span class="c-num">2.6s</span> ease-in-out infinite;
   pointer-events: none;
 }
 .btn-shimmer:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 32px -14px color-mix(in srgb, var(--c) 85%, transparent);
+  box-shadow: <span class="c-num">0</span> <span class="c-num">16px</span> <span class="c-num">32px</span> -14px color-mix(in srgb, var(--c) <span class="c-num">85%</span>, transparent);
 }
 @keyframes btn-shimmer-sweep {
-  0%        { transform: translateX(-110%) skewX(-18deg); }
-  55%, 100% { transform: translateX(110%) skewX(-18deg); }
+  <span class="c-num">0%</span>        { transform: translateX(-110%) skewX(-18deg); }
+  <span class="c-num">55%</span>, <span class="c-num">100%</span> { transform: translateX(<span class="c-num">110%</span>) skewX(-18deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .btn-shimmer::before { animation: none; }
 }
-&lt;/style&gt;</code></pre>
+<span class="c-punc">&lt;/</span><span class="c-tag">style</span>&gt;</code></pre>
   </section>
 </div>
-<script src="../assets/site.js?v=0933aacd"></script>
+<script src="../assets/site.js?v=fe3dd7ee"></script>
 <footer class="site-footer">
   <div class="wrap">
     <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub</a>

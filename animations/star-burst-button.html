@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/star-burst-button.html">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="apple-touch-icon" href="../favicon.svg">
-<link rel="stylesheet" href="../assets/site.css?v=0933aacd">
+<link rel="stylesheet" href="../assets/site.css?v=fe3dd7ee">
 </head>
 <body>
 <div class="bg-fx" aria-hidden="true">
@@ -112,66 +112,67 @@ document.querySelectorAll('.btn-burst').forEach(function (btn) {
 
   <section class="code-panel">
     <div class="code-bar">
-      <span class="label">HTML + CSS + JS</span>
-      <button class="copy-btn" type="button" data-copy="#src">复制全部代码</button>
+      <div class="code-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <span class="code-file">star-burst-button.html</span>
+      <button class="copy-btn" type="button" data-copy="#src">复制代码</button>
     </div>
-    <pre class="code" id="src"><code>&lt;button class="btn-burst" type="button"&gt;点我放星星&lt;/button&gt;
+    <pre class="code" id="src"><code><span class="c-punc">&lt;</span><span class="c-tag">button</span> <span class="c-attr">class</span>=<span class="c-str">"btn-burst"</span> <span class="c-attr">type</span>=<span class="c-str">"button"</span>&gt;点我放星星<span class="c-punc">&lt;/</span><span class="c-tag">button</span>&gt;
 
-&lt;style&gt;
+<span class="c-punc">&lt;</span><span class="c-tag">style</span>&gt;
 .btn-burst {
   position: relative;
-  padding: 0.9em 1.9em;
-  border: 0;
-  border-radius: 999px;
-  font: 700 17px/1.2 system-ui, sans-serif;
-  color: #4a2c00;
+  padding: <span class="c-num">0.9em</span> <span class="c-num">1.9em</span>;
+  border: <span class="c-num">0</span>;
+  border-radius: <span class="c-num">999px</span>;
+  font: <span class="c-num">700</span> <span class="c-num">17px</span>/<span class="c-num">1.2</span> system-ui, sans-serif;
+  color: #<span class="c-num">4</span>a2c00;
   cursor: pointer;
-  background: linear-gradient(135deg, #fde68a, #fbbf24);
-  box-shadow: 0 12px 26px -14px #f59e0b;
-  transition: transform 0.15s ease;
+  background: linear-gradient(<span class="c-num">135deg</span>, #fde68a, #fbbf24);
+  box-shadow: <span class="c-num">0</span> <span class="c-num">12px</span> <span class="c-num">26px</span> -14px #f59e0b;
+  transition: transform <span class="c-num">0.15s</span> ease;
 }
-.btn-burst:active { transform: scale(0.96); }
+.btn-burst:active { transform: scale(<span class="c-num">0.96</span>); }
 .burst-star {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 10px;
-  height: 10px;
+  top: <span class="c-num">50%</span>;
+  left: <span class="c-num">50%</span>;
+  width: <span class="c-num">10px</span>;
+  height: <span class="c-num">10px</span>;
   margin: -5px;
   background: #fbbf24;
-  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  clip-path: polygon(<span class="c-num">50%</span> <span class="c-num">0</span>, <span class="c-num">62%</span> <span class="c-num">38%</span>, <span class="c-num">100%</span> <span class="c-num">50%</span>, <span class="c-num">62%</span> <span class="c-num">62%</span>, <span class="c-num">50%</span> <span class="c-num">100%</span>, <span class="c-num">38%</span> <span class="c-num">62%</span>, <span class="c-num">0</span> <span class="c-num">50%</span>, <span class="c-num">38%</span> <span class="c-num">38%</span>);
   pointer-events: none;
-  animation: burst 0.9s ease-out forwards;
+  animation: burst <span class="c-num">0.9s</span> ease-out forwards;
 }
 @keyframes burst {
-  0%   { transform: translate(0, 0) scale(0.4) rotate(0deg); opacity: 1; }
-  100% { transform: translate(var(--x), var(--y)) scale(1.1) rotate(160deg); opacity: 0; }
+  <span class="c-num">0%</span>   { transform: translate(<span class="c-num">0</span>, <span class="c-num">0</span>) scale(<span class="c-num">0.4</span>) rotate(<span class="c-num">0deg</span>); opacity: <span class="c-num">1</span>; }
+  <span class="c-num">100%</span> { transform: translate(var(--x), var(--y)) scale(<span class="c-num">1.1</span>) rotate(<span class="c-num">160deg</span>); opacity: <span class="c-num">0</span>; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .burst-star { display: none; }
 }
-&lt;/style&gt;
+<span class="c-punc">&lt;/</span><span class="c-tag">style</span>&gt;
 
-&lt;script&gt;
-document.querySelectorAll('.btn-burst').forEach(function (btn) {
-  btn.addEventListener('click', function () {
-    for (var i = 0; i &lt; 12; i++) {
-      var s = document.createElement('span');
-      s.className = 'burst-star';
-      var ang = (Math.PI * 2 * i) / 12;
-      var dist = 42 + Math.random() * 40;
-      s.style.setProperty('--x', Math.cos(ang) * dist + 'px');
-      s.style.setProperty('--y', Math.sin(ang) * dist + 'px');
+<span class="c-punc">&lt;</span><span class="c-tag">script</span>&gt;
+document.querySelectorAll(<span class="c-str">'.btn-burst'</span>).forEach(function (btn) {
+  btn.addEventListener(<span class="c-str">'click'</span>, function () {
+    for (var i = <span class="c-num">0</span>; i &lt; <span class="c-num">12</span>; i++) {
+      var s = document.createElement(<span class="c-str">'span'</span>);
+      s.className = <span class="c-str">'burst-star'</span>;
+      var ang = (Math.PI * <span class="c-num">2</span> * i) / <span class="c-num">12</span>;
+      var dist = <span class="c-num">42</span> + Math.random() * <span class="c-num">40</span>;
+      s.style.setProperty(<span class="c-str">'--x'</span>, Math.cos(ang) * dist + <span class="c-str">'px'</span>);
+      s.style.setProperty(<span class="c-str">'--y'</span>, Math.sin(ang) * dist + <span class="c-str">'px'</span>);
       btn.appendChild(s);
-      setTimeout(function (el) { return function () { el.remove(); }; }(s), 900);
+      setTimeout(function (el) { return function () { el.remove(); }; }(s), <span class="c-num">900</span>);
     }
   });
 });
-&lt;/script&gt;</code></pre>
+<span class="c-punc">&lt;/</span><span class="c-tag">script</span>&gt;</code></pre>
   </section>
 </div>
-<script src="../assets/site.js?v=0933aacd"></script>
+<script src="../assets/site.js?v=fe3dd7ee"></script>
 <footer class="site-footer">
   <div class="wrap">
     <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub</a>

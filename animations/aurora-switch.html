@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/aurora-switch.html">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="apple-touch-icon" href="../favicon.svg">
-<link rel="stylesheet" href="../assets/site.css?v=0933aacd">
+<link rel="stylesheet" href="../assets/site.css?v=fe3dd7ee">
 </head>
 <body>
 <div class="bg-fx" aria-hidden="true">
@@ -121,73 +121,74 @@
 
   <section class="code-panel">
     <div class="code-bar">
-      <span class="label">HTML + CSS</span>
-      <button class="copy-btn" type="button" data-copy="#src">复制全部代码</button>
+      <div class="code-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <span class="code-file">aurora-switch.html</span>
+      <button class="copy-btn" type="button" data-copy="#src">复制代码</button>
     </div>
-    <pre class="code" id="src"><code>&lt;label class="switch"&gt;
-  &lt;input type="checkbox" class="input__check"&gt;
-  &lt;span class="slider"&gt;&lt;/span&gt;
-&lt;/label&gt;
+    <pre class="code" id="src"><code><span class="c-punc">&lt;</span><span class="c-tag">label</span> <span class="c-attr">class</span>=<span class="c-str">"switch"</span>&gt;
+  <span class="c-punc">&lt;</span><span class="c-tag">input</span> <span class="c-attr">type</span>=<span class="c-str">"checkbox"</span> <span class="c-attr">class</span>=<span class="c-str">"input__check"</span>&gt;
+  <span class="c-punc">&lt;</span><span class="c-tag">span</span> <span class="c-attr">class</span>=<span class="c-str">"slider"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">span</span>&gt;
+<span class="c-punc">&lt;/</span><span class="c-tag">label</span>&gt;
 
-&lt;style&gt;
+<span class="c-punc">&lt;</span><span class="c-tag">style</span>&gt;
 .switch {
-  font-size: 17px;
+  font-size: <span class="c-num">17px</span>;
   position: relative;
   display: inline-block;
-  width: 3.5em;
-  height: 2em;
+  width: <span class="c-num">3.5em</span>;
+  height: <span class="c-num">2em</span>;
   transform-style: preserve-3d;
-  perspective: 500px;
-  animation: toggle__animation 3s infinite;
+  perspective: <span class="c-num">500px</span>;
+  animation: toggle__animation <span class="c-num">3s</span> infinite;
 }
 .switch::before {
-  content: "";
+  content: <span class="c-str">""</span>;
   position: absolute;
-  width: 100%; height: 100%;
-  left: 0; top: 0;
-  filter: blur(20px);
+  width: <span class="c-num">100%</span>; height: <span class="c-num">100%</span>;
+  left: <span class="c-num">0</span>; top: <span class="c-num">0</span>;
+  filter: blur(<span class="c-num">20px</span>);
   z-index: -1;
-  border-radius: 50px;
+  border-radius: <span class="c-num">50px</span>;
   background-color: #d8ff99;
-  background-image: radial-gradient(at 21% 46%, hsla(183,65%,60%,1) 0px, transparent 50%),
-    radial-gradient(at 23% 25%, hsla(359,74%,70%,1) 0px, transparent 50%),
-    radial-gradient(at 20% 1%, hsla(267,83%,75%,1) 0px, transparent 50%),
-    radial-gradient(at 86% 87%, hsla(204,69%,68%,1) 0px, transparent 50%),
-    radial-gradient(at 99% 41%, hsla(171,72%,77%,1) 0px, transparent 50%),
-    radial-gradient(at 55% 24%, hsla(138,60%,62%,1) 0px, transparent 50%);
+  background-image: radial-gradient(at <span class="c-num">21%</span> <span class="c-num">46%</span>, hsla(<span class="c-num">183</span>,<span class="c-num">65%</span>,<span class="c-num">60%</span>,<span class="c-num">1</span>) <span class="c-num">0px</span>, transparent <span class="c-num">50%</span>),
+    radial-gradient(at <span class="c-num">23%</span> <span class="c-num">25%</span>, hsla(<span class="c-num">359</span>,<span class="c-num">74%</span>,<span class="c-num">70%</span>,<span class="c-num">1</span>) <span class="c-num">0px</span>, transparent <span class="c-num">50%</span>),
+    radial-gradient(at <span class="c-num">20%</span> <span class="c-num">1%</span>, hsla(<span class="c-num">267</span>,<span class="c-num">83%</span>,<span class="c-num">75%</span>,<span class="c-num">1</span>) <span class="c-num">0px</span>, transparent <span class="c-num">50%</span>),
+    radial-gradient(at <span class="c-num">86%</span> <span class="c-num">87%</span>, hsla(<span class="c-num">204</span>,<span class="c-num">69%</span>,<span class="c-num">68%</span>,<span class="c-num">1</span>) <span class="c-num">0px</span>, transparent <span class="c-num">50%</span>),
+    radial-gradient(at <span class="c-num">99%</span> <span class="c-num">41%</span>, hsla(<span class="c-num">171</span>,<span class="c-num">72%</span>,<span class="c-num">77%</span>,<span class="c-num">1</span>) <span class="c-num">0px</span>, transparent <span class="c-num">50%</span>),
+    radial-gradient(at <span class="c-num">55%</span> <span class="c-num">24%</span>, hsla(<span class="c-num">138</span>,<span class="c-num">60%</span>,<span class="c-num">62%</span>,<span class="c-num">1</span>) <span class="c-num">0px</span>, transparent <span class="c-num">50%</span>);
 }
-.switch input { opacity: 0; width: 0; height: 0; }
+.switch input { opacity: <span class="c-num">0</span>; width: <span class="c-num">0</span>; height: <span class="c-num">0</span>; }
 .slider {
   position: absolute;
   cursor: pointer;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: <span class="c-num">0</span>; left: <span class="c-num">0</span>; right: <span class="c-num">0</span>; bottom: <span class="c-num">0</span>;
   background-color: #fdfefedc;
   transition: .4s;
-  border-radius: 30px;
+  border-radius: <span class="c-num">30px</span>;
 }
 .slider:before {
   position: absolute;
-  content: "";
-  height: 1.4em; width: 1.4em;
-  left: 0.3em; bottom: 0.35em;
+  content: <span class="c-str">""</span>;
+  height: <span class="c-num">1.4em</span>; width: <span class="c-num">1.4em</span>;
+  left: <span class="c-num">0.3em</span>; bottom: <span class="c-num">0.35em</span>;
   transition: .4s;
-  border-radius: 50%;
-  box-shadow: rgba(0, 0, 0, 0.17) 0px -10px 10px 0px inset, rgba(0, 0, 0, 0.09) 0px -1px 15px -8px;
+  border-radius: <span class="c-num">50%</span>;
+  box-shadow: rgba(<span class="c-num">0</span>, <span class="c-num">0</span>, <span class="c-num">0</span>, <span class="c-num">0.17</span>) <span class="c-num">0px</span> -10px <span class="c-num">10px</span> <span class="c-num">0px</span> inset, rgba(<span class="c-num">0</span>, <span class="c-num">0</span>, <span class="c-num">0</span>, <span class="c-num">0.09</span>) <span class="c-num">0px</span> -1px <span class="c-num">15px</span> -8px;
   background-color: #ff99fd;
-  background-image: radial-gradient(at 81% 39%, hsla(327,79%,79%,1) 0px, transparent 50%),
-    radial-gradient(at 11% 72%, hsla(264,64%,79%,1) 0px, transparent 50%),
-    radial-gradient(at 23% 20%, hsla(75,98%,71%,1) 0px, transparent 50%);
+  background-image: radial-gradient(at <span class="c-num">81%</span> <span class="c-num">39%</span>, hsla(<span class="c-num">327</span>,<span class="c-num">79%</span>,<span class="c-num">79%</span>,<span class="c-num">1</span>) <span class="c-num">0px</span>, transparent <span class="c-num">50%</span>),
+    radial-gradient(at <span class="c-num">11%</span> <span class="c-num">72%</span>, hsla(<span class="c-num">264</span>,<span class="c-num">64%</span>,<span class="c-num">79%</span>,<span class="c-num">1</span>) <span class="c-num">0px</span>, transparent <span class="c-num">50%</span>),
+    radial-gradient(at <span class="c-num">23%</span> <span class="c-num">20%</span>, hsla(<span class="c-num">75</span>,<span class="c-num">98%</span>,<span class="c-num">71%</span>,<span class="c-num">1</span>) <span class="c-num">0px</span>, transparent <span class="c-num">50%</span>);
 }
-.input__check:checked + .slider { background-color: #17202A; }
-.input__check:checked + .slider:before { transform: translateX(1.5em); }
+.input__check:checked + .slider { background-color: #<span class="c-num">17202</span>A; }
+.input__check:checked + .slider:before { transform: translateX(<span class="c-num">1.5em</span>); }
 @keyframes toggle__animation {
-  0%, 100% { transform: translateY(-10px) rotateX(15deg) rotateY(-20deg); }
-  50% { transform: translateY(0px) rotateX(15deg) rotateY(-20deg); }
+  <span class="c-num">0%</span>, <span class="c-num">100%</span> { transform: translateY(-10px) rotateX(<span class="c-num">15deg</span>) rotateY(-20deg); }
+  <span class="c-num">50%</span> { transform: translateY(<span class="c-num">0px</span>) rotateX(<span class="c-num">15deg</span>) rotateY(-20deg); }
 }
-&lt;/style&gt;</code></pre>
+<span class="c-punc">&lt;/</span><span class="c-tag">style</span>&gt;</code></pre>
   </section>
 </div>
-<script src="../assets/site.js?v=0933aacd"></script>
+<script src="../assets/site.js?v=fe3dd7ee"></script>
 <footer class="site-footer">
   <div class="wrap">
     <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub</a>

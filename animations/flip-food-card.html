@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>翻转美食卡片 · UI 动效画廊</title>
+<meta name="description" content="美食卡片，悬停时整体翻面，背面有一条橙色光带持续旋转扫过；正面展示菜品名称、标签与份量信息。">
+<link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/flip-food-card.html">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="apple-touch-icon" href="../favicon.svg">
+<link rel="stylesheet" href="../assets/site.css?v=fe3dd7ee">
+</head>
+<body>
+<div class="bg-fx" aria-hidden="true">
+  <span class="meteor" style="--x:-12%;--delay:0s;--dur:6.5s"></span>
+  <span class="meteor" style="--x:6%;--delay:1.8s;--dur:7.8s"></span>
+  <span class="meteor" style="--x:24%;--delay:3.6s;--dur:7s"></span>
+  <span class="meteor" style="--x:44%;--delay:0.9s;--dur:8.4s"></span>
+  <span class="meteor" style="--x:63%;--delay:2.7s;--dur:6.8s"></span>
+  <span class="meteor" style="--x:82%;--delay:4.5s;--dur:9s"></span>
+  <span class="star" style="--x:10%;--y:18%;--delay:0s;--dur:2.6s"></span>
+  <span class="star" style="--x:22%;--y:42%;--delay:.6s;--dur:3.4s"></span>
+  <span class="star" style="--x:34%;--y:12%;--delay:1.2s;--dur:2.9s"></span>
+  <span class="star" style="--x:46%;--y:66%;--delay:.3s;--dur:3.8s"></span>
+  <span class="star" style="--x:58%;--y:28%;--delay:1.5s;--dur:2.4s"></span>
+  <span class="star" style="--x:70%;--y:54%;--delay:.9s;--dur:3.2s"></span>
+  <span class="star" style="--x:82%;--y:16%;--delay:2.1s;--dur:2.7s"></span>
+  <span class="star" style="--x:93%;--y:38%;--delay:.4s;--dur:4.2s"></span>
+  <span class="star" style="--x:16%;--y:78%;--delay:1.8s;--dur:3.1s"></span>
+  <span class="star" style="--x:28%;--y:58%;--delay:.2s;--dur:2.8s"></span>
+  <span class="star" style="--x:40%;--y:88%;--delay:2.4s;--dur:3.6s"></span>
+  <span class="star" style="--x:52%;--y:34%;--delay:1.1s;--dur:2.5s"></span>
+  <span class="star" style="--x:64%;--y:72%;--delay:.7s;--dur:3.9s"></span>
+  <span class="star" style="--x:76%;--y:46%;--delay:2.0s;--dur:2.3s"></span>
+  <span class="star" style="--x:88%;--y:64%;--delay:1.4s;--dur:3.3s"></span>
+  <span class="star" style="--x:6%;--y:52%;--delay:.5s;--dur:3.7s"></span>
+</div>
+<div class="wrap">
+  <header class="anim-head">
+    <a class="back-link" href="../index.html">← 返回</a>
+    <h1 class="anim-title">翻转美食卡片</h1>
+    <p class="anim-desc">美食卡片，悬停时整体翻面，背面有一条橙色光带持续旋转扫过；正面展示菜品名称、标签与份量信息。</p>
+    <div class="card-tags"><span class="tag">card</span><span class="tag">flip</span><span class="tag">food</span><span class="tag">hover</span></div>
+  </header>
+
+  <section class="stage" aria-label="实时预览">
+    <iframe title="翻转美食卡片 实时预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+.card {
+  overflow: visible;
+  width: 190px;
+  height: 254px;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 300ms;
+  box-shadow: 0px 0px 10px 1px #000000ee;
+  border-radius: 5px;
+}
+
+.front, .back {
+  background-color: #151515;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.back {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.back::before {
+  position: absolute;
+  content: ' ';
+  display: block;
+  width: 160px;
+  height: 160%;
+  background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
+  animation: rotation_481 5000ms infinite linear;
+}
+
+.back-content {
+  position: absolute;
+  width: 99%;
+  height: 99%;
+  background-color: #151515;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.card:hover .content {
+  transform: rotateY(180deg);
+}
+
+@keyframes rotation_481 {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  0% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.front {
+  transform: rotateY(180deg);
+  color: white;
+}
+
+.front .front-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.front-content .badge {
+  background-color: #00000055;
+  padding: 2px 10px;
+  border-radius: 10px;
+  backdrop-filter: blur(2px);
+  width: fit-content;
+}
+
+.description {
+  box-shadow: 0px 0px 10px 5px #00000088;
+  width: 100%;
+  padding: 10px;
+  background-color: #00000099;
+  backdrop-filter: blur(5px);
+  border-radius: 5px;
+}
+
+.title {
+  font-size: 11px;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title p {
+  width: 50%;
+}
+
+.card-footer {
+  color: #ffffff88;
+  margin-top: 5px;
+  font-size: 8px;
+}
+
+.front .img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #ffbb66;
+  position: relative;
+  filter: blur(15px);
+  animation: floating 2600ms infinite linear;
+}
+
+#bottom {
+  background-color: #ff8866;
+  left: 50px;
+  top: 0px;
+  width: 150px;
+  height: 150px;
+  animation-delay: -800ms;
+}
+
+#right {
+  background-color: #ff2233;
+  left: 160px;
+  top: -80px;
+  width: 30px;
+  height: 30px;
+  animation-delay: -1800ms;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+</style>
+</head>
+<body>
+<div class=&quot;card&quot;>
+  <div class=&quot;content&quot;>
+    <div class=&quot;back&quot;>
+      <div class=&quot;back-content&quot;>
+        <svg stroke=&quot;#ffffff&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 50 50&quot; height=&quot;50px&quot; width=&quot;50px&quot; fill=&quot;#ffffff&quot;>
+
+        <g stroke-width=&quot;0&quot; id=&quot;SVGRepo_bgCarrier&quot;></g>
+
+        <g stroke-linejoin=&quot;round&quot; stroke-linecap=&quot;round&quot; id=&quot;SVGRepo_tracerCarrier&quot;></g>
+
+        <g id=&quot;SVGRepo_iconCarrier&quot;>
+
+        <path d=&quot;M20.84375 0.03125C20.191406 0.0703125 19.652344 0.425781 19.21875 1.53125C18.988281 2.117188 18.5 3.558594 18.03125 4.9375C17.792969 5.636719 17.570313 6.273438 17.40625 6.75C17.390625 6.796875 17.414063 6.855469 17.40625 6.90625C17.398438 6.925781 17.351563 6.949219 17.34375 6.96875L17.25 7.25C18.566406 7.65625 19.539063 8.058594 19.625 8.09375C22.597656 9.21875 28.351563 11.847656 33.28125 16.78125C38.5 22 41.183594 28.265625 42.09375 30.71875C42.113281 30.761719 42.375 31.535156 42.75 32.84375C42.757813 32.839844 42.777344 32.847656 42.78125 32.84375C43.34375 32.664063 44.953125 32.09375 46.3125 31.625C47.109375 31.351563 47.808594 31.117188 48.15625 31C49.003906 30.714844 49.542969 30.292969 49.8125 29.6875C50.074219 29.109375 50.066406 28.429688 49.75 27.6875C49.605469 27.347656 49.441406 26.917969 49.25 26.4375C47.878906 23.007813 45.007813 15.882813 39.59375 10.46875C33.613281 4.484375 25.792969 1.210938 22.125 0.21875C21.648438 0.0898438 21.234375 0.0078125 20.84375 0.03125 Z M 16.46875 9.09375L0.0625 48.625C-0.09375 48.996094 -0.00390625 49.433594 0.28125 49.71875C0.472656 49.910156 0.738281 50 1 50C1.128906 50 1.253906 49.988281 1.375 49.9375L40.90625 33.59375C40.523438 32.242188 40.222656 31.449219 40.21875 31.4375C39.351563 29.089844 36.816406 23.128906 31.875 18.1875C27.035156 13.34375 21.167969 10.804688 18.875 9.9375C18.84375 9.925781 17.8125 9.5 16.46875 9.09375 Z M 17 16C19.761719 16 22 18.238281 22 21C22 23.761719 19.761719 26 17 26C15.140625 26 13.550781 24.972656 12.6875 23.46875L15.6875 16.1875C16.101563 16.074219 16.550781 16 17 16 Z M 31 22C32.65625 22 34 23.34375 34 25C34 25.917969 33.585938 26.730469 32.9375 27.28125L32.90625 27.28125C33.570313 27.996094 34 28.949219 34 30C34 32.210938 32.210938 34 30 34C27.789063 34 26 32.210938 26 30C26 28.359375 26.996094 26.960938 28.40625 26.34375L28.3125 26.3125C28.117188 25.917969 28 25.472656 28 25C28 23.34375 29.34375 22 31 22 Z M 21 32C23.210938 32 25 33.789063 25 36C25 36.855469 24.710938 37.660156 24.25 38.3125L20.3125 39.9375C18.429688 39.609375 17 37.976563 17 36C17 33.789063 18.789063 32 21 32 Z M 9 34C10.65625 34 12 35.34375 12 37C12 38.65625 10.65625 40 9 40C7.902344 40 6.960938 39.414063 6.4375 38.53125L8.25 34.09375C8.488281 34.03125 8.742188 34 9 34Z&quot;></path>
+
+        </g>
+
+        </svg>
+        <strong>Hover Me</strong>
+      </div>
+    </div>
+    <div class=&quot;front&quot;>
+      
+      <div class=&quot;img&quot;>
+        <div class=&quot;circle&quot;>
+        </div>
+        <div class=&quot;circle&quot; id=&quot;right&quot;>
+        </div>
+        <div class=&quot;circle&quot; id=&quot;bottom&quot;>
+        </div>
+      </div>
+
+      <div class=&quot;front-content&quot;>
+        <small class=&quot;badge&quot;>Pasta</small>
+        <div class=&quot;description&quot;>
+          <div class=&quot;title&quot;>
+            <p class=&quot;title&quot;>
+              <strong>Spaguetti Bolognese</strong>
+            </p>
+            <svg fill-rule=&quot;nonzero&quot; height=&quot;15px&quot; width=&quot;15px&quot; viewBox=&quot;0,0,256,256&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;><g style=&quot;mix-blend-mode: normal&quot; text-anchor=&quot;none&quot; font-size=&quot;none&quot; font-weight=&quot;none&quot; font-family=&quot;none&quot; stroke-dashoffset=&quot;0&quot; stroke-dasharray=&quot;&quot; stroke-miterlimit=&quot;10&quot; stroke-linejoin=&quot;miter&quot; stroke-linecap=&quot;butt&quot; stroke-width=&quot;1&quot; stroke=&quot;none&quot; fill-rule=&quot;nonzero&quot; fill=&quot;#20c997&quot;><g transform=&quot;scale(8,8)&quot;><path d=&quot;M25,27l-9,-6.75l-9,6.75v-23h18z&quot;></path></g></g></svg>
+          </div>
+          <p class=&quot;card-footer&quot;>
+            30 Mins &amp;nbsp; | &amp;nbsp; 1 Serving
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>"></iframe>
+  </section>
+
+  <section class="code-panel">
+    <div class="code-bar">
+      <div class="code-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <span class="code-file">flip-food-card.html</span>
+      <button class="copy-btn" type="button" data-copy="#src">复制代码</button>
+    </div>
+    <pre class="code" id="src"><code><span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"card"</span>&gt;
+  <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"content"</span>&gt;
+    <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"back"</span>&gt;
+      <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"back-content"</span>&gt;
+        <span class="c-punc">&lt;</span><span class="c-tag">svg</span> <span class="c-attr">stroke</span>=<span class="c-str">"#ffffff"</span> xmlns:<span class="c-attr">xlink</span>=<span class="c-str">"http://www.w3.org/1999/xlink"</span> <span class="c-attr">xmlns</span>=<span class="c-str">"http://www.w3.org/2000/svg"</span> <span class="c-attr">viewBox</span>=<span class="c-str">"0 0 50 50"</span> <span class="c-attr">height</span>=<span class="c-str">"50px"</span> <span class="c-attr">width</span>=<span class="c-str">"50px"</span> <span class="c-attr">fill</span>=<span class="c-str">"#ffffff"</span>&gt;
+
+        <span class="c-punc">&lt;</span><span class="c-tag">g</span> <span class="c-attr">stroke-width</span>=<span class="c-str">"0"</span> <span class="c-attr">id</span>=<span class="c-str">"SVGRepo_bgCarrier"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">g</span>&gt;
+
+        <span class="c-punc">&lt;</span><span class="c-tag">g</span> <span class="c-attr">stroke-linejoin</span>=<span class="c-str">"round"</span> <span class="c-attr">stroke-linecap</span>=<span class="c-str">"round"</span> <span class="c-attr">id</span>=<span class="c-str">"SVGRepo_tracerCarrier"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">g</span>&gt;
+
+        <span class="c-punc">&lt;</span><span class="c-tag">g</span> <span class="c-attr">id</span>=<span class="c-str">"SVGRepo_iconCarrier"</span>&gt;
+
+        <span class="c-punc">&lt;</span><span class="c-tag">path</span> <span class="c-attr">d</span>=<span class="c-str">"M20.84375 0.03125C20.191406 0.0703125 19.652344 0.425781 19.21875 1.53125C18.988281 2.117188 18.5 3.558594 18.03125 4.9375C17.792969 5.636719 17.570313 6.273438 17.40625 6.75C17.390625 6.796875 17.414063 6.855469 17.40625 6.90625C17.398438 6.925781 17.351563 6.949219 17.34375 6.96875L17.25 7.25C18.566406 7.65625 19.539063 8.058594 19.625 8.09375C22.597656 9.21875 28.351563 11.847656 33.28125 16.78125C38.5 22 41.183594 28.265625 42.09375 30.71875C42.113281 30.761719 42.375 31.535156 42.75 32.84375C42.757813 32.839844 42.777344 32.847656 42.78125 32.84375C43.34375 32.664063 44.953125 32.09375 46.3125 31.625C47.109375 31.351563 47.808594 31.117188 48.15625 31C49.003906 30.714844 49.542969 30.292969 49.8125 29.6875C50.074219 29.109375 50.066406 28.429688 49.75 27.6875C49.605469 27.347656 49.441406 26.917969 49.25 26.4375C47.878906 23.007813 45.007813 15.882813 39.59375 10.46875C33.613281 4.484375 25.792969 1.210938 22.125 0.21875C21.648438 0.0898438 21.234375 0.0078125 20.84375 0.03125 Z M 16.46875 9.09375L0.0625 48.625C-0.09375 48.996094 -0.00390625 49.433594 0.28125 49.71875C0.472656 49.910156 0.738281 50 1 50C1.128906 50 1.253906 49.988281 1.375 49.9375L40.90625 33.59375C40.523438 32.242188 40.222656 31.449219 40.21875 31.4375C39.351563 29.089844 36.816406 23.128906 31.875 18.1875C27.035156 13.34375 21.167969 10.804688 18.875 9.9375C18.84375 9.925781 17.8125 9.5 16.46875 9.09375 Z M 17 16C19.761719 16 22 18.238281 22 21C22 23.761719 19.761719 26 17 26C15.140625 26 13.550781 24.972656 12.6875 23.46875L15.6875 16.1875C16.101563 16.074219 16.550781 16 17 16 Z M 31 22C32.65625 22 34 23.34375 34 25C34 25.917969 33.585938 26.730469 32.9375 27.28125L32.90625 27.28125C33.570313 27.996094 34 28.949219 34 30C34 32.210938 32.210938 34 30 34C27.789063 34 26 32.210938 26 30C26 28.359375 26.996094 26.960938 28.40625 26.34375L28.3125 26.3125C28.117188 25.917969 28 25.472656 28 25C28 23.34375 29.34375 22 31 22 Z M 21 32C23.210938 32 25 33.789063 25 36C25 36.855469 24.710938 37.660156 24.25 38.3125L20.3125 39.9375C18.429688 39.609375 17 37.976563 17 36C17 33.789063 18.789063 32 21 32 Z M 9 34C10.65625 34 12 35.34375 12 37C12 38.65625 10.65625 40 9 40C7.902344 40 6.960938 39.414063 6.4375 38.53125L8.25 34.09375C8.488281 34.03125 8.742188 34 9 34Z"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">path</span>&gt;
+
+        <span class="c-punc">&lt;/</span><span class="c-tag">g</span>&gt;
+
+        <span class="c-punc">&lt;/</span><span class="c-tag">svg</span>&gt;
+        <span class="c-punc">&lt;</span><span class="c-tag">strong</span>&gt;Hover Me<span class="c-punc">&lt;/</span><span class="c-tag">strong</span>&gt;
+      <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+    <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+    <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"front"</span>&gt;
+      
+      <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"img"</span>&gt;
+        <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"circle"</span>&gt;
+        <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+        <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"circle"</span> <span class="c-attr">id</span>=<span class="c-str">"right"</span>&gt;
+        <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+        <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"circle"</span> <span class="c-attr">id</span>=<span class="c-str">"bottom"</span>&gt;
+        <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+      <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+
+      <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"front-content"</span>&gt;
+        <span class="c-punc">&lt;</span><span class="c-tag">small</span> <span class="c-attr">class</span>=<span class="c-str">"badge"</span>&gt;Pasta<span class="c-punc">&lt;/</span><span class="c-tag">small</span>&gt;
+        <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"description"</span>&gt;
+          <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"title"</span>&gt;
+            <span class="c-punc">&lt;</span><span class="c-tag">p</span> <span class="c-attr">class</span>=<span class="c-str">"title"</span>&gt;
+              <span class="c-punc">&lt;</span><span class="c-tag">strong</span>&gt;Spaguetti Bolognese<span class="c-punc">&lt;/</span><span class="c-tag">strong</span>&gt;
+            <span class="c-punc">&lt;/</span><span class="c-tag">p</span>&gt;
+            <span class="c-punc">&lt;</span><span class="c-tag">svg</span> <span class="c-attr">fill-rule</span>=<span class="c-str">"nonzero"</span> <span class="c-attr">height</span>=<span class="c-str">"15px"</span> <span class="c-attr">width</span>=<span class="c-str">"15px"</span> <span class="c-attr">viewBox</span>=<span class="c-str">"0,0,256,256"</span> xmlns:<span class="c-attr">xlink</span>=<span class="c-str">"http://www.w3.org/1999/xlink"</span> <span class="c-attr">xmlns</span>=<span class="c-str">"http://www.w3.org/2000/svg"</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">g</span> <span class="c-attr">style</span>=<span class="c-str">"mix-blend-mode: normal"</span> <span class="c-attr">text-anchor</span>=<span class="c-str">"none"</span> <span class="c-attr">font-size</span>=<span class="c-str">"none"</span> <span class="c-attr">font-weight</span>=<span class="c-str">"none"</span> <span class="c-attr">font-family</span>=<span class="c-str">"none"</span> <span class="c-attr">stroke-dashoffset</span>=<span class="c-str">"0"</span> <span class="c-attr">stroke-dasharray</span>=<span class="c-str">""</span> <span class="c-attr">stroke-miterlimit</span>=<span class="c-str">"10"</span> <span class="c-attr">stroke-linejoin</span>=<span class="c-str">"miter"</span> <span class="c-attr">stroke-linecap</span>=<span class="c-str">"butt"</span> <span class="c-attr">stroke-width</span>=<span class="c-str">"1"</span> <span class="c-attr">stroke</span>=<span class="c-str">"none"</span> <span class="c-attr">fill-rule</span>=<span class="c-str">"nonzero"</span> <span class="c-attr">fill</span>=<span class="c-str">"#20c997"</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">g</span> <span class="c-attr">transform</span>=<span class="c-str">"scale(8,8)"</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">path</span> <span class="c-attr">d</span>=<span class="c-str">"M25,27l-9,-6.75l-9,6.75v-23h18z"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">path</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">g</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">g</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">svg</span>&gt;
+          <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+          <span class="c-punc">&lt;</span><span class="c-tag">p</span> <span class="c-attr">class</span>=<span class="c-str">"card-footer"</span>&gt;
+            <span class="c-num">30</span> Mins &amp;nbsp; | &amp;nbsp; <span class="c-num">1</span> Serving
+          <span class="c-punc">&lt;/</span><span class="c-tag">p</span>&gt;
+        <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+      <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+    <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+  <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+
+<span class="c-punc">&lt;</span><span class="c-tag">style</span>&gt;
+.card {
+  overflow: visible;
+  width: <span class="c-num">190px</span>;
+  height: <span class="c-num">254px</span>;
+}
+
+.content {
+  width: <span class="c-num">100%</span>;
+  height: <span class="c-num">100%</span>;
+  transform-style: preserve-3d;
+  transition: transform <span class="c-num">300ms</span>;
+  box-shadow: <span class="c-num">0px</span> <span class="c-num">0px</span> <span class="c-num">10px</span> <span class="c-num">1px</span> #<span class="c-num">000000</span>ee;
+  border-radius: <span class="c-num">5px</span>;
+}
+
+.front, .back {
+  background-color: #<span class="c-num">151515</span>;
+  position: absolute;
+  width: <span class="c-num">100%</span>;
+  height: <span class="c-num">100%</span>;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: <span class="c-num">5px</span>;
+  overflow: hidden;
+}
+
+.back {
+  width: <span class="c-num">100%</span>;
+  height: <span class="c-num">100%</span>;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.back::before {
+  position: absolute;
+  content: <span class="c-str">' '</span>;
+  display: block;
+  width: <span class="c-num">160px</span>;
+  height: <span class="c-num">160%</span>;
+  background: linear-gradient(<span class="c-num">90deg</span>, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
+  animation: rotation_481 <span class="c-num">5000ms</span> infinite linear;
+}
+
+.back-content {
+  position: absolute;
+  width: <span class="c-num">99%</span>;
+  height: <span class="c-num">99%</span>;
+  background-color: #<span class="c-num">151515</span>;
+  border-radius: <span class="c-num">5px</span>;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: <span class="c-num">30px</span>;
+}
+
+.card:hover .content {
+  transform: rotateY(<span class="c-num">180deg</span>);
+}
+
+@keyframes rotation_481 {
+  <span class="c-num">0%</span> {
+    transform: rotateZ(<span class="c-num">0deg</span>);
+  }
+
+  <span class="c-num">0%</span> {
+    transform: rotateZ(<span class="c-num">360deg</span>);
+  }
+}
+
+.front {
+  transform: rotateY(<span class="c-num">180deg</span>);
+  color: white;
+}
+
+.front .front-content {
+  position: absolute;
+  width: <span class="c-num">100%</span>;
+  height: <span class="c-num">100%</span>;
+  padding: <span class="c-num">10px</span>;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.front-content .badge {
+  background-color: #<span class="c-num">00000055</span>;
+  padding: <span class="c-num">2px</span> <span class="c-num">10px</span>;
+  border-radius: <span class="c-num">10px</span>;
+  backdrop-filter: blur(<span class="c-num">2px</span>);
+  width: fit-content;
+}
+
+.description {
+  box-shadow: <span class="c-num">0px</span> <span class="c-num">0px</span> <span class="c-num">10px</span> <span class="c-num">5px</span> #<span class="c-num">00000088</span>;
+  width: <span class="c-num">100%</span>;
+  padding: <span class="c-num">10px</span>;
+  background-color: #<span class="c-num">00000099</span>;
+  backdrop-filter: blur(<span class="c-num">5px</span>);
+  border-radius: <span class="c-num">5px</span>;
+}
+
+.title {
+  font-size: <span class="c-num">11px</span>;
+  max-width: <span class="c-num">100%</span>;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title p {
+  width: <span class="c-num">50%</span>;
+}
+
+.card-footer {
+  color: #ffffff88;
+  margin-top: <span class="c-num">5px</span>;
+  font-size: <span class="c-num">8px</span>;
+}
+
+.front .img {
+  position: absolute;
+  width: <span class="c-num">100%</span>;
+  height: <span class="c-num">100%</span>;
+  object-fit: cover;
+  object-position: center;
+}
+
+.circle {
+  width: <span class="c-num">90px</span>;
+  height: <span class="c-num">90px</span>;
+  border-radius: <span class="c-num">50%</span>;
+  background-color: #ffbb66;
+  position: relative;
+  filter: blur(<span class="c-num">15px</span>);
+  animation: floating <span class="c-num">2600ms</span> infinite linear;
+}
+
+#bottom {
+  background-color: #ff8866;
+  left: <span class="c-num">50px</span>;
+  top: <span class="c-num">0px</span>;
+  width: <span class="c-num">150px</span>;
+  height: <span class="c-num">150px</span>;
+  animation-delay: -800ms;
+}
+
+#right {
+  background-color: #ff2233;
+  left: <span class="c-num">160px</span>;
+  top: -80px;
+  width: <span class="c-num">30px</span>;
+  height: <span class="c-num">30px</span>;
+  animation-delay: -1800ms;
+}
+
+@keyframes floating {
+  <span class="c-num">0%</span> {
+    transform: translateY(<span class="c-num">0px</span>);
+  }
+
+  <span class="c-num">50%</span> {
+    transform: translateY(<span class="c-num">10px</span>);
+  }
+
+  <span class="c-num">100%</span> {
+    transform: translateY(<span class="c-num">0px</span>);
+  }
+}
+<span class="c-punc">&lt;/</span><span class="c-tag">style</span>&gt;</code></pre>
+  </section>
+</div>
+<script src="../assets/site.js?v=fe3dd7ee"></script>
+<footer class="site-footer">
+  <div class="wrap">
+    <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+<button id="toTop" class="to-top" type="button" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+</body>
+</html>

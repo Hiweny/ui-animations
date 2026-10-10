@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>流光渐变文字 · UI 动效画廊</title>
+<meta name="description" content="文字用四色渐变填充并循环流动，像液态金属反光。靠 background-size 放大后用 background-position 位移实现无缝循环。">
+<link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/gradient-flow-text.html">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="anim-head">
+    <a class="back-link" href="../index.html">← 返回画廊</a>
+    <h1 class="anim-title">流光渐变文字</h1>
+    <p class="anim-desc">文字用四色渐变填充并循环流动，像液态金属反光。靠 background-size 放大后用 background-position 位移实现无缝循环。</p>
+    <div class="anim-meta">
+      <span class="tag">本仓库原创</span>
+      
+    </div>
+    <p class="anim-url">深链地址：<a href="https://hiweny.github.io/ui-animations/animations/gradient-flow-text.html">https://hiweny.github.io/ui-animations/animations/gradient-flow-text.html</a></p>
+  </header>
+
+  <section class="stage" aria-label="实时预览">
+    <iframe title="流光渐变文字 实时预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+.text-flow {
+  font: 800 38px/1.2 system-ui, sans-serif;
+  letter-spacing: -0.01em;
+  background: linear-gradient(90deg, #818cf8, #22d3ee, #f472b6, #818cf8);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: text-flow 4s linear infinite;
+}
+@keyframes text-flow {
+  to { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-flow { animation: none; }
+}
+
+</style>
+</head>
+<body>
+<div class=&quot;text-flow&quot;>Star Flow</div>
+
+</body>
+</html>"></iframe>
+  </section>
+
+  <section class="code-panel">
+    <div class="code-bar">
+      <span class="label">HTML + CSS · 一键复制</span>
+      <button class="copy-btn" type="button" data-copy="#src">复制全部代码</button>
+    </div>
+    <pre class="code" id="src"><code>&lt;div class="text-flow"&gt;Star Flow&lt;/div&gt;
+
+&lt;style&gt;
+.text-flow {
+  font: 800 38px/1.2 system-ui, sans-serif;
+  letter-spacing: -0.01em;
+  background: linear-gradient(90deg, #818cf8, #22d3ee, #f472b6, #818cf8);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: text-flow 4s linear infinite;
+}
+@keyframes text-flow {
+  to { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-flow { animation: none; }
+}
+&lt;/style&gt;</code></pre>
+  </section>
+
+  <section class="anim-tags">
+    <h2 class="anim-subtitle">标签</h2>
+    <div class="card-tags"><span class="tag">text</span><span class="tag">gradient</span><span class="tag">flow</span><span class="tag">流光</span></div>
+  </section>
+</div>
+<script src="../assets/site.js"></script>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>UI 动效画廊 · 持续收集中 · <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub 仓库</a></p>
+  </div>
+</footer>
+</body>
+</html>

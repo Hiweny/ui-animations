@@ -39,8 +39,24 @@ function fallback(text, done) {
   done();
 }
 
+// 回到顶部：滚动超过一屏后淡入，点击平滑回到顶部，并带一圈读进度环
+function bindToTop() {
+  var btn = document.getElementById('toTop');
+  if (!btn) return;
+  var onScroll = function () {
+    if (window.scrollY > 240) btn.classList.add('show');
+    else btn.classList.remove('show');
+  };
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
+
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', bindCopy);
+  document.addEventListener('DOMContentLoaded', function () { bindCopy(); bindToTop(); });
 } else {
   bindCopy();
+  bindToTop();
 }

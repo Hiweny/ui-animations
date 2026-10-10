@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/gradient-border-glow.html">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="apple-touch-icon" href="../favicon.svg">
-<link rel="stylesheet" href="../assets/site.css?v=0933aacd">
+<link rel="stylesheet" href="../assets/site.css?v=fe3dd7ee">
 </head>
 <body>
 <div class="bg-fx" aria-hidden="true">
@@ -106,58 +106,59 @@
 
   <section class="code-panel">
     <div class="code-bar">
-      <span class="label">HTML + CSS</span>
-      <button class="copy-btn" type="button" data-copy="#src">复制全部代码</button>
+      <div class="code-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <span class="code-file">gradient-border-glow.html</span>
+      <button class="copy-btn" type="button" data-copy="#src">复制代码</button>
     </div>
-    <pre class="code" id="src"><code>&lt;button class="btn-orbit" type="button"&gt;&lt;span&gt;Orbit&lt;/span&gt;&lt;/button&gt;
+    <pre class="code" id="src"><code><span class="c-punc">&lt;</span><span class="c-tag">button</span> <span class="c-attr">class</span>=<span class="c-str">"btn-orbit"</span> <span class="c-attr">type</span>=<span class="c-str">"button"</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">span</span>&gt;Orbit<span class="c-punc">&lt;/</span><span class="c-tag">span</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">button</span>&gt;
 
-&lt;style&gt;
+<span class="c-punc">&lt;</span><span class="c-tag">style</span>&gt;
 @property --orbit-angle {
-  syntax: '&lt;angle&gt;';
-  initial-value: 0deg;
+  syntax: <span class="c-str">'&lt;angle&gt;'</span>;
+  initial-value: <span class="c-num">0deg</span>;
   inherits: false;
 }
 
 .btn-orbit {
   position: relative;
-  padding: 2px;
-  border: 0;
-  border-radius: 999px;
+  padding: <span class="c-num">2px</span>;
+  border: <span class="c-num">0</span>;
+  border-radius: <span class="c-num">999px</span>;
   cursor: pointer;
   background: conic-gradient(
     from var(--orbit-angle),
-    transparent 0deg,
-    #22d3ee 60deg,
-    #a855f7 140deg,
-    transparent 200deg,
-    transparent 360deg
+    transparent <span class="c-num">0deg</span>,
+    #<span class="c-num">22</span>d3ee <span class="c-num">60deg</span>,
+    #a855f7 <span class="c-num">140deg</span>,
+    transparent <span class="c-num">200deg</span>,
+    transparent <span class="c-num">360deg</span>
   );
-  animation: btn-orbit-spin 3.2s linear infinite;
-  transition: filter 0.3s ease, transform 0.25s ease;
+  animation: btn-orbit-spin <span class="c-num">3.2s</span> linear infinite;
+  transition: filter <span class="c-num">0.3s</span> ease, transform <span class="c-num">0.25s</span> ease;
 }
 .btn-orbit span {
   display: block;
-  padding: 0.8em 2.1em;
-  border-radius: 999px;
-  background: #0b1020;
+  padding: <span class="c-num">0.8em</span> <span class="c-num">2.1em</span>;
+  border-radius: <span class="c-num">999px</span>;
+  background: #<span class="c-num">0</span>b1020;
   color: #e5e7eb;
-  font: 700 17px/1.2 system-ui, sans-serif;
+  font: <span class="c-num">700</span> <span class="c-num">17px</span>/<span class="c-num">1.2</span> system-ui, sans-serif;
 }
 .btn-orbit:hover {
-  filter: drop-shadow(0 0 14px rgba(168, 85, 247, 0.7));
+  filter: drop-shadow(<span class="c-num">0</span> <span class="c-num">0</span> <span class="c-num">14px</span> rgba(<span class="c-num">168</span>, <span class="c-num">85</span>, <span class="c-num">247</span>, <span class="c-num">0.7</span>));
   transform: translateY(-2px);
 }
 @keyframes btn-orbit-spin {
-  to { --orbit-angle: 360deg; }
+  to { --orbit-angle: <span class="c-num">360deg</span>; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .btn-orbit { animation: none; }
 }
-&lt;/style&gt;</code></pre>
+<span class="c-punc">&lt;/</span><span class="c-tag">style</span>&gt;</code></pre>
   </section>
 </div>
-<script src="../assets/site.js?v=0933aacd"></script>
+<script src="../assets/site.js?v=fe3dd7ee"></script>
 <footer class="site-footer">
   <div class="wrap">
     <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub</a>

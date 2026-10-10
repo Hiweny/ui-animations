@@ -793,39 +793,4 @@ export const animations = [
 }`,
     previewCss: '',
   },
-
-  {
-    slug: 'back-to-top-button',
-    name: '悬浮回到顶部按钮',
-    desc: '固定在右下角的圆形按钮，滚动超过一屏后淡入浮现，点击平滑滚回顶部；悬停时描边与图标亮起光晕。',
-    tags: ['button', 'scroll', 'utility'],
-    source: '',
-    author: '本仓库原创',
-    html: `<button id="toTop" class="to-top" type="button" aria-label="回到顶部">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
-</button>`,
-    css: `.to-top{
-  position:fixed;right:22px;bottom:22px;width:46px;height:46px;
-  border:1px solid #334155;border-radius:50%;
-  display:grid;place-items:center;cursor:pointer;
-  color:#c7d2fe;background:rgba(15,21,36,.85);backdrop-filter:blur(6px);
-  opacity:0;visibility:hidden;transform:translateY(12px);
-  transition:opacity .3s ease,transform .3s ease,visibility .3s ease,box-shadow .3s ease,border-color .3s ease;
-  z-index:50;
-}
-.to-top svg{width:20px;height:20px}
-.to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
-.to-top:hover{border-color:#6366f1;color:#fff;box-shadow:0 0 18px color-mix(in srgb,#6366f1 60%,transparent)}
-.to-top:active{transform:translateY(1px) scale(.96)}`,
-    js: `var btn=document.querySelector('.to-top');
-if(btn){
-  btn.classList.add('show');
-  window.addEventListener('scroll',function(){
-    if(window.scrollY>240) btn.classList.add('show');
-    else btn.classList.remove('show');
-  },{passive:true});
-  btn.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
-}`,
-    previewCss: '',
-  },
 ];

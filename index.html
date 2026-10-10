@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://hiweny.github.io/ui-animations/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="favicon.svg">
-<link rel="stylesheet" href="assets/site.css?v=fe3dd7ee">
+<link rel="stylesheet" href="assets/site.css?v=3a5a4283">
 </head>
 <body>
 <div class="bg-fx" aria-hidden="true">
@@ -50,7 +50,7 @@
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+  body{display:grid;place-items:center;background:transparent;padding:0;box-sizing:border-box;overflow:hidden}
 .card {
   overflow: visible;
   width: 190px;
@@ -275,6 +275,33 @@
   </div>
 </div>
 
+<script>
+(function(){
+  function fit(){
+    var b=document.body;
+    b.style.transform='none';
+    var minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9,n=0,k=b.children;
+    for(var i=0;i<k.length;i++){
+      if(k[i].tagName==='SCRIPT')continue;
+      var r=k[i].getBoundingClientRect();
+      if(!r.width&amp;&amp;!r.height)continue;
+      if(r.left<minX)minX=r.left; if(r.top<minY)minY=r.top;
+      if(r.right>maxX)maxX=r.right; if(r.bottom>maxY)maxY=r.bottom; n++;
+    }
+    if(!n)return;
+    var w=maxX-minX,h=maxY-minY;
+    var W=document.documentElement.clientWidth,H=document.documentElement.clientHeight;
+    var s=Math.min(1,(W-20)/w,(H-20)/h);
+    if(s<1){
+      b.style.transformOrigin=((minX+maxX)/2)+'px '+((minY+maxY)/2)+'px';
+      b.style.transform='scale('+s+')';
+    }
+  }
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  setTimeout(fit,60);setTimeout(fit,350);
+})();
+</script>
 </body>
 </html>"></iframe>
         </div>
@@ -296,7 +323,7 @@
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+  body{display:grid;place-items:center;background:transparent;padding:0;box-sizing:border-box;overflow:hidden}
 .cardm {
   position: absolute;
   display: flex;
@@ -564,6 +591,33 @@
   </div>
 </div>
 
+<script>
+(function(){
+  function fit(){
+    var b=document.body;
+    b.style.transform='none';
+    var minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9,n=0,k=b.children;
+    for(var i=0;i<k.length;i++){
+      if(k[i].tagName==='SCRIPT')continue;
+      var r=k[i].getBoundingClientRect();
+      if(!r.width&amp;&amp;!r.height)continue;
+      if(r.left<minX)minX=r.left; if(r.top<minY)minY=r.top;
+      if(r.right>maxX)maxX=r.right; if(r.bottom>maxY)maxY=r.bottom; n++;
+    }
+    if(!n)return;
+    var w=maxX-minX,h=maxY-minY;
+    var W=document.documentElement.clientWidth,H=document.documentElement.clientHeight;
+    var s=Math.min(1,(W-20)/w,(H-20)/h);
+    if(s<1){
+      b.style.transformOrigin=((minX+maxX)/2)+'px '+((minY+maxY)/2)+'px';
+      b.style.transform='scale('+s+')';
+    }
+  }
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  setTimeout(fit,60);setTimeout(fit,350);
+})();
+</script>
 </body>
 </html>"></iframe>
         </div>
@@ -585,7 +639,7 @@
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+  body{display:grid;place-items:center;background:transparent;padding:0;box-sizing:border-box;overflow:hidden}
 .flip-card {
   background-color: transparent;
   width: 240px;
@@ -804,6 +858,33 @@
     </div>
 </div>
 
+<script>
+(function(){
+  function fit(){
+    var b=document.body;
+    b.style.transform='none';
+    var minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9,n=0,k=b.children;
+    for(var i=0;i<k.length;i++){
+      if(k[i].tagName==='SCRIPT')continue;
+      var r=k[i].getBoundingClientRect();
+      if(!r.width&amp;&amp;!r.height)continue;
+      if(r.left<minX)minX=r.left; if(r.top<minY)minY=r.top;
+      if(r.right>maxX)maxX=r.right; if(r.bottom>maxY)maxY=r.bottom; n++;
+    }
+    if(!n)return;
+    var w=maxX-minX,h=maxY-minY;
+    var W=document.documentElement.clientWidth,H=document.documentElement.clientHeight;
+    var s=Math.min(1,(W-20)/w,(H-20)/h);
+    if(s<1){
+      b.style.transformOrigin=((minX+maxX)/2)+'px '+((minY+maxY)/2)+'px';
+      b.style.transform='scale('+s+')';
+    }
+  }
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  setTimeout(fit,60);setTimeout(fit,350);
+})();
+</script>
 </body>
 </html>"></iframe>
         </div>
@@ -825,7 +906,7 @@
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+  body{display:grid;place-items:center;background:transparent;padding:0;box-sizing:border-box;overflow:hidden}
 .card {
   position: relative;
   width: 190px;
@@ -902,6 +983,33 @@
   <p>Uiverse
 </p></div>
 
+<script>
+(function(){
+  function fit(){
+    var b=document.body;
+    b.style.transform='none';
+    var minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9,n=0,k=b.children;
+    for(var i=0;i<k.length;i++){
+      if(k[i].tagName==='SCRIPT')continue;
+      var r=k[i].getBoundingClientRect();
+      if(!r.width&amp;&amp;!r.height)continue;
+      if(r.left<minX)minX=r.left; if(r.top<minY)minY=r.top;
+      if(r.right>maxX)maxX=r.right; if(r.bottom>maxY)maxY=r.bottom; n++;
+    }
+    if(!n)return;
+    var w=maxX-minX,h=maxY-minY;
+    var W=document.documentElement.clientWidth,H=document.documentElement.clientHeight;
+    var s=Math.min(1,(W-20)/w,(H-20)/h);
+    if(s<1){
+      b.style.transformOrigin=((minX+maxX)/2)+'px '+((minY+maxY)/2)+'px';
+      b.style.transform='scale('+s+')';
+    }
+  }
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  setTimeout(fit,60);setTimeout(fit,350);
+})();
+</script>
 </body>
 </html>"></iframe>
         </div>
@@ -923,7 +1031,7 @@
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+  body{display:grid;place-items:center;background:transparent;padding:0;box-sizing:border-box;overflow:hidden}
 .cardContainer {
   width: fit-content;
   position: relative;
@@ -1062,6 +1170,33 @@
   </div>
 </div>
 
+<script>
+(function(){
+  function fit(){
+    var b=document.body;
+    b.style.transform='none';
+    var minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9,n=0,k=b.children;
+    for(var i=0;i<k.length;i++){
+      if(k[i].tagName==='SCRIPT')continue;
+      var r=k[i].getBoundingClientRect();
+      if(!r.width&amp;&amp;!r.height)continue;
+      if(r.left<minX)minX=r.left; if(r.top<minY)minY=r.top;
+      if(r.right>maxX)maxX=r.right; if(r.bottom>maxY)maxY=r.bottom; n++;
+    }
+    if(!n)return;
+    var w=maxX-minX,h=maxY-minY;
+    var W=document.documentElement.clientWidth,H=document.documentElement.clientHeight;
+    var s=Math.min(1,(W-20)/w,(H-20)/h);
+    if(s<1){
+      b.style.transformOrigin=((minX+maxX)/2)+'px '+((minY+maxY)/2)+'px';
+      b.style.transform='scale('+s+')';
+    }
+  }
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  setTimeout(fit,60);setTimeout(fit,350);
+})();
+</script>
 </body>
 </html>"></iframe>
         </div>
@@ -1083,7 +1218,7 @@
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+  body{display:grid;place-items:center;background:transparent;padding:0;box-sizing:border-box;overflow:hidden}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body {
   width: 100%; height: 100%;
@@ -1318,6 +1453,33 @@ canvas {
   animate();
 })();
 </script>
+<script>
+(function(){
+  function fit(){
+    var b=document.body;
+    b.style.transform='none';
+    var minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9,n=0,k=b.children;
+    for(var i=0;i<k.length;i++){
+      if(k[i].tagName==='SCRIPT')continue;
+      var r=k[i].getBoundingClientRect();
+      if(!r.width&amp;&amp;!r.height)continue;
+      if(r.left<minX)minX=r.left; if(r.top<minY)minY=r.top;
+      if(r.right>maxX)maxX=r.right; if(r.bottom>maxY)maxY=r.bottom; n++;
+    }
+    if(!n)return;
+    var w=maxX-minX,h=maxY-minY;
+    var W=document.documentElement.clientWidth,H=document.documentElement.clientHeight;
+    var s=Math.min(1,(W-20)/w,(H-20)/h);
+    if(s<1){
+      b.style.transformOrigin=((minX+maxX)/2)+'px '+((minY+maxY)/2)+'px';
+      b.style.transform='scale('+s+')';
+    }
+  }
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  setTimeout(fit,60);setTimeout(fit,350);
+})();
+</script>
 </body>
 </html>"></iframe>
         </div>
@@ -1339,7 +1501,7 @@ canvas {
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+  body{display:grid;place-items:center;background:transparent;padding:0;box-sizing:border-box;overflow:hidden}
 body{background:radial-gradient(1200px 600px at 80% -10%, #1e1b4b 0%, transparent 60%), radial-gradient(900px 500px at -10% 10%, rgba(15,118,110,.25) 0%, transparent 55%), #070a13;}
 .bg-fx{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
 .bg-fx .meteor{
@@ -1404,6 +1566,33 @@ body{background:radial-gradient(1200px 600px at 80% -10%, #1e1b4b 0%, transparen
   <span class=&quot;star&quot; style=&quot;--x:6%;--y:52%;--delay:.5s;--dur:3.7s&quot;></span>
 </div>
 
+<script>
+(function(){
+  function fit(){
+    var b=document.body;
+    b.style.transform='none';
+    var minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9,n=0,k=b.children;
+    for(var i=0;i<k.length;i++){
+      if(k[i].tagName==='SCRIPT')continue;
+      var r=k[i].getBoundingClientRect();
+      if(!r.width&amp;&amp;!r.height)continue;
+      if(r.left<minX)minX=r.left; if(r.top<minY)minY=r.top;
+      if(r.right>maxX)maxX=r.right; if(r.bottom>maxY)maxY=r.bottom; n++;
+    }
+    if(!n)return;
+    var w=maxX-minX,h=maxY-minY;
+    var W=document.documentElement.clientWidth,H=document.documentElement.clientHeight;
+    var s=Math.min(1,(W-20)/w,(H-20)/h);
+    if(s<1){
+      b.style.transformOrigin=((minX+maxX)/2)+'px '+((minY+maxY)/2)+'px';
+      b.style.transform='scale('+s+')';
+    }
+  }
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  setTimeout(fit,60);setTimeout(fit,350);
+})();
+</script>
 </body>
 </html>"></iframe>
         </div>
@@ -1425,7 +1614,7 @@ body{background:radial-gradient(1200px 600px at 80% -10%, #1e1b4b 0%, transparen
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+  body{display:grid;place-items:center;background:transparent;padding:0;box-sizing:border-box;overflow:hidden}
 .switch {
   font-size: 17px;
   position: relative;
@@ -1489,6 +1678,33 @@ body{background:radial-gradient(1200px 600px at 80% -10%, #1e1b4b 0%, transparen
   <span class=&quot;slider&quot;></span>
 </label>
 
+<script>
+(function(){
+  function fit(){
+    var b=document.body;
+    b.style.transform='none';
+    var minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9,n=0,k=b.children;
+    for(var i=0;i<k.length;i++){
+      if(k[i].tagName==='SCRIPT')continue;
+      var r=k[i].getBoundingClientRect();
+      if(!r.width&amp;&amp;!r.height)continue;
+      if(r.left<minX)minX=r.left; if(r.top<minY)minY=r.top;
+      if(r.right>maxX)maxX=r.right; if(r.bottom>maxY)maxY=r.bottom; n++;
+    }
+    if(!n)return;
+    var w=maxX-minX,h=maxY-minY;
+    var W=document.documentElement.clientWidth,H=document.documentElement.clientHeight;
+    var s=Math.min(1,(W-20)/w,(H-20)/h);
+    if(s<1){
+      b.style.transformOrigin=((minX+maxX)/2)+'px '+((minY+maxY)/2)+'px';
+      b.style.transform='scale('+s+')';
+    }
+  }
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  setTimeout(fit,60);setTimeout(fit,350);
+})();
+</script>
 </body>
 </html>"></iframe>
         </div>
@@ -1510,7 +1726,7 @@ body{background:radial-gradient(1200px 600px at 80% -10%, #1e1b4b 0%, transparen
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+  body{display:grid;place-items:center;background:transparent;padding:0;box-sizing:border-box;overflow:hidden}
 .btn {
   height: 4em;
   width: 12em;
@@ -1598,6 +1814,33 @@ body{background:radial-gradient(1200px 600px at 80% -10%, #1e1b4b 0%, transparen
   </div>
 </button>
 
+<script>
+(function(){
+  function fit(){
+    var b=document.body;
+    b.style.transform='none';
+    var minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9,n=0,k=b.children;
+    for(var i=0;i<k.length;i++){
+      if(k[i].tagName==='SCRIPT')continue;
+      var r=k[i].getBoundingClientRect();
+      if(!r.width&amp;&amp;!r.height)continue;
+      if(r.left<minX)minX=r.left; if(r.top<minY)minY=r.top;
+      if(r.right>maxX)maxX=r.right; if(r.bottom>maxY)maxY=r.bottom; n++;
+    }
+    if(!n)return;
+    var w=maxX-minX,h=maxY-minY;
+    var W=document.documentElement.clientWidth,H=document.documentElement.clientHeight;
+    var s=Math.min(1,(W-20)/w,(H-20)/h);
+    if(s<1){
+      b.style.transformOrigin=((minX+maxX)/2)+'px '+((minY+maxY)/2)+'px';
+      b.style.transform='scale('+s+')';
+    }
+  }
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  setTimeout(fit,60);setTimeout(fit,350);
+})();
+</script>
 </body>
 </html>"></iframe>
         </div>
@@ -1619,7 +1862,7 @@ body{background:radial-gradient(1200px 600px at 80% -10%, #1e1b4b 0%, transparen
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+  body{display:grid;place-items:center;background:transparent;padding:0;box-sizing:border-box;overflow:hidden}
 .flex {
   display: flex;
   align-items: center;
@@ -1680,6 +1923,33 @@ body{background:radial-gradient(1200px 600px at 80% -10%, #1e1b4b 0%, transparen
   <button class=&quot;outer-cont&quot;>Ai Button</button>
 </div>
 
+<script>
+(function(){
+  function fit(){
+    var b=document.body;
+    b.style.transform='none';
+    var minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9,n=0,k=b.children;
+    for(var i=0;i<k.length;i++){
+      if(k[i].tagName==='SCRIPT')continue;
+      var r=k[i].getBoundingClientRect();
+      if(!r.width&amp;&amp;!r.height)continue;
+      if(r.left<minX)minX=r.left; if(r.top<minY)minY=r.top;
+      if(r.right>maxX)maxX=r.right; if(r.bottom>maxY)maxY=r.bottom; n++;
+    }
+    if(!n)return;
+    var w=maxX-minX,h=maxY-minY;
+    var W=document.documentElement.clientWidth,H=document.documentElement.clientHeight;
+    var s=Math.min(1,(W-20)/w,(H-20)/h);
+    if(s<1){
+      b.style.transformOrigin=((minX+maxX)/2)+'px '+((minY+maxY)/2)+'px';
+      b.style.transform='scale('+s+')';
+    }
+  }
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  setTimeout(fit,60);setTimeout(fit,350);
+})();
+</script>
 </body>
 </html>"></iframe>
         </div>
@@ -1701,7 +1971,7 @@ body{background:radial-gradient(1200px 600px at 80% -10%, #1e1b4b 0%, transparen
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+  body{display:grid;place-items:center;background:transparent;padding:0;box-sizing:border-box;overflow:hidden}
 @property --orbit-angle {
   syntax: '<angle>';
   initial-value: 0deg;
@@ -1750,6 +2020,33 @@ body{background:radial-gradient(1200px 600px at 80% -10%, #1e1b4b 0%, transparen
 <body>
 <button class=&quot;btn-orbit&quot; type=&quot;button&quot;><span>Orbit</span></button>
 
+<script>
+(function(){
+  function fit(){
+    var b=document.body;
+    b.style.transform='none';
+    var minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9,n=0,k=b.children;
+    for(var i=0;i<k.length;i++){
+      if(k[i].tagName==='SCRIPT')continue;
+      var r=k[i].getBoundingClientRect();
+      if(!r.width&amp;&amp;!r.height)continue;
+      if(r.left<minX)minX=r.left; if(r.top<minY)minY=r.top;
+      if(r.right>maxX)maxX=r.right; if(r.bottom>maxY)maxY=r.bottom; n++;
+    }
+    if(!n)return;
+    var w=maxX-minX,h=maxY-minY;
+    var W=document.documentElement.clientWidth,H=document.documentElement.clientHeight;
+    var s=Math.min(1,(W-20)/w,(H-20)/h);
+    if(s<1){
+      b.style.transformOrigin=((minX+maxX)/2)+'px '+((minY+maxY)/2)+'px';
+      b.style.transform='scale('+s+')';
+    }
+  }
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  setTimeout(fit,60);setTimeout(fit,350);
+})();
+</script>
 </body>
 </html>"></iframe>
         </div>
@@ -1771,7 +2068,7 @@ body{background:radial-gradient(1200px 600px at 80% -10%, #1e1b4b 0%, transparen
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+  body{display:grid;place-items:center;background:transparent;padding:0;box-sizing:border-box;overflow:hidden}
 .btn-shimmer {
   --c: var(--btn-color, #6366f1);
   position: relative;
@@ -1814,6 +2111,33 @@ body{background:radial-gradient(1200px 600px at 80% -10%, #1e1b4b 0%, transparen
 <body>
 <button class=&quot;btn-shimmer&quot; type=&quot;button&quot;>Shimmer</button>
 
+<script>
+(function(){
+  function fit(){
+    var b=document.body;
+    b.style.transform='none';
+    var minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9,n=0,k=b.children;
+    for(var i=0;i<k.length;i++){
+      if(k[i].tagName==='SCRIPT')continue;
+      var r=k[i].getBoundingClientRect();
+      if(!r.width&amp;&amp;!r.height)continue;
+      if(r.left<minX)minX=r.left; if(r.top<minY)minY=r.top;
+      if(r.right>maxX)maxX=r.right; if(r.bottom>maxY)maxY=r.bottom; n++;
+    }
+    if(!n)return;
+    var w=maxX-minX,h=maxY-minY;
+    var W=document.documentElement.clientWidth,H=document.documentElement.clientHeight;
+    var s=Math.min(1,(W-20)/w,(H-20)/h);
+    if(s<1){
+      b.style.transformOrigin=((minX+maxX)/2)+'px '+((minY+maxY)/2)+'px';
+      b.style.transform='scale('+s+')';
+    }
+  }
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  setTimeout(fit,60);setTimeout(fit,350);
+})();
+</script>
 </body>
 </html>"></iframe>
         </div>
@@ -1835,7 +2159,7 @@ body{background:radial-gradient(1200px 600px at 80% -10%, #1e1b4b 0%, transparen
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+  body{display:grid;place-items:center;background:transparent;padding:0;box-sizing:border-box;overflow:hidden}
 .btn-ripple {
   position: relative;
   overflow: hidden;
@@ -1884,6 +2208,33 @@ document.querySelectorAll('.btn-ripple').forEach(function (btn) {
   });
 });
 </script>
+<script>
+(function(){
+  function fit(){
+    var b=document.body;
+    b.style.transform='none';
+    var minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9,n=0,k=b.children;
+    for(var i=0;i<k.length;i++){
+      if(k[i].tagName==='SCRIPT')continue;
+      var r=k[i].getBoundingClientRect();
+      if(!r.width&amp;&amp;!r.height)continue;
+      if(r.left<minX)minX=r.left; if(r.top<minY)minY=r.top;
+      if(r.right>maxX)maxX=r.right; if(r.bottom>maxY)maxY=r.bottom; n++;
+    }
+    if(!n)return;
+    var w=maxX-minX,h=maxY-minY;
+    var W=document.documentElement.clientWidth,H=document.documentElement.clientHeight;
+    var s=Math.min(1,(W-20)/w,(H-20)/h);
+    if(s<1){
+      b.style.transformOrigin=((minX+maxX)/2)+'px '+((minY+maxY)/2)+'px';
+      b.style.transform='scale('+s+')';
+    }
+  }
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  setTimeout(fit,60);setTimeout(fit,350);
+})();
+</script>
 </body>
 </html>"></iframe>
         </div>
@@ -1905,7 +2256,7 @@ document.querySelectorAll('.btn-ripple').forEach(function (btn) {
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+  body{display:grid;place-items:center;background:transparent;padding:0;box-sizing:border-box;overflow:hidden}
 .text-flow {
   font: 800 38px/1.2 system-ui, sans-serif;
   letter-spacing: -0.01em;
@@ -1929,6 +2280,33 @@ document.querySelectorAll('.btn-ripple').forEach(function (btn) {
 <body>
 <div class=&quot;text-flow&quot;>Star Flow</div>
 
+<script>
+(function(){
+  function fit(){
+    var b=document.body;
+    b.style.transform='none';
+    var minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9,n=0,k=b.children;
+    for(var i=0;i<k.length;i++){
+      if(k[i].tagName==='SCRIPT')continue;
+      var r=k[i].getBoundingClientRect();
+      if(!r.width&amp;&amp;!r.height)continue;
+      if(r.left<minX)minX=r.left; if(r.top<minY)minY=r.top;
+      if(r.right>maxX)maxX=r.right; if(r.bottom>maxY)maxY=r.bottom; n++;
+    }
+    if(!n)return;
+    var w=maxX-minX,h=maxY-minY;
+    var W=document.documentElement.clientWidth,H=document.documentElement.clientHeight;
+    var s=Math.min(1,(W-20)/w,(H-20)/h);
+    if(s<1){
+      b.style.transformOrigin=((minX+maxX)/2)+'px '+((minY+maxY)/2)+'px';
+      b.style.transform='scale('+s+')';
+    }
+  }
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  setTimeout(fit,60);setTimeout(fit,350);
+})();
+</script>
 </body>
 </html>"></iframe>
         </div>
@@ -1950,7 +2328,7 @@ document.querySelectorAll('.btn-ripple').forEach(function (btn) {
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+  body{display:grid;place-items:center;background:transparent;padding:0;box-sizing:border-box;overflow:hidden}
 .btn-burst {
   position: relative;
   padding: 0.9em 1.9em;
@@ -2005,6 +2383,33 @@ document.querySelectorAll('.btn-burst').forEach(function (btn) {
   });
 });
 </script>
+<script>
+(function(){
+  function fit(){
+    var b=document.body;
+    b.style.transform='none';
+    var minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9,n=0,k=b.children;
+    for(var i=0;i<k.length;i++){
+      if(k[i].tagName==='SCRIPT')continue;
+      var r=k[i].getBoundingClientRect();
+      if(!r.width&amp;&amp;!r.height)continue;
+      if(r.left<minX)minX=r.left; if(r.top<minY)minY=r.top;
+      if(r.right>maxX)maxX=r.right; if(r.bottom>maxY)maxY=r.bottom; n++;
+    }
+    if(!n)return;
+    var w=maxX-minX,h=maxY-minY;
+    var W=document.documentElement.clientWidth,H=document.documentElement.clientHeight;
+    var s=Math.min(1,(W-20)/w,(H-20)/h);
+    if(s<1){
+      b.style.transformOrigin=((minX+maxX)/2)+'px '+((minY+maxY)/2)+'px';
+      b.style.transform='scale('+s+')';
+    }
+  }
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  setTimeout(fit,60);setTimeout(fit,350);
+})();
+</script>
 </body>
 </html>"></iframe>
         </div>
@@ -2026,7 +2431,7 @@ document.querySelectorAll('.btn-burst').forEach(function (btn) {
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+  body{display:grid;place-items:center;background:transparent;padding:0;box-sizing:border-box;overflow:hidden}
 .btn-sparkle {
   --c: var(--btn-color, #3b82f6);
   display: inline-flex;
@@ -2095,6 +2500,33 @@ document.querySelectorAll('.btn-burst').forEach(function (btn) {
   Generate
 </button>
 
+<script>
+(function(){
+  function fit(){
+    var b=document.body;
+    b.style.transform='none';
+    var minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9,n=0,k=b.children;
+    for(var i=0;i<k.length;i++){
+      if(k[i].tagName==='SCRIPT')continue;
+      var r=k[i].getBoundingClientRect();
+      if(!r.width&amp;&amp;!r.height)continue;
+      if(r.left<minX)minX=r.left; if(r.top<minY)minY=r.top;
+      if(r.right>maxX)maxX=r.right; if(r.bottom>maxY)maxY=r.bottom; n++;
+    }
+    if(!n)return;
+    var w=maxX-minX,h=maxY-minY;
+    var W=document.documentElement.clientWidth,H=document.documentElement.clientHeight;
+    var s=Math.min(1,(W-20)/w,(H-20)/h);
+    if(s<1){
+      b.style.transformOrigin=((minX+maxX)/2)+'px '+((minY+maxY)/2)+'px';
+      b.style.transform='scale('+s+')';
+    }
+  }
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  setTimeout(fit,60);setTimeout(fit,350);
+})();
+</script>
 </body>
 </html>"></iframe>
         </div>
@@ -2107,7 +2539,7 @@ document.querySelectorAll('.btn-burst').forEach(function (btn) {
     </article>
   </main>
 </div>
-<script src="assets/site.js?v=fe3dd7ee"></script>
+<script src="assets/site.js?v=3a5a4283"></script>
 <footer class="site-footer">
   <div class="wrap">
     <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub</a>

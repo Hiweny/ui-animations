@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>流光扫过按钮 · UI 动效画廊</title>
 <meta name="description" content="一条倾斜的高光带沿按钮表面循环扫过，像金属反光。用 ::before 伪元素 + skewX 实现，不增加任何多余 DOM。">
+<link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/shimmer-button.html">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
@@ -16,11 +17,11 @@
     <div class="anim-meta">
       <span class="tag">本仓库原创</span>
       
-      <a href="https://hiweny.github.io/ui-animations/animations/shimmer-button.html" target="_blank" rel="noopener">深链 ↗</a>
     </div>
+    <p class="anim-url">深链地址：<a href="https://hiweny.github.io/ui-animations/animations/shimmer-button.html">https://hiweny.github.io/ui-animations/animations/shimmer-button.html</a></p>
   </header>
 
-  <section class="stage">
+  <section class="stage" aria-label="实时预览">
     <iframe title="流光扫过按钮 实时预览" loading="lazy" srcdoc="<!doctype html>
 <html lang=&quot;zh-CN&quot;>
 <head>
@@ -28,12 +29,7 @@
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{
-    display:grid;place-items:center;
-    background:#080c16;
-    padding:24px;
-    box-sizing:border-box;
-  }
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
 .btn-shimmer {
   --c: var(--btn-color, #6366f1);
   position: relative;
@@ -53,12 +49,7 @@
   content: '';
   position: absolute;
   inset: -30% -60%;
-  background: linear-gradient(
-    100deg,
-    transparent 35%,
-    rgba(255, 255, 255, 0.75) 50%,
-    transparent 65%
-  );
+  background: linear-gradient(100deg, transparent 35%, rgba(255, 255, 255, 0.75) 50%, transparent 65%);
   transform: translateX(-110%) skewX(-18deg);
   animation: btn-shimmer-sweep 2.6s ease-in-out infinite;
   pointer-events: none;
@@ -79,7 +70,8 @@
 </style>
 </head>
 <body>
-<button class=&quot;btn-shimmer&quot;>Shimmer</button>
+<button class=&quot;btn-shimmer&quot; type=&quot;button&quot;>Shimmer</button>
+
 </body>
 </html>"></iframe>
   </section>
@@ -89,13 +81,9 @@
       <span class="label">HTML + CSS · 一键复制</span>
       <button class="copy-btn" type="button" data-copy="#src">复制全部代码</button>
     </div>
-    <pre class="code" id="src" data-src="#raw"></pre>
-  </section>
-</div>
+    <pre class="code" id="src"><code>&lt;button class="btn-shimmer" type="button"&gt;Shimmer&lt;/button&gt;
 
-<script type="text/plain" id="raw"><button class="btn-shimmer">Shimmer</button>
-
-<style>
+&lt;style&gt;
 .btn-shimmer {
   --c: var(--btn-color, #6366f1);
   position: relative;
@@ -115,12 +103,7 @@
   content: '';
   position: absolute;
   inset: -30% -60%;
-  background: linear-gradient(
-    100deg,
-    transparent 35%,
-    rgba(255, 255, 255, 0.75) 50%,
-    transparent 65%
-  );
+  background: linear-gradient(100deg, transparent 35%, rgba(255, 255, 255, 0.75) 50%, transparent 65%);
   transform: translateX(-110%) skewX(-18deg);
   animation: btn-shimmer-sweep 2.6s ease-in-out infinite;
   pointer-events: none;
@@ -137,7 +120,14 @@
 @media (prefers-reduced-motion: reduce) {
   .btn-shimmer::before { animation: none; }
 }
-</style></script>
+&lt;/style&gt;</code></pre>
+  </section>
+
+  <section class="anim-tags">
+    <h2 class="anim-subtitle">标签</h2>
+    <div class="card-tags"><span class="tag">button</span><span class="tag">shimmer</span><span class="tag">流光</span><span class="tag">hover</span></div>
+  </section>
+</div>
 <script src="../assets/site.js"></script>
 <footer class="site-footer">
   <div class="wrap">

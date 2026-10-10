@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/gradient-flow-text.html">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="apple-touch-icon" href="../favicon.svg">
-<link rel="stylesheet" href="../assets/site.css?v=0933aacd">
+<link rel="stylesheet" href="../assets/site.css?v=fe3dd7ee">
 </head>
 <body>
 <div class="bg-fx" aria-hidden="true">
@@ -81,33 +81,34 @@
 
   <section class="code-panel">
     <div class="code-bar">
-      <span class="label">HTML + CSS</span>
-      <button class="copy-btn" type="button" data-copy="#src">复制全部代码</button>
+      <div class="code-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <span class="code-file">gradient-flow-text.html</span>
+      <button class="copy-btn" type="button" data-copy="#src">复制代码</button>
     </div>
-    <pre class="code" id="src"><code>&lt;div class="text-flow"&gt;Star Flow&lt;/div&gt;
+    <pre class="code" id="src"><code><span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"text-flow"</span>&gt;Star Flow<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
 
-&lt;style&gt;
+<span class="c-punc">&lt;</span><span class="c-tag">style</span>&gt;
 .text-flow {
-  font: 800 38px/1.2 system-ui, sans-serif;
+  font: <span class="c-num">800</span> <span class="c-num">38px</span>/<span class="c-num">1.2</span> system-ui, sans-serif;
   letter-spacing: -0.01em;
-  background: linear-gradient(90deg, #818cf8, #22d3ee, #f472b6, #818cf8);
-  background-size: 200% 100%;
+  background: linear-gradient(<span class="c-num">90deg</span>, #<span class="c-num">818</span>cf8, #<span class="c-num">22</span>d3ee, #f472b6, #<span class="c-num">818</span>cf8);
+  background-size: <span class="c-num">200%</span> <span class="c-num">100%</span>;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: text-flow 4s linear infinite;
+  animation: text-flow <span class="c-num">4s</span> linear infinite;
 }
 @keyframes text-flow {
-  to { background-position: -200% 0; }
+  to { background-position: -200% <span class="c-num">0</span>; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .text-flow { animation: none; }
 }
-&lt;/style&gt;</code></pre>
+<span class="c-punc">&lt;/</span><span class="c-tag">style</span>&gt;</code></pre>
   </section>
 </div>
-<script src="../assets/site.js?v=0933aacd"></script>
+<script src="../assets/site.js?v=fe3dd7ee"></script>
 <footer class="site-footer">
   <div class="wrap">
     <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub</a>

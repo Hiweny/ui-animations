@@ -1,10 +1,18 @@
-import { writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
+import { writeFileSync, mkdirSync, rmSync, existsSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto';
 import { animations } from './data/animations.mjs';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const OUT_ANIM = join(ROOT, 'animations');
+
+/** 资源版本号：取 css+js 内容哈希，链接带 ?v= 以击穿 Pages/CDN 缓存 */
+const ASSET_VER = createHash('md5')
+  .update(readFileSync(join(ROOT, 'assets/site.css')))
+  .update(readFileSync(join(ROOT, 'assets/site.js')))
+  .digest('hex')
+  .slice(0, 8);
 
 const REPO = 'https://github.com/Hiweny/ui-animations';
 const SITE = 'https://hiweny.github.io/ui-animations';
@@ -36,7 +44,7 @@ function tagsHtml(tags) {
 }
 
 function head(title, desc, base) {
-  return `<!doctype html>\n<html lang="zh-CN">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n<title>${title}</title>\n<meta name="description" content="${desc}">\n<link rel="canonical" href="${SITE}/{{PATH}}">\n<link rel="icon" type="image/svg+xml" href="${base}favicon.svg">\n<link rel="apple-touch-icon" href="${base}favicon.svg">\n<link rel="stylesheet" href="${base}assets/site.css">\n</head>\n<body>${BG}`;
+  return `<!doctype html>\n<html lang="zh-CN">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n<title>${title}</title>\n<meta name="description" content="${desc}">\n<link rel="canonical" href="${SITE}/{{PATH}}">\n<link rel="icon" type="image/svg+xml" href="${base}favicon.svg">\n<link rel="apple-touch-icon" href="${base}favicon.svg">\n<link rel="stylesheet" href="${base}assets/site.css?v=${ASSET_VER}">\n</head>\n<body>${BG}`;
 }
 
 const BG = `\n<div class="bg-fx" aria-hidden="true">\n  <span class="meteor" style="--x:-12%;--delay:0s;--dur:6.5s"></span>\n  <span class="meteor" style="--x:6%;--delay:1.8s;--dur:7.8s"></span>\n  <span class="meteor" style="--x:24%;--delay:3.6s;--dur:7s"></span>\n  <span class="meteor" style="--x:44%;--delay:0.9s;--dur:8.4s"></span>\n  <span class="meteor" style="--x:63%;--delay:2.7s;--dur:6.8s"></span>\n  <span class="meteor" style="--x:82%;--delay:4.5s;--dur:9s"></span>\n  <span class="star" style="--x:10%;--y:18%;--delay:0s;--dur:2.6s"></span>\n  <span class="star" style="--x:22%;--y:42%;--delay:.6s;--dur:3.4s"></span>\n  <span class="star" style="--x:34%;--y:12%;--delay:1.2s;--dur:2.9s"></span>\n  <span class="star" style="--x:46%;--y:66%;--delay:.3s;--dur:3.8s"></span>\n  <span class="star" style="--x:58%;--y:28%;--delay:1.5s;--dur:2.4s"></span>\n  <span class="star" style="--x:70%;--y:54%;--delay:.9s;--dur:3.2s"></span>\n  <span class="star" style="--x:82%;--y:16%;--delay:2.1s;--dur:2.7s"></span>\n  <span class="star" style="--x:93%;--y:38%;--delay:.4s;--dur:4.2s"></span>\n  <span class="star" style="--x:16%;--y:78%;--delay:1.8s;--dur:3.1s"></span>\n  <span class="star" style="--x:28%;--y:58%;--delay:.2s;--dur:2.8s"></span>\n  <span class="star" style="--x:40%;--y:88%;--delay:2.4s;--dur:3.6s"></span>\n  <span class="star" style="--x:52%;--y:34%;--delay:1.1s;--dur:2.5s"></span>\n  <span class="star" style="--x:64%;--y:72%;--delay:.7s;--dur:3.9s"></span>\n  <span class="star" style="--x:76%;--y:46%;--delay:2.0s;--dur:2.3s"></span>\n  <span class="star" style="--x:88%;--y:64%;--delay:1.4s;--dur:3.3s"></span>\n  <span class="star" style="--x:6%;--y:52%;--delay:.5s;--dur:3.7s"></span>\n</div>`;
@@ -71,7 +79,7 @@ function detailPage(a) {
     <pre class="code" id="src"><code>${esc(src)}</code></pre>
   </section>
 </div>
-<script src="${base}assets/site.js"></script>` +
+<script src="${base}assets/site.js?v=${ASSET_VER}"></script>` +
     FOOT
   );
 }
@@ -108,7 +116,7 @@ function indexPage(list) {
   <main class="grid">${cards}
   </main>
 </div>
-<script src="assets/site.js"></script>` +
+<script src="assets/site.js?v=${ASSET_VER}"></script>` +
     FOOT
   );
 }

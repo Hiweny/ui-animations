@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hiweny.github.io/ui-animations/sitemap.xml

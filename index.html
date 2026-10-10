@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>UI 动效画廊 · 精美网页动效收集</title>
-<meta name="description" content="收集精美的网页 UI 动效，每个都有实时预览、深链和一键复制的 HTML+CSS 源码。">
+<meta name="description" content="收集精美的网页 UI 动效，每个都有实时预览、独立深链和一键复制的 HTML+CSS 源码。">
+<link rel="canonical" href="https://hiweny.github.io/ui-animations/">
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
@@ -14,7 +15,17 @@
     <p class="site-sub">
       收藏好看的网页动效 —— 每个动效一个独立深链，点进去就能看到实时效果，
       下方提供 HTML 与 CSS 合并在一起的源码，一键复制即可用。<br>
-      当前收录 <strong>3</strong> 个动效。
+      当前收录 <strong>10</strong> 个动效。
+    </p>
+    <p class="site-actions">
+      <a class="btn-sparkle" href="animations/sparkle-button.html">
+        <span class="btn-sparkle-star" style="--i:0" aria-hidden="true"></span>
+        <span class="btn-sparkle-star" style="--i:1" aria-hidden="true"></span>
+        <span class="btn-sparkle-star" style="--i:2" aria-hidden="true"></span>
+        <span class="btn-sparkle-star" style="--i:3" aria-hidden="true"></span>
+        <svg class="btn-sparkle-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.3 7.7L22 12l-7.7 2.3L12 22l-2.3-7.7L2 12l7.7-2.3z"/></svg>
+        看一个星星按钮
+      </a>
     </p>
   </header>
 
@@ -28,12 +39,7 @@
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{
-    display:grid;place-items:center;
-    background:#080c16;
-    padding:24px;
-    box-sizing:border-box;
-  }
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
 .btn-sparkle {
   --c: var(--btn-color, #3b82f6);
   display: inline-flex;
@@ -101,15 +107,503 @@
   <svg class=&quot;btn-sparkle-icon&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot;><path d=&quot;M12 2l2.3 7.7L22 12l-7.7 2.3L12 22l-2.3-7.7L2 12l7.7-2.3z&quot;/></svg>
   Generate
 </button>
+
 </body>
 </html>"></iframe>
       </div>
       <div class="card-body">
         <h2 class="card-name">星星闪光按钮</h2>
         <p class="card-desc">按钮四角藏着四颗小星星，鼠标悬停时依次旋转、放大、闪烁，图标同时旋转放大。纯 CSS 驱动，靠 --i 变量错开每颗星的动画延迟。</p>
-        <div class="card-tags"><span class="tag">button</span><span class="tag">sparkle</span><span class="tag">hover</span><span class="tag">星轨</span></div>
+        <div class="card-tags"><span class="tag">button</span><span class="tag">star</span><span class="tag">sparkle</span><span class="tag">hover</span></div>
+        <p class="card-url">深链：<a href="animations/sparkle-button.html">https://hiweny.github.io/ui-animations/animations/sparkle-button.html</a></p>
         <div class="card-actions">
           <a class="btn-link primary" href="animations/sparkle-button.html">查看 / 复制代码</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-stage">
+        <iframe title="星环环绕按钮 预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+.btn-galaxy {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.9em 2.2em;
+  border: 0;
+  border-radius: 999px;
+  font: 700 17px/1.2 system-ui, sans-serif;
+  color: #fff;
+  cursor: pointer;
+  background: radial-gradient(120% 160% at 50% 0%, #6366f1, #1e1b4b 75%);
+  box-shadow: 0 12px 30px -14px #6366f1;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.btn-galaxy:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px -14px #6366f1;
+}
+.btn-galaxy .orbit-star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px;
+  border-radius: 50%;
+  background: #fde68a;
+  box-shadow: 0 0 10px #fbbf24;
+  pointer-events: none;
+  animation: galaxy-orbit 4s linear infinite;
+  animation-delay: calc(var(--a) * -4s / 360);
+}
+@keyframes galaxy-orbit {
+  from { transform: rotate(0deg) translateX(62px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(62px) rotate(-360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-galaxy .orbit-star { animation: none; opacity: 0; }
+}
+
+</style>
+</head>
+<body>
+<button class=&quot;btn-galaxy&quot;>
+  <i class=&quot;orbit-star&quot; style=&quot;--a:0&quot;></i>
+  <i class=&quot;orbit-star&quot; style=&quot;--a:72&quot;></i>
+  <i class=&quot;orbit-star&quot; style=&quot;--a:144&quot;></i>
+  <i class=&quot;orbit-star&quot; style=&quot;--a:216&quot;></i>
+  <i class=&quot;orbit-star&quot; style=&quot;--a:288&quot;></i>
+  <span>Galaxy</span>
+</button>
+
+</body>
+</html>"></iframe>
+      </div>
+      <div class="card-body">
+        <h2 class="card-name">星环环绕按钮</h2>
+        <p class="card-desc">五颗小星星沿一个圆形轨道持续环绕按钮旋转，像行星轨道。用绝对定位 + rotate/translateX 组合，并用 --a 变量给每颗星设置负延迟错开起始角度。</p>
+        <div class="card-tags"><span class="tag">button</span><span class="tag">star</span><span class="tag">orbit</span><span class="tag">星环</span></div>
+        <p class="card-url">深链：<a href="animations/orbiting-stars-button.html">https://hiweny.github.io/ui-animations/animations/orbiting-stars-button.html</a></p>
+        <div class="card-actions">
+          <a class="btn-link primary" href="animations/orbiting-stars-button.html">查看 / 复制代码</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-stage">
+        <iframe title="闪烁星空背景 预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+.starfield {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: 190px;
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(120% 110% at 50% 0%, #1e1b4b, #05070f 72%);
+  border: 1px solid #1f2937;
+}
+.starfield::before,
+.starfield::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.starfield::before {
+  background-image:
+    radial-gradient(1.6px 1.6px at 24px 34px, #ffffff, transparent),
+    radial-gradient(1.4px 1.4px at 92px 68px, #fde68a, transparent),
+    radial-gradient(1.8px 1.8px at 140px 26px, #c7d2fe, transparent),
+    radial-gradient(1.2px 1.2px at 60px 118px, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 118px 142px, #fca5a5, transparent);
+  background-size: 180px 180px;
+  animation: twinkle 3.6s ease-in-out infinite alternate;
+}
+.starfield::after {
+  background-image:
+    radial-gradient(1.1px 1.1px at 44px 22px, #ffffff, transparent),
+    radial-gradient(1.3px 1.3px at 160px 96px, #a5b4fc, transparent),
+    radial-gradient(1px 1px at 110px 40px, #ffffff, transparent),
+    radial-gradient(1.4px 1.4px at 20px 150px, #fde68a, transparent);
+  background-size: 240px 240px;
+  animation: twinkle 5.2s ease-in-out infinite alternate-reverse;
+}
+.starfield-text {
+  position: relative;
+  z-index: 1;
+  font: 800 26px/1.2 system-ui, sans-serif;
+  letter-spacing: 0.06em;
+  background: linear-gradient(120deg, #c7d2fe, #fde68a, #a5b4fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@keyframes twinkle {
+  from { opacity: 0.22; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .starfield::before, .starfield::after { animation: none; opacity: 0.75; }
+}
+
+</style>
+</head>
+<body>
+<div class=&quot;starfield&quot;>
+  <span class=&quot;starfield-text&quot;>Starfield</span>
+</div>
+
+</body>
+</html>"></iframe>
+      </div>
+      <div class="card-body">
+        <h2 class="card-name">闪烁星空背景</h2>
+        <p class="card-desc">两层不同密度、不同速度的星点叠加成星空，缓慢明暗呼吸。用 radial-gradient 在重复背景里画星点，不产生任何多余 DOM，适合当 Hero 背景。</p>
+        <div class="card-tags"><span class="tag">background</span><span class="tag">star</span><span class="tag">twinkle</span><span class="tag">星空</span></div>
+        <p class="card-url">深链：<a href="animations/twinkle-starfield.html">https://hiweny.github.io/ui-animations/animations/twinkle-starfield.html</a></p>
+        <div class="card-actions">
+          <a class="btn-link primary" href="animations/twinkle-starfield.html">查看 / 复制代码</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-stage">
+        <iframe title="点击星星爆裂按钮 预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+.btn-burst {
+  position: relative;
+  padding: 0.9em 1.9em;
+  border: 0;
+  border-radius: 999px;
+  font: 700 17px/1.2 system-ui, sans-serif;
+  color: #4a2c00;
+  cursor: pointer;
+  background: linear-gradient(135deg, #fde68a, #fbbf24);
+  box-shadow: 0 12px 26px -14px #f59e0b;
+  transition: transform 0.15s ease;
+}
+.btn-burst:active { transform: scale(0.96); }
+.burst-star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin: -5px;
+  background: #fbbf24;
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  pointer-events: none;
+  animation: burst 0.9s ease-out forwards;
+}
+@keyframes burst {
+  0%   { transform: translate(0, 0) scale(0.4) rotate(0deg); opacity: 1; }
+  100% { transform: translate(var(--x), var(--y)) scale(1.1) rotate(160deg); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .burst-star { display: none; }
+}
+
+</style>
+</head>
+<body>
+<button class=&quot;btn-burst&quot; type=&quot;button&quot;>点我放星星</button>
+<script>
+document.querySelectorAll('.btn-burst').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    for (var i = 0; i < 12; i++) {
+      var s = document.createElement('span');
+      s.className = 'burst-star';
+      var ang = (Math.PI * 2 * i) / 12;
+      var dist = 42 + Math.random() * 40;
+      s.style.setProperty('--x', Math.cos(ang) * dist + 'px');
+      s.style.setProperty('--y', Math.sin(ang) * dist + 'px');
+      btn.appendChild(s);
+      setTimeout(function (el) { return function () { el.remove(); }; }(s), 900);
+    }
+  });
+});
+</script>
+</body>
+</html>"></iframe>
+      </div>
+      <div class="card-body">
+        <h2 class="card-name">点击星星爆裂按钮</h2>
+        <p class="card-desc">点击按钮时从中心向四周迸射出 12 颗小星星，呈放射状飞散并淡出。星星由 JS 动态生成，飞行距离与角度随机。</p>
+        <div class="card-tags"><span class="tag">button</span><span class="tag">star</span><span class="tag">click</span><span class="tag">粒子</span></div>
+        <p class="card-url">深链：<a href="animations/star-burst-button.html">https://hiweny.github.io/ui-animations/animations/star-burst-button.html</a></p>
+        <div class="card-actions">
+          <a class="btn-link primary" href="animations/star-burst-button.html">查看 / 复制代码</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-stage">
+        <iframe title="彩虹旋转描边按钮 预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+.btn-rainbow {
+  position: relative;
+  z-index: 0;
+  padding: 0.9em 2.2em;
+  border: 0;
+  border-radius: 999px;
+  font: 700 17px/1.2 system-ui, sans-serif;
+  color: #e5e7eb;
+  cursor: pointer;
+  background: #0b1020;
+  transition: color 0.3s ease;
+}
+.btn-rainbow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  z-index: -1;
+  background: conic-gradient(#f43f5e, #f59e0b, #22d3ee, #a855f7, #f43f5e);
+  animation: rainbow-spin 3s linear infinite;
+}
+.btn-rainbow:hover { color: #fff; }
+@keyframes rainbow-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-rainbow::before { animation: none; }
+}
+
+</style>
+</head>
+<body>
+<button class=&quot;btn-rainbow&quot; type=&quot;button&quot;><span>Rainbow</span></button>
+
+</body>
+</html>"></iframe>
+      </div>
+      <div class="card-body">
+        <h2 class="card-name">彩虹旋转描边按钮</h2>
+        <p class="card-desc">按钮背后藏着一个 conic-gradient 彩虹环，持续旋转，只在边缘露出 2px 成为流动的彩色描边。用 z-index 分层实现，无需 mask。</p>
+        <div class="card-tags"><span class="tag">button</span><span class="tag">rainbow</span><span class="tag">border</span><span class="tag">gradient</span></div>
+        <p class="card-url">深链：<a href="animations/rainbow-border-button.html">https://hiweny.github.io/ui-animations/animations/rainbow-border-button.html</a></p>
+        <div class="card-actions">
+          <a class="btn-link primary" href="animations/rainbow-border-button.html">查看 / 复制代码</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-stage">
+        <iframe title="霓虹发光按钮 预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+.btn-neon {
+  --c: #22d3ee;
+  padding: 0.9em 2em;
+  border: 2px solid var(--c);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--c);
+  font: 700 16px/1 system-ui, sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-shadow: 0 0 8px color-mix(in srgb, var(--c) 70%, transparent);
+  box-shadow:
+    0 0 8px color-mix(in srgb, var(--c) 60%, transparent),
+    inset 0 0 8px color-mix(in srgb, var(--c) 35%, transparent);
+  animation: neon-pulse 2.2s ease-in-out infinite alternate;
+  transition: color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-neon:hover {
+  color: #fff;
+  background: color-mix(in srgb, var(--c) 18%, transparent);
+  box-shadow:
+    0 0 22px var(--c),
+    inset 0 0 16px color-mix(in srgb, var(--c) 45%, transparent);
+  animation-play-state: paused;
+}
+@keyframes neon-pulse {
+  from { filter: brightness(0.92); }
+  to   { filter: brightness(1.18); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-neon { animation: none; }
+}
+
+</style>
+</head>
+<body>
+<button class=&quot;btn-neon&quot; type=&quot;button&quot;>Neon</button>
+
+</body>
+</html>"></iframe>
+      </div>
+      <div class="card-body">
+        <h2 class="card-name">霓虹发光按钮</h2>
+        <p class="card-desc">描边与文字带霓虹光晕并持续呼吸，悬停时整颗按钮亮起白光、背景透出色彩。用 box-shadow 内外双层 + color-mix 控制光晕强度。</p>
+        <div class="card-tags"><span class="tag">button</span><span class="tag">neon</span><span class="tag">glow</span><span class="tag">hover</span></div>
+        <p class="card-url">深链：<a href="animations/neon-glow-button.html">https://hiweny.github.io/ui-animations/animations/neon-glow-button.html</a></p>
+        <div class="card-actions">
+          <a class="btn-link primary" href="animations/neon-glow-button.html">查看 / 复制代码</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-stage">
+        <iframe title="流光渐变文字 预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+.text-flow {
+  font: 800 38px/1.2 system-ui, sans-serif;
+  letter-spacing: -0.01em;
+  background: linear-gradient(90deg, #818cf8, #22d3ee, #f472b6, #818cf8);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: text-flow 4s linear infinite;
+}
+@keyframes text-flow {
+  to { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-flow { animation: none; }
+}
+
+</style>
+</head>
+<body>
+<div class=&quot;text-flow&quot;>Star Flow</div>
+
+</body>
+</html>"></iframe>
+      </div>
+      <div class="card-body">
+        <h2 class="card-name">流光渐变文字</h2>
+        <p class="card-desc">文字用四色渐变填充并循环流动，像液态金属反光。靠 background-size 放大后用 background-position 位移实现无缝循环。</p>
+        <div class="card-tags"><span class="tag">text</span><span class="tag">gradient</span><span class="tag">flow</span><span class="tag">流光</span></div>
+        <p class="card-url">深链：<a href="animations/gradient-flow-text.html">https://hiweny.github.io/ui-animations/animations/gradient-flow-text.html</a></p>
+        <div class="card-actions">
+          <a class="btn-link primary" href="animations/gradient-flow-text.html">查看 / 复制代码</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-stage">
+        <iframe title="点击涟漪按钮 预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+  padding: 0.9em 2.2em;
+  border: 0;
+  border-radius: 12px;
+  font: 700 17px/1.2 system-ui, sans-serif;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(135deg, #0ea5e9, #6366f1);
+  box-shadow: 0 12px 26px -14px #6366f1;
+}
+.btn-ripple .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(0);
+  pointer-events: none;
+  animation: ripple-out 0.6s ease-out forwards;
+}
+@keyframes ripple-out {
+  to { transform: scale(2.6); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-ripple .ripple { display: none; }
+}
+
+</style>
+</head>
+<body>
+<button class=&quot;btn-ripple&quot; type=&quot;button&quot;>点我涟漪</button>
+<script>
+document.querySelectorAll('.btn-ripple').forEach(function (btn) {
+  btn.addEventListener('click', function (e) {
+    var r = btn.getBoundingClientRect();
+    var d = Math.max(r.width, r.height) * 1.2;
+    var s = document.createElement('span');
+    s.className = 'ripple';
+    s.style.width = d + 'px';
+    s.style.height = d + 'px';
+    s.style.left = (e.clientX - r.left - d / 2) + 'px';
+    s.style.top = (e.clientY - r.top - d / 2) + 'px';
+    btn.appendChild(s);
+    setTimeout(function () { s.remove(); }, 620);
+  });
+});
+</script>
+</body>
+</html>"></iframe>
+      </div>
+      <div class="card-body">
+        <h2 class="card-name">点击涟漪按钮</h2>
+        <p class="card-desc">点击位置生成一圈白色涟漪扩散淡出，模拟水面波纹。涟漪大小按按钮尺寸计算，位置跟随鼠标落点。</p>
+        <div class="card-tags"><span class="tag">button</span><span class="tag">ripple</span><span class="tag">click</span><span class="tag">涟漪</span></div>
+        <p class="card-url">深链：<a href="animations/ripple-button.html">https://hiweny.github.io/ui-animations/animations/ripple-button.html</a></p>
+        <div class="card-actions">
+          <a class="btn-link primary" href="animations/ripple-button.html">查看 / 复制代码</a>
         </div>
       </div>
     </article>
@@ -123,12 +617,7 @@
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{
-    display:grid;place-items:center;
-    background:#080c16;
-    padding:24px;
-    box-sizing:border-box;
-  }
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
 .btn-shimmer {
   --c: var(--btn-color, #6366f1);
   position: relative;
@@ -148,12 +637,7 @@
   content: '';
   position: absolute;
   inset: -30% -60%;
-  background: linear-gradient(
-    100deg,
-    transparent 35%,
-    rgba(255, 255, 255, 0.75) 50%,
-    transparent 65%
-  );
+  background: linear-gradient(100deg, transparent 35%, rgba(255, 255, 255, 0.75) 50%, transparent 65%);
   transform: translateX(-110%) skewX(-18deg);
   animation: btn-shimmer-sweep 2.6s ease-in-out infinite;
   pointer-events: none;
@@ -174,7 +658,8 @@
 </style>
 </head>
 <body>
-<button class=&quot;btn-shimmer&quot;>Shimmer</button>
+<button class=&quot;btn-shimmer&quot; type=&quot;button&quot;>Shimmer</button>
+
 </body>
 </html>"></iframe>
       </div>
@@ -182,6 +667,7 @@
         <h2 class="card-name">流光扫过按钮</h2>
         <p class="card-desc">一条倾斜的高光带沿按钮表面循环扫过，像金属反光。用 ::before 伪元素 + skewX 实现，不增加任何多余 DOM。</p>
         <div class="card-tags"><span class="tag">button</span><span class="tag">shimmer</span><span class="tag">流光</span><span class="tag">hover</span></div>
+        <p class="card-url">深链：<a href="animations/shimmer-button.html">https://hiweny.github.io/ui-animations/animations/shimmer-button.html</a></p>
         <div class="card-actions">
           <a class="btn-link primary" href="animations/shimmer-button.html">查看 / 复制代码</a>
         </div>
@@ -197,12 +683,7 @@
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{
-    display:grid;place-items:center;
-    background:#080c16;
-    padding:24px;
-    box-sizing:border-box;
-  }
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
 @property --orbit-angle {
   syntax: '<angle>';
   initial-value: 0deg;
@@ -249,7 +730,8 @@
 </style>
 </head>
 <body>
-<button class=&quot;btn-orbit&quot;><span>Orbit</span></button>
+<button class=&quot;btn-orbit&quot; type=&quot;button&quot;><span>Orbit</span></button>
+
 </body>
 </html>"></iframe>
       </div>
@@ -257,12 +739,29 @@
         <h2 class="card-name">渐变流光描边</h2>
         <p class="card-desc">用 @property 注册角度变量，让一圈 conic-gradient 描边持续旋转，悬停时整圈发光。现代 CSS 单元素实现，无需伪元素堆叠。</p>
         <div class="card-tags"><span class="tag">button</span><span class="tag">border</span><span class="tag">gradient</span><span class="tag">glow</span></div>
+        <p class="card-url">深链：<a href="animations/gradient-border-glow.html">https://hiweny.github.io/ui-animations/animations/gradient-border-glow.html</a></p>
         <div class="card-actions">
           <a class="btn-link primary" href="animations/gradient-border-glow.html">查看 / 复制代码</a>
         </div>
       </div>
     </article>
   </main>
+
+  <section class="sitemap">
+    <h2 class="anim-subtitle">全部动效深链</h2>
+    <ul>
+      <li><a href="animations/sparkle-button.html">星星闪光按钮</a> — https://hiweny.github.io/ui-animations/animations/sparkle-button.html</li>
+      <li><a href="animations/orbiting-stars-button.html">星环环绕按钮</a> — https://hiweny.github.io/ui-animations/animations/orbiting-stars-button.html</li>
+      <li><a href="animations/twinkle-starfield.html">闪烁星空背景</a> — https://hiweny.github.io/ui-animations/animations/twinkle-starfield.html</li>
+      <li><a href="animations/star-burst-button.html">点击星星爆裂按钮</a> — https://hiweny.github.io/ui-animations/animations/star-burst-button.html</li>
+      <li><a href="animations/rainbow-border-button.html">彩虹旋转描边按钮</a> — https://hiweny.github.io/ui-animations/animations/rainbow-border-button.html</li>
+      <li><a href="animations/neon-glow-button.html">霓虹发光按钮</a> — https://hiweny.github.io/ui-animations/animations/neon-glow-button.html</li>
+      <li><a href="animations/gradient-flow-text.html">流光渐变文字</a> — https://hiweny.github.io/ui-animations/animations/gradient-flow-text.html</li>
+      <li><a href="animations/ripple-button.html">点击涟漪按钮</a> — https://hiweny.github.io/ui-animations/animations/ripple-button.html</li>
+      <li><a href="animations/shimmer-button.html">流光扫过按钮</a> — https://hiweny.github.io/ui-animations/animations/shimmer-button.html</li>
+      <li><a href="animations/gradient-border-glow.html">渐变流光描边</a> — https://hiweny.github.io/ui-animations/animations/gradient-border-glow.html</li>
+    </ul>
+  </section>
 </div>
 <footer class="site-footer">
   <div class="wrap">

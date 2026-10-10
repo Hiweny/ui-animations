@@ -77,6 +77,8 @@ function detailPage(a) {
 /* ----------------------------- 画廊首页 ----------------------------- */
 function indexPage(list) {
   const cards = list
+    .slice()
+    .reverse()
     .map(
       (a) => `
     <article class="card">

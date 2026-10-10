@@ -67,11 +67,11 @@ a{color:inherit}
 .card:hover{transform:translateY(-4px);border-color:#334155;box-shadow:0 18px 40px -20px #000}
 .card-link{display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit}
 .card-stage{
-  height:186px;display:grid;place-items:center;padding:14px;margin:14px 14px 0;
+  height:190px;display:grid;place-items:center;padding:20px;
   background:radial-gradient(420px 200px at 50% 0%, #1e293b 0%, transparent 70%), #080c16;
-  border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  border-bottom:1px solid var(--line);overflow:hidden;
 }
-.card-stage iframe{width:100%;height:156px;border:0;border-radius:10px;background:transparent;display:block}
+.card-stage iframe{width:100%;height:150px;border:0;background:transparent;display:block}
 .card-body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
 .card-name{margin:0;font-size:16px;font-weight:700}
 .card-desc{margin:0;color:var(--muted);font-size:13.5px;line-height:1.65;flex:1}
@@ -88,9 +88,9 @@ a{color:inherit}
 .stage{
   margin:26px 0;border:1px solid var(--line);border-radius:18px;
   background:radial-gradient(600px 300px at 50% 0%, #1e293b 0%, transparent 70%), #080c16;
-  min-height:280px;display:grid;place-items:center;padding:40px 24px;overflow:hidden;
+  min-height:300px;display:grid;place-items:center;padding:44px 28px;overflow:hidden;
 }
-.stage iframe{width:100%;height:260px;border:0;background:transparent;display:block}
+.stage iframe{width:100%;height:270px;border:0;background:transparent;display:block}
 
 .code-panel{border:1px solid #1e293b;border-radius:16px;overflow:hidden;background:#0f172a;margin-bottom:70px}
 .code-bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;padding:12px 16px}
@@ -141,7 +141,7 @@ pre.code code{font:inherit;color:inherit}
   .wrap{padding:0 14px}
   .site-header{padding:48px 0 8px}
   .grid{grid-template-columns:1fr;gap:16px;padding:30px 0 56px}
-  .card-stage{height:158px;padding:12px;margin:12px 12px 0}
+  .card-stage{height:164px;padding:16px}
   .card-stage iframe{height:132px}
   .anim-head{padding:28px 0 12px}
   .anim-title{font-size:21px}

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>渐变流光描边 · UI 动效画廊</title>
 <meta name="description" content="用 @property 注册角度变量，让一圈 conic-gradient 描边持续旋转，悬停时整圈发光。现代 CSS 单元素实现，无需伪元素堆叠。">
+<link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/gradient-border-glow.html">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
@@ -16,11 +17,11 @@
     <div class="anim-meta">
       <span class="tag">本仓库原创</span>
       
-      <a href="https://hiweny.github.io/ui-animations/animations/gradient-border-glow.html" target="_blank" rel="noopener">深链 ↗</a>
     </div>
+    <p class="anim-url">深链地址：<a href="https://hiweny.github.io/ui-animations/animations/gradient-border-glow.html">https://hiweny.github.io/ui-animations/animations/gradient-border-glow.html</a></p>
   </header>
 
-  <section class="stage">
+  <section class="stage" aria-label="实时预览">
     <iframe title="渐变流光描边 实时预览" loading="lazy" srcdoc="<!doctype html>
 <html lang=&quot;zh-CN&quot;>
 <head>
@@ -28,12 +29,7 @@
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{
-    display:grid;place-items:center;
-    background:#080c16;
-    padding:24px;
-    box-sizing:border-box;
-  }
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
 @property --orbit-angle {
   syntax: '<angle>';
   initial-value: 0deg;
@@ -80,7 +76,8 @@
 </style>
 </head>
 <body>
-<button class=&quot;btn-orbit&quot;><span>Orbit</span></button>
+<button class=&quot;btn-orbit&quot; type=&quot;button&quot;><span>Orbit</span></button>
+
 </body>
 </html>"></iframe>
   </section>
@@ -90,15 +87,11 @@
       <span class="label">HTML + CSS · 一键复制</span>
       <button class="copy-btn" type="button" data-copy="#src">复制全部代码</button>
     </div>
-    <pre class="code" id="src" data-src="#raw"></pre>
-  </section>
-</div>
+    <pre class="code" id="src"><code>&lt;button class="btn-orbit" type="button"&gt;&lt;span&gt;Orbit&lt;/span&gt;&lt;/button&gt;
 
-<script type="text/plain" id="raw"><button class="btn-orbit"><span>Orbit</span></button>
-
-<style>
+&lt;style&gt;
 @property --orbit-angle {
-  syntax: '<angle>';
+  syntax: '&lt;angle&gt;';
   initial-value: 0deg;
   inherits: false;
 }
@@ -139,7 +132,14 @@
 @media (prefers-reduced-motion: reduce) {
   .btn-orbit { animation: none; }
 }
-</style></script>
+&lt;/style&gt;</code></pre>
+  </section>
+
+  <section class="anim-tags">
+    <h2 class="anim-subtitle">标签</h2>
+    <div class="card-tags"><span class="tag">button</span><span class="tag">border</span><span class="tag">gradient</span><span class="tag">glow</span></div>
+  </section>
+</div>
 <script src="../assets/site.js"></script>
 <footer class="site-footer">
   <div class="wrap">

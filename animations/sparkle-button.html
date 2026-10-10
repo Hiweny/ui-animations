@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/sparkle-button.html">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="apple-touch-icon" href="../favicon.svg">
-<link rel="stylesheet" href="../assets/site.css?v=fe3dd7ee">
+<link rel="stylesheet" href="../assets/site.css?v=3a5a4283">
 </head>
 <body>
 <div class="bg-fx" aria-hidden="true">
@@ -51,7 +51,7 @@
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+  body{display:grid;place-items:center;background:transparent;padding:0;box-sizing:border-box;overflow:hidden}
 .btn-sparkle {
   --c: var(--btn-color, #3b82f6);
   display: inline-flex;
@@ -120,6 +120,33 @@
   Generate
 </button>
 
+<script>
+(function(){
+  function fit(){
+    var b=document.body;
+    b.style.transform='none';
+    var minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9,n=0,k=b.children;
+    for(var i=0;i<k.length;i++){
+      if(k[i].tagName==='SCRIPT')continue;
+      var r=k[i].getBoundingClientRect();
+      if(!r.width&amp;&amp;!r.height)continue;
+      if(r.left<minX)minX=r.left; if(r.top<minY)minY=r.top;
+      if(r.right>maxX)maxX=r.right; if(r.bottom>maxY)maxY=r.bottom; n++;
+    }
+    if(!n)return;
+    var w=maxX-minX,h=maxY-minY;
+    var W=document.documentElement.clientWidth,H=document.documentElement.clientHeight;
+    var s=Math.min(1,(W-20)/w,(H-20)/h);
+    if(s<1){
+      b.style.transformOrigin=((minX+maxX)/2)+'px '+((minY+maxY)/2)+'px';
+      b.style.transform='scale('+s+')';
+    }
+  }
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  setTimeout(fit,60);setTimeout(fit,350);
+})();
+</script>
 </body>
 </html>"></iframe>
   </section>
@@ -198,7 +225,7 @@
 <span class="c-punc">&lt;/</span><span class="c-tag">style</span>&gt;</code></pre>
   </section>
 </div>
-<script src="../assets/site.js?v=fe3dd7ee"></script>
+<script src="../assets/site.js?v=3a5a4283"></script>
 <footer class="site-footer">
   <div class="wrap">
     <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub</a>

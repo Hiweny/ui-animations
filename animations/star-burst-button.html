@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>点击星星爆裂按钮 · UI 动效画廊</title>
+<meta name="description" content="点击按钮时从中心向四周迸射出 12 颗小星星，呈放射状飞散并淡出。星星由 JS 动态生成，飞行距离与角度随机。">
+<link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/star-burst-button.html">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="anim-head">
+    <a class="back-link" href="../index.html">← 返回画廊</a>
+    <h1 class="anim-title">点击星星爆裂按钮</h1>
+    <p class="anim-desc">点击按钮时从中心向四周迸射出 12 颗小星星，呈放射状飞散并淡出。星星由 JS 动态生成，飞行距离与角度随机。</p>
+    <div class="anim-meta">
+      <span class="tag">本仓库原创</span>
+      
+    </div>
+    <p class="anim-url">深链地址：<a href="https://hiweny.github.io/ui-animations/animations/star-burst-button.html">https://hiweny.github.io/ui-animations/animations/star-burst-button.html</a></p>
+  </header>
+
+  <section class="stage" aria-label="实时预览">
+    <iframe title="点击星星爆裂按钮 实时预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+.btn-burst {
+  position: relative;
+  padding: 0.9em 1.9em;
+  border: 0;
+  border-radius: 999px;
+  font: 700 17px/1.2 system-ui, sans-serif;
+  color: #4a2c00;
+  cursor: pointer;
+  background: linear-gradient(135deg, #fde68a, #fbbf24);
+  box-shadow: 0 12px 26px -14px #f59e0b;
+  transition: transform 0.15s ease;
+}
+.btn-burst:active { transform: scale(0.96); }
+.burst-star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin: -5px;
+  background: #fbbf24;
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  pointer-events: none;
+  animation: burst 0.9s ease-out forwards;
+}
+@keyframes burst {
+  0%   { transform: translate(0, 0) scale(0.4) rotate(0deg); opacity: 1; }
+  100% { transform: translate(var(--x), var(--y)) scale(1.1) rotate(160deg); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .burst-star { display: none; }
+}
+
+</style>
+</head>
+<body>
+<button class=&quot;btn-burst&quot; type=&quot;button&quot;>点我放星星</button>
+<script>
+document.querySelectorAll('.btn-burst').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    for (var i = 0; i < 12; i++) {
+      var s = document.createElement('span');
+      s.className = 'burst-star';
+      var ang = (Math.PI * 2 * i) / 12;
+      var dist = 42 + Math.random() * 40;
+      s.style.setProperty('--x', Math.cos(ang) * dist + 'px');
+      s.style.setProperty('--y', Math.sin(ang) * dist + 'px');
+      btn.appendChild(s);
+      setTimeout(function (el) { return function () { el.remove(); }; }(s), 900);
+    }
+  });
+});
+</script>
+</body>
+</html>"></iframe>
+  </section>
+
+  <section class="code-panel">
+    <div class="code-bar">
+      <span class="label">HTML + CSS + JS · 一键复制</span>
+      <button class="copy-btn" type="button" data-copy="#src">复制全部代码</button>
+    </div>
+    <pre class="code" id="src"><code>&lt;button class="btn-burst" type="button"&gt;点我放星星&lt;/button&gt;
+
+&lt;style&gt;
+.btn-burst {
+  position: relative;
+  padding: 0.9em 1.9em;
+  border: 0;
+  border-radius: 999px;
+  font: 700 17px/1.2 system-ui, sans-serif;
+  color: #4a2c00;
+  cursor: pointer;
+  background: linear-gradient(135deg, #fde68a, #fbbf24);
+  box-shadow: 0 12px 26px -14px #f59e0b;
+  transition: transform 0.15s ease;
+}
+.btn-burst:active { transform: scale(0.96); }
+.burst-star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin: -5px;
+  background: #fbbf24;
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  pointer-events: none;
+  animation: burst 0.9s ease-out forwards;
+}
+@keyframes burst {
+  0%   { transform: translate(0, 0) scale(0.4) rotate(0deg); opacity: 1; }
+  100% { transform: translate(var(--x), var(--y)) scale(1.1) rotate(160deg); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .burst-star { display: none; }
+}
+&lt;/style&gt;
+
+&lt;script&gt;
+document.querySelectorAll('.btn-burst').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    for (var i = 0; i &lt; 12; i++) {
+      var s = document.createElement('span');
+      s.className = 'burst-star';
+      var ang = (Math.PI * 2 * i) / 12;
+      var dist = 42 + Math.random() * 40;
+      s.style.setProperty('--x', Math.cos(ang) * dist + 'px');
+      s.style.setProperty('--y', Math.sin(ang) * dist + 'px');
+      btn.appendChild(s);
+      setTimeout(function (el) { return function () { el.remove(); }; }(s), 900);
+    }
+  });
+});
+&lt;/script&gt;</code></pre>
+  </section>
+
+  <section class="anim-tags">
+    <h2 class="anim-subtitle">标签</h2>
+    <div class="card-tags"><span class="tag">button</span><span class="tag">star</span><span class="tag">click</span><span class="tag">粒子</span></div>
+  </section>
+</div>
+<script src="../assets/site.js"></script>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>UI 动效画廊 · 持续收集中 · <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub 仓库</a></p>
+  </div>
+</footer>
+</body>
+</html>

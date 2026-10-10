@@ -36,8 +36,10 @@ function tagsHtml(tags) {
 }
 
 function head(title, desc, base) {
-  return `<!doctype html>\n<html lang="zh-CN">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n<title>${title}</title>\n<meta name="description" content="${desc}">\n<link rel="canonical" href="${SITE}/{{PATH}}">\n<link rel="icon" type="image/svg+xml" href="${base}favicon.svg">\n<link rel="apple-touch-icon" href="${base}favicon.svg">\n<link rel="stylesheet" href="${base}assets/site.css">\n</head>\n<body>`;
+  return `<!doctype html>\n<html lang="zh-CN">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n<title>${title}</title>\n<meta name="description" content="${desc}">\n<link rel="canonical" href="${SITE}/{{PATH}}">\n<link rel="icon" type="image/svg+xml" href="${base}favicon.svg">\n<link rel="apple-touch-icon" href="${base}favicon.svg">\n<link rel="stylesheet" href="${base}assets/site.css">\n</head>\n<body>${BG}`;
 }
+
+const BG = `\n<div class="bg-fx" aria-hidden="true">\n  <span class="meteor" style="--x:8%;--delay:0s;--dur:6.5s"></span>\n  <span class="meteor" style="--x:32%;--delay:2.2s;--dur:7.4s"></span>\n  <span class="meteor" style="--x:58%;--delay:4.1s;--dur:8.2s"></span>\n  <span class="meteor" style="--x:78%;--delay:1.1s;--dur:7s"></span>\n  <span class="meteor" style="--x:92%;--delay:5.3s;--dur:9s"></span>\n  <span class="heart" style="--x:6%;--delay:0s;--dur:11s"></span>\n  <span class="heart" style="--x:21%;--delay:1.6s;--dur:13s"></span>\n  <span class="heart" style="--x:37%;--delay:3.4s;--dur:10s"></span>\n  <span class="heart" style="--x:54%;--delay:0.8s;--dur:14s"></span>\n  <span class="heart" style="--x:69%;--delay:2.7s;--dur:12s"></span>\n  <span class="heart" style="--x:83%;--delay:4.5s;--dur:10.5s"></span>\n  <span class="heart" style="--x:95%;--delay:5.9s;--dur:13.5s"></span>\n</div>`;
 
 const FOOT = `\n<footer class="site-footer">\n  <div class="wrap">\n    <a href="${REPO}" target="_blank" rel="noopener">GitHub</a>\n  </div>\n</footer>\n<button id="toTop" class="to-top" type="button" aria-label="回到顶部">\n  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>\n</button>\n</body>\n</html>`;
 
@@ -105,7 +107,8 @@ function indexPage(list) {
   </header>
   <main class="grid">${cards}
   </main>
-</div>` +
+</div>
+<script src="assets/site.js"></script>` +
     FOOT
   );
 }

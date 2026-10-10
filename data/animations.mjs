@@ -11,6 +11,8 @@
  *   css         演示用 CSS
  *   js          可选：演示用 JS（会与 HTML/CSS 一起出现在复制面板）
  *   previewCss  仅首页卡片缩略预览的附加样式（可选）
+ *   source      来源链接（可选）
+ *   author      作者/出处（可选）
  */
 export const animations = [
   {
@@ -470,263 +472,6 @@ export const animations = [
   },
 
   {
-    slug: 'sci-fi-switch',
-    name: '科幻能量开关',
-    desc: '科幻风格的拨动开关，关闭时是幽蓝，打开后整体转为荧绿。轨道里有流动的扫描线，圆形滑块内有脉冲核心、掠过的高光、上升的粒子与旋转的能量环。',
-    tags: ['switch', 'toggle', 'sci-fi'],
-    source: 'https://uiverse.io/reglobby/stupid-penguin-97',
-    author: 'Uiverse · reglobby',
-    html: `<div class="toggle-container">
-  <div class="toggle-wrap">
-    <input type="checkbox" class="toggle-input" id="sciToggle">
-    <label class="toggle-track" for="sciToggle">
-      <div class="holo-glow"></div>
-      <div class="track-lines"><div class="track-line"></div></div>
-      <div class="interface-lines">
-        <div class="interface-line"></div>
-        <div class="interface-line"></div>
-        <div class="interface-line"></div>
-        <div class="interface-line"></div>
-        <div class="interface-line"></div>
-        <div class="interface-line"></div>
-      </div>
-      <div class="toggle-data">
-        <span class="data-text off">OFF</span>
-        <span class="data-text on">ON</span>
-        <span class="status-indicator off"></span>
-        <span class="status-indicator on"></span>
-      </div>
-      <div class="toggle-thumb">
-        <div class="thumb-core"></div>
-        <div class="thumb-inner"></div>
-        <div class="thumb-scan"></div>
-        <div class="thumb-particles">
-          <div class="thumb-particle"></div>
-          <div class="thumb-particle"></div>
-          <div class="thumb-particle"></div>
-          <div class="thumb-particle"></div>
-          <div class="thumb-particle"></div>
-        </div>
-        <div class="energy-rings">
-          <div class="energy-ring"></div>
-          <div class="energy-ring"></div>
-          <div class="energy-ring"></div>
-        </div>
-      </div>
-      <div class="toggle-reflection"></div>
-    </label>
-    <div class="toggle-label">SYSTEM STATUS</div>
-  </div>
-</div>`,
-    css: `.toggle-container {
-  position: relative;
-  width: 150px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  perspective: 800px;
-  z-index: 5;
-}
-.toggle-wrap {
-  position: relative;
-  width: 100%;
-  height: 60px;
-  transform-style: preserve-3d;
-}
-.toggle-input {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-.toggle-track {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 30, 60, 0.4);
-  border-radius: 30px;
-  cursor: pointer;
-  box-shadow: 0 0 15px rgba(0, 80, 255, 0.2), inset 0 0 10px rgba(0, 0, 0, 0.8);
-  overflow: hidden;
-  backdrop-filter: blur(5px);
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  border: 1px solid rgba(0, 150, 255, 0.3);
-}
-.toggle-track::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: radial-gradient(ellipse at center, rgba(0, 80, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%),
-    linear-gradient(90deg, rgba(0, 60, 120, 0.1) 0%, rgba(0, 30, 60, 0.2) 100%);
-  opacity: 0.6;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-.toggle-track::after {
-  content: "";
-  position: absolute;
-  top: 2px; left: 2px; right: 2px;
-  height: 10px;
-  background: linear-gradient(90deg, rgba(0, 170, 255, 0.3) 0%, rgba(0, 80, 255, 0.1) 100%);
-  border-radius: 30px 30px 0 0;
-  opacity: 0.7;
-  filter: blur(1px);
-}
-.track-lines {
-  position: absolute;
-  top: 50%; left: 0;
-  width: 100%; height: 1px;
-  transform: translateY(-50%);
-  overflow: hidden;
-}
-.track-line {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: repeating-linear-gradient(90deg, rgba(0, 150, 255, 0.3) 0px, rgba(0, 150, 255, 0.3) 5px, transparent 5px, transparent 15px);
-  animation: track-line-move 3s linear infinite;
-}
-@keyframes track-line-move { 0% { transform: translateX(0); } 100% { transform: translateX(20px); } }
-.toggle-thumb {
-  position: absolute;
-  width: 54px; height: 54px;
-  left: 3px; top: 3px;
-  background: radial-gradient(circle, rgba(10, 40, 90, 0.9) 0%, rgba(0, 20, 50, 0.8) 100%);
-  border-radius: 50%;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 150, 255, 0.5);
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  z-index: 2;
-  border: 1px solid rgba(0, 170, 255, 0.6);
-  overflow: hidden;
-  transform-style: preserve-3d;
-}
-.thumb-core {
-  position: absolute;
-  width: 40px; height: 40px;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(0, 180, 255, 0.6) 0%, rgba(0, 50, 120, 0.2) 100%);
-  border-radius: 50%;
-  box-shadow: 0 0 20px rgba(0, 150, 255, 0.5);
-  opacity: 0.9;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-.thumb-inner {
-  position: absolute;
-  width: 25px; height: 25px;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(100, 200, 255, 0.5) 100%);
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(100, 200, 255, 0.7);
-  opacity: 0.7;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  animation: pulse 2s infinite alternate;
-}
-@keyframes pulse {
-  0% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.9); }
-  100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
-}
-.thumb-scan {
-  position: absolute;
-  width: 100%; height: 5px;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 150, 255, 0.5) 20%, rgba(255, 255, 255, 0.8) 50%, rgba(0, 150, 255, 0.5) 80%, rgba(0, 0, 0, 0) 100%);
-  top: 0; left: 0;
-  filter: blur(1px);
-  animation: thumb-scan 2s linear infinite;
-  opacity: 0.7;
-}
-@keyframes thumb-scan {
-  0% { top: -5px; opacity: 0; }
-  20% { opacity: 0.7; }
-  80% { opacity: 0.7; }
-  100% { top: 54px; opacity: 0; }
-}
-.thumb-particles { position: absolute; width: 100%; height: 100%; top: 0; left: 0; overflow: hidden; }
-.thumb-particle {
-  position: absolute;
-  width: 3px; height: 3px;
-  background: rgba(100, 200, 255, 0.8);
-  border-radius: 50%;
-  box-shadow: 0 0 5px rgba(100, 200, 255, 0.8);
-  animation: thumb-particle-float 3s infinite ease-out;
-  opacity: 0;
-}
-.thumb-particle:nth-child(1) { top: 70%; left: 30%; animation-delay: 0.2s; }
-.thumb-particle:nth-child(2) { top: 60%; left: 60%; animation-delay: 0.6s; }
-.thumb-particle:nth-child(3) { top: 50%; left: 40%; animation-delay: 1s; }
-.thumb-particle:nth-child(4) { top: 40%; left: 70%; animation-delay: 1.4s; }
-.thumb-particle:nth-child(5) { top: 80%; left: 50%; animation-delay: 1.8s; }
-@keyframes thumb-particle-float {
-  0% { transform: translateY(0) scale(1); opacity: 0; }
-  20% { opacity: 0.8; }
-  100% { transform: translateY(-30px) scale(0); opacity: 0; }
-}
-.toggle-data { position: absolute; width: 100%; height: 100%; z-index: 1; }
-.data-text {
-  position: absolute;
-  font-size: 12px; font-weight: 500;
-  letter-spacing: 1px; text-transform: uppercase;
-  transition: all 0.5s ease;
-}
-.data-text.off { right: 12px; top: 50%; transform: translateY(-50%); opacity: 1; color: rgba(0, 150, 255, 0.6); text-shadow: 0 0 5px rgba(0, 100, 255, 0.4); }
-.data-text.on { left: 15px; top: 50%; transform: translateY(-50%); opacity: 0; color: rgba(0, 255, 150, 0.6); text-shadow: 0 0 5px rgba(0, 255, 100, 0.4); }
-.status-indicator {
-  position: absolute;
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 180, 255, 0.8) 0%, rgba(0, 80, 200, 0.4) 100%);
-  box-shadow: 0 0 10px rgba(0, 150, 255, 0.5);
-  animation: blink 2s infinite alternate;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-.status-indicator.off { top: 25px; right: 15px; }
-.status-indicator.on { top: 25px; left: 15px; opacity: 0; background: radial-gradient(circle, rgba(0, 255, 150, 0.8) 0%, rgba(0, 200, 80, 0.4) 100%); box-shadow: 0 0 10px rgba(0, 255, 150, 0.5); }
-@keyframes blink { 0%, 100% { opacity: 0.5; transform: scale(0.9); } 50% { opacity: 1; transform: scale(1.1); } }
-.energy-rings { position: absolute; width: 54px; height: 54px; left: 3px; top: 3px; pointer-events: none; z-index: 1; transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
-.energy-ring { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 50%; border: 2px solid transparent; opacity: 0; }
-.energy-ring:nth-child(1) { width: 50px; height: 50px; border-top-color: rgba(0, 150, 255, 0.5); border-right-color: rgba(0, 150, 255, 0.3); animation: spin 3s linear infinite; }
-.energy-ring:nth-child(2) { width: 40px; height: 40px; border-bottom-color: rgba(0, 150, 255, 0.5); border-left-color: rgba(0, 150, 255, 0.3); animation: spin 2s linear infinite reverse; }
-.energy-ring:nth-child(3) { width: 30px; height: 30px; border-left-color: rgba(0, 150, 255, 0.5); border-top-color: rgba(0, 150, 255, 0.3); animation: spin 1.5s linear infinite; }
-@keyframes spin { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
-.interface-lines { position: absolute; width: 100%; height: 100%; pointer-events: none; }
-.interface-line { position: absolute; background: rgba(0, 150, 255, 0.3); transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
-.interface-line:nth-child(1) { width: 15px; height: 1px; bottom: -5px; left: 20px; }
-.interface-line:nth-child(2) { width: 1px; height: 8px; bottom: -12px; left: 35px; }
-.interface-line:nth-child(3) { width: 25px; height: 1px; bottom: -12px; left: 35px; }
-.interface-line:nth-child(4) { width: 15px; height: 1px; bottom: -5px; right: 20px; }
-.interface-line:nth-child(5) { width: 1px; height: 8px; bottom: -12px; right: 35px; }
-.interface-line:nth-child(6) { width: 25px; height: 1px; bottom: -12px; right: 10px; }
-.toggle-reflection { position: absolute; width: 100%; height: 100%; top: 0; left: 0; background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 40%); border-radius: 30px; pointer-events: none; }
-.toggle-label { position: relative; margin-top: 20px; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; text-align: center; color: rgba(0, 150, 255, 0.7); text-shadow: 0 0 10px rgba(0, 100, 255, 0.5); transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
-.holo-glow { position: absolute; width: 100%; height: 100%; border-radius: 30px; background: radial-gradient(ellipse at center, rgba(0, 150, 255, 0.2) 0%, rgba(0, 0, 0, 0) 70%); filter: blur(10px); opacity: 0.5; transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); z-index: 0; }
-.toggle-input:checked + .toggle-track { background: rgba(0, 60, 30, 0.4); border-color: rgba(0, 255, 150, 0.3); box-shadow: 0 0 15px rgba(0, 255, 150, 0.2), inset 0 0 10px rgba(0, 0, 0, 0.8); }
-.toggle-input:checked + .toggle-track::before { background: radial-gradient(ellipse at center, rgba(0, 255, 150, 0.1) 0%, rgba(0, 0, 0, 0) 70%), linear-gradient(90deg, rgba(0, 120, 60, 0.1) 0%, rgba(0, 60, 30, 0.2) 100%); }
-.toggle-input:checked + .toggle-track::after { background: linear-gradient(90deg, rgba(0, 255, 150, 0.3) 0%, rgba(0, 160, 80, 0.1) 100%); }
-.toggle-input:checked + .toggle-track .track-line { background: repeating-linear-gradient(90deg, rgba(0, 255, 150, 0.3) 0px, rgba(0, 255, 150, 0.3) 5px, transparent 5px, transparent 15px); animation-direction: reverse; }
-.toggle-input:checked + .toggle-track .toggle-thumb { left: calc(100% - 57px); background: radial-gradient(circle, rgba(10, 90, 40, 0.9) 0%, rgba(0, 50, 20, 0.8) 100%); border-color: rgba(0, 255, 150, 0.6); box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 255, 150, 0.5); }
-.toggle-input:checked + .toggle-track .thumb-core { background: radial-gradient(circle, rgba(0, 255, 150, 0.6) 0%, rgba(0, 120, 50, 0.2) 100%); box-shadow: 0 0 20px rgba(0, 255, 150, 0.5); }
-.toggle-input:checked + .toggle-track .thumb-inner { background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(100, 255, 200, 0.5) 100%); box-shadow: 0 0 10px rgba(100, 255, 200, 0.7); }
-.toggle-input:checked + .toggle-track .thumb-scan { background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 255, 150, 0.5) 20%, rgba(255, 255, 255, 0.8) 50%, rgba(0, 255, 150, 0.5) 80%, rgba(0, 0, 0, 0) 100%); }
-.toggle-input:checked + .toggle-track .thumb-particle { background: rgba(100, 255, 200, 0.8); box-shadow: 0 0 5px rgba(100, 255, 200, 0.8); }
-.toggle-input:checked + .toggle-track .data-text.off { opacity: 0; }
-.toggle-input:checked + .toggle-track .data-text.on { opacity: 1; }
-.toggle-input:checked + .toggle-track .status-indicator.off { opacity: 0; }
-.toggle-input:checked + .toggle-track .status-indicator.on { opacity: 1; }
-.toggle-input:checked + .toggle-track .energy-rings { left: calc(100% - 57px); }
-.toggle-input:checked + .toggle-track .energy-ring { opacity: 1; }
-.toggle-input:checked + .toggle-track .energy-ring:nth-child(1) { border-top-color: rgba(0, 255, 150, 0.5); border-right-color: rgba(0, 255, 150, 0.3); }
-.toggle-input:checked + .toggle-track .energy-ring:nth-child(2) { border-bottom-color: rgba(0, 255, 150, 0.5); border-left-color: rgba(0, 255, 150, 0.3); }
-.toggle-input:checked + .toggle-track .energy-ring:nth-child(3) { border-left-color: rgba(0, 255, 150, 0.5); border-top-color: rgba(0, 255, 150, 0.3); }
-.toggle-input:checked + .toggle-track .interface-line { background: rgba(0, 255, 150, 0.3); }
-.toggle-input:checked ~ .toggle-label { color: rgba(0, 255, 150, 0.7); text-shadow: 0 0 10px rgba(0, 255, 150, 0.5); }
-.toggle-input:checked + .toggle-track .holo-glow { background: radial-gradient(ellipse at center, rgba(0, 255, 150, 0.2) 0%, rgba(0, 0, 0, 0) 70%); }
-.toggle-input:hover + .toggle-track { box-shadow: 0 0 20px rgba(0, 150, 255, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.8); }
-.toggle-input:checked:hover + .toggle-track { box-shadow: 0 0 20px rgba(0, 255, 150, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.8); }`,
-    previewCss: '',
-  },
-
-  {
     slug: 'aurora-switch',
     name: '彩虹光晕开关',
     desc: '开关背后是一团由多个彩色径向渐变叠加、模糊 20px 的光晕，整个开关还带轻微的 3D 摆动。拨动时滑块滑到另一侧，轨道变深色。',
@@ -791,6 +536,313 @@ export const animations = [
   0%, 100% { transform: translateY(-10px) rotateX(15deg) rotateY(-20deg); }
   50% { transform: translateY(0px) rotateX(15deg) rotateY(-20deg); }
 }`,
+    previewCss: '',
+  },
+
+  {
+    slug: 'meteor-star-bg',
+    name: '流星星空背景',
+    desc: '斜向流星从左上方划向右下，配合四散分布的星点呼吸式闪烁。流星用渐变色条 + translate3d 位移，星星用透明度与缩放模拟眨眼。',
+    tags: ['background', 'star', 'meteor', 'twinkle'],
+    source: '',
+    author: '本仓库原创',
+    html: `<div class="bg-fx" aria-hidden="true">
+  <span class="meteor" style="--x:-12%;--delay:0s;--dur:6.5s"></span>
+  <span class="meteor" style="--x:6%;--delay:1.8s;--dur:7.8s"></span>
+  <span class="meteor" style="--x:24%;--delay:3.6s;--dur:7s"></span>
+  <span class="meteor" style="--x:44%;--delay:0.9s;--dur:8.4s"></span>
+  <span class="meteor" style="--x:63%;--delay:2.7s;--dur:6.8s"></span>
+  <span class="meteor" style="--x:82%;--delay:4.5s;--dur:9s"></span>
+  <span class="star" style="--x:10%;--y:18%;--delay:0s;--dur:2.6s"></span>
+  <span class="star" style="--x:22%;--y:42%;--delay:.6s;--dur:3.4s"></span>
+  <span class="star" style="--x:34%;--y:12%;--delay:1.2s;--dur:2.9s"></span>
+  <span class="star" style="--x:46%;--y:66%;--delay:.3s;--dur:3.8s"></span>
+  <span class="star" style="--x:58%;--y:28%;--delay:1.5s;--dur:2.4s"></span>
+  <span class="star" style="--x:70%;--y:54%;--delay:.9s;--dur:3.2s"></span>
+  <span class="star" style="--x:82%;--y:16%;--delay:2.1s;--dur:2.7s"></span>
+  <span class="star" style="--x:93%;--y:38%;--delay:.4s;--dur:4.2s"></span>
+  <span class="star" style="--x:16%;--y:78%;--delay:1.8s;--dur:3.1s"></span>
+  <span class="star" style="--x:28%;--y:58%;--delay:.2s;--dur:2.8s"></span>
+  <span class="star" style="--x:40%;--y:88%;--delay:2.4s;--dur:3.6s"></span>
+  <span class="star" style="--x:52%;--y:34%;--delay:1.1s;--dur:2.5s"></span>
+  <span class="star" style="--x:64%;--y:72%;--delay:.7s;--dur:3.9s"></span>
+  <span class="star" style="--x:76%;--y:46%;--delay:2.0s;--dur:2.3s"></span>
+  <span class="star" style="--x:88%;--y:64%;--delay:1.4s;--dur:3.3s"></span>
+  <span class="star" style="--x:6%;--y:52%;--delay:.5s;--dur:3.7s"></span>
+</div>`,
+    css: `body{background:radial-gradient(1200px 600px at 80% -10%, #1e1b4b 0%, transparent 60%), radial-gradient(900px 500px at -10% 10%, rgba(15,118,110,.25) 0%, transparent 55%), #070a13;}
+.bg-fx{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.bg-fx .meteor{
+  position:absolute;top:-8%;left:var(--x);
+  width:150px;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(199,210,254,.55) 45%,rgba(255,255,255,.95) 100%);
+  filter:drop-shadow(0 0 6px rgba(199,210,254,.85));
+  opacity:0;transform:rotate(35deg);
+  animation:meteor-fall var(--dur,7s) linear infinite;
+  animation-delay:var(--delay,0s);
+}
+@keyframes meteor-fall{
+  0%{opacity:0;transform:rotate(35deg) translate3d(0,0,0)}
+  12%{opacity:1}
+  72%{opacity:1}
+  100%{opacity:0;transform:rotate(35deg) translate3d(120vw,0,0)}
+}
+.bg-fx .star{
+  position:absolute;top:var(--y);left:var(--x);
+  width:2px;height:2px;border-radius:50%;
+  background:#fff;
+  box-shadow:0 0 6px 1px rgba(199,210,254,.9);
+  opacity:.12;
+  animation:star-twinkle var(--dur,3s) ease-in-out infinite;
+  animation-delay:var(--delay,0s);
+}
+@keyframes star-twinkle{
+  0%,100%{opacity:.12;transform:scale(.6)}
+  50%{opacity:1;transform:scale(1.35)}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .bg-fx .meteor{animation:none;opacity:.2}
+  .bg-fx .star{animation:none;opacity:.5}
+}`,
+    previewCss: '',
+  },
+
+  {
+    slug: 'starry-sky-tunnel',
+    name: '星空隧道背景',
+    desc: 'Canvas 绘制的 3D 星空隧道，800 个粒子从远处飞向镜头。粒子随机为实心星、描边星、圆点、十字、光晕、闪光六种形态，配六种霓虹色并各自旋转、闪烁。',
+    tags: ['background', 'canvas', 'star', '3d'],
+    source: 'https://github.com/Hiweny/starry-sky-video-bg',
+    author: 'Hiweny',
+    html: `<canvas id="scene"></canvas>`,
+    css: `* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: #000;
+}
+canvas {
+  display: block;
+  width: 100%; height: 100%;
+}`,
+    js: `(() => {
+  const canvas = document.getElementById('scene');
+  const ctx = canvas.getContext('2d');
+  let W, H, dpr;
+  let time = 0;
+  let particles = [];
+  const PARTICLE_COUNT = 800;
+  const SPEED = 2.5;
+  const COLORS = [
+    { r: 80, g: 230, b: 255 },
+    { r: 200, g: 100, b: 255 },
+    { r: 255, g: 80, b: 180 },
+    { r: 120, g: 220, b: 255 },
+    { r: 255, g: 255, b: 255 },
+    { r: 255, g: 150, b: 255 },
+  ];
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function randomColor() {
+    return COLORS[Math.floor(Math.random() * COLORS.length)];
+  }
+  function createParticle() {
+    const type = Math.random();
+    let shape;
+    if (type < 0.30) shape = 'filled-star';
+    else if (type < 0.50) shape = 'outline-star';
+    else if (type < 0.65) shape = 'dot';
+    else if (type < 0.78) shape = 'cross';
+    else if (type < 0.88) shape = 'glow';
+    else shape = 'sparkle';
+    const color = randomColor();
+    const z = Math.random() * 2000 + 500;
+    return {
+      x: (Math.random() - 0.5) * W * 3,
+      y: (Math.random() - 0.5) * H * 3,
+      z: z,
+      baseZ: z,
+      size: 2 + Math.random() * 12,
+      color: color,
+      shape: shape,
+      phase: Math.random() * Math.PI * 2,
+      twinkleSpeed: 0.5 + Math.random() * 2,
+      rotation: Math.random() * Math.PI * 2,
+      rotSpeed: (Math.random() - 0.5) * 0.02,
+    };
+  }
+  function initParticles() {
+    particles = [];
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      const p = createParticle();
+      p.z = Math.random() * 2500;
+      particles.push(p);
+    }
+  }
+  function drawStar(cx, cy, size, color, alpha, rotation) {
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(rotation);
+    ctx.beginPath();
+    const spikes = 5;
+    const outerR = size;
+    const innerR = size * 0.4;
+    for (let i = 0; i < spikes * 2; i++) {
+      const r = i % 2 === 0 ? outerR : innerR;
+      const a = (i * Math.PI) / spikes - Math.PI / 2;
+      if (i === 0) ctx.moveTo(Math.cos(a) * r, Math.sin(a) * r);
+      else ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r);
+    }
+    ctx.closePath();
+    ctx.fillStyle = \`rgba(\${color.r}, \${color.g}, \${color.b}, \${alpha})\`;
+    ctx.shadowColor = \`rgba(\${color.r}, \${color.g}, \${color.b}, \${alpha * 0.8})\`;
+    ctx.shadowBlur = size * 1.5;
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    ctx.restore();
+  }
+  function drawOutlineStar(cx, cy, size, color, alpha, rotation) {
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(rotation);
+    ctx.beginPath();
+    const spikes = 5;
+    const outerR = size;
+    const innerR = size * 0.4;
+    for (let i = 0; i < spikes * 2; i++) {
+      const r = i % 2 === 0 ? outerR : innerR;
+      const a = (i * Math.PI) / spikes - Math.PI / 2;
+      if (i === 0) ctx.moveTo(Math.cos(a) * r, Math.sin(a) * r);
+      else ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r);
+    }
+    ctx.closePath();
+    ctx.strokeStyle = \`rgba(\${color.r}, \${color.g}, \${color.b}, \${alpha})\`;
+    ctx.lineWidth = Math.max(0.5, size * 0.12);
+    ctx.shadowColor = \`rgba(\${color.r}, \${color.g}, \${color.b}, \${alpha * 0.6})\`;
+    ctx.shadowBlur = size;
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+    ctx.restore();
+  }
+  function drawCross(cx, cy, size, color, alpha) {
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.strokeStyle = \`rgba(\${color.r}, \${color.g}, \${color.b}, \${alpha})\`;
+    ctx.lineWidth = Math.max(0.5, size * 0.15);
+    ctx.shadowColor = \`rgba(\${color.r}, \${color.g}, \${color.b}, \${alpha * 0.7})\`;
+    ctx.shadowBlur = size * 0.8;
+    const r = size * 0.7;
+    ctx.beginPath();
+    ctx.moveTo(0, -r); ctx.lineTo(0, r);
+    ctx.moveTo(-r, 0); ctx.lineTo(r, 0);
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+    ctx.restore();
+  }
+  function drawGlow(cx, cy, size, color, alpha) {
+    const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, size * 3);
+    grd.addColorStop(0, \`rgba(\${color.r}, \${color.g}, \${color.b}, \${alpha * 0.6})\`);
+    grd.addColorStop(0.5, \`rgba(\${color.r}, \${color.g}, \${color.b}, \${alpha * 0.2})\`);
+    grd.addColorStop(1, \`rgba(\${color.r}, \${color.g}, \${color.b}, 0)\`);
+    ctx.fillStyle = grd;
+    ctx.beginPath();
+    ctx.arc(cx, cy, size * 3, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  function drawDot(cx, cy, size, color, alpha) {
+    ctx.beginPath();
+    ctx.arc(cx, cy, Math.max(0.5, size * 0.35), 0, Math.PI * 2);
+    ctx.fillStyle = \`rgba(\${color.r}, \${color.g}, \${color.b}, \${alpha})\`;
+    ctx.shadowColor = \`rgba(\${color.r}, \${color.g}, \${color.b}, \${alpha * 0.8})\`;
+    ctx.shadowBlur = size * 1.2;
+    ctx.fill();
+    ctx.shadowBlur = 0;
+  }
+  function drawSparkle(cx, cy, size, color, alpha, rotation) {
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(rotation);
+    ctx.strokeStyle = \`rgba(\${color.r}, \${color.g}, \${color.b}, \${alpha})\`;
+    ctx.lineWidth = Math.max(0.5, size * 0.1);
+    ctx.shadowColor = \`rgba(\${color.r}, \${color.g}, \${color.b}, \${alpha * 0.7})\`;
+    ctx.shadowBlur = size;
+    const r = size * 0.8;
+    ctx.beginPath();
+    ctx.moveTo(0, -r); ctx.lineTo(0, r);
+    ctx.moveTo(-r * 0.5, -r * 0.3); ctx.lineTo(r * 0.5, r * 0.3);
+    ctx.moveTo(-r * 0.5, r * 0.3); ctx.lineTo(r * 0.5, -r * 0.3);
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+    ctx.restore();
+  }
+  function animate() {
+    time += 0.016;
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, W, H);
+    const centerX = W / 2;
+    const centerY = H / 2;
+    const focalLength = 400;
+    particles.sort((a, b) => b.z - a.z);
+    for (const p of particles) {
+      p.z -= SPEED * (1 + (2500 - p.z) / 2500);
+      p.rotation += p.rotSpeed;
+      if (p.z <= 10) {
+        Object.assign(p, createParticle());
+        p.z = 2500;
+        continue;
+      }
+      const scale = focalLength / p.z;
+      const sx = centerX + p.x * scale;
+      const sy = centerY + p.y * scale;
+      const projectedSize = p.size * scale;
+      if (sx < -50 || sx > W + 50 || sy < -50 || sy > H + 50) continue;
+      let alpha = 1;
+      if (p.z > 2000) alpha = (2500 - p.z) / 500;
+      if (p.z < 200) alpha = p.z / 200;
+      alpha = Math.max(0, Math.min(1, alpha));
+      const twinkle = 0.7 + 0.3 * Math.sin(time * p.twinkleSpeed + p.phase);
+      alpha *= twinkle;
+      if (projectedSize < 0.3) {
+        ctx.beginPath();
+        ctx.arc(sx, sy, Math.max(0.3, projectedSize), 0, Math.PI * 2);
+        ctx.fillStyle = \`rgba(\${p.color.r}, \${p.color.g}, \${p.color.b}, \${alpha * 0.6})\`;
+        ctx.fill();
+        continue;
+      }
+      switch (p.shape) {
+        case 'filled-star':
+          drawStar(sx, sy, projectedSize, p.color, alpha, p.rotation);
+          break;
+        case 'outline-star':
+          drawOutlineStar(sx, sy, projectedSize, p.color, alpha, p.rotation);
+          break;
+        case 'cross':
+          drawCross(sx, sy, projectedSize, p.color, alpha);
+          break;
+        case 'glow':
+          drawGlow(sx, sy, projectedSize, p.color, alpha);
+          break;
+        case 'sparkle':
+          drawSparkle(sx, sy, projectedSize, p.color, alpha, p.rotation);
+          break;
+        default:
+          drawDot(sx, sy, projectedSize, p.color, alpha);
+      }
+    }
+    requestAnimationFrame(animate);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+  initParticles();
+  animate();
+})();`,
     previewCss: '',
   },
 ];

@@ -17,7 +17,46 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 a{color:inherit}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+
+/* ---------- 动态背景：流星 + 心心 ---------- */
+.bg-fx{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.bg-fx .meteor{
+  position:absolute;top:-12%;left:var(--x);
+  width:130px;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,rgba(255,255,255,.95),rgba(199,210,254,.5) 40%,rgba(255,255,255,0));
+  filter:drop-shadow(0 0 6px rgba(199,210,254,.85));
+  opacity:0;transform:rotate(22deg);
+  animation:meteor-fall var(--dur,7s) linear infinite;
+  animation-delay:var(--delay,0s);
+}
+@keyframes meteor-fall{
+  0%{opacity:0;transform:rotate(22deg) translate3d(0,0,0)}
+  10%{opacity:1}
+  65%{opacity:1}
+  100%{opacity:0;transform:rotate(22deg) translate3d(-320px,560px,0)}
+}
+.bg-fx .heart{
+  position:absolute;bottom:-6%;left:var(--x);
+  width:13px;height:13px;background:#f472b6;
+  filter:drop-shadow(0 0 7px rgba(244,114,182,.75));
+  opacity:0;transform:rotate(45deg);
+  animation:heart-float var(--dur,12s) linear infinite;
+  animation-delay:var(--delay,0s);
+}
+.bg-fx .heart::before,.bg-fx .heart::after{
+  content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:inherit;
+}
+.bg-fx .heart::before{top:-50%;left:0}
+.bg-fx .heart::after{left:-50%;top:0}
+@keyframes heart-float{
+  0%{opacity:0;transform:translate3d(0,0,0) rotate(45deg) scale(.7)}
+  15%{opacity:.55}
+  35%{opacity:.85}
+  55%{opacity:.45}
+  75%{opacity:.8}
+  100%{opacity:0;transform:translate3d(0,-108vh,0) rotate(45deg) scale(1.15)}
+}
 
 /* ---------- 首页 ---------- */
 .site-header{padding:72px 0 12px;text-align:center}
@@ -91,7 +130,7 @@ pre.code{
 }
 pre.code code{font:inherit;color:inherit}
 
-.site-footer{border-top:1px solid var(--line);padding:26px 0 48px;color:var(--muted);font-size:13px;text-align:center;line-height:1.8}
+.site-footer{border-top:1px solid var(--line);padding:26px 0 48px;color:var(--muted);font-size:13px;text-align:center;line-height:1.8;position:relative;z-index:1}
 .site-footer a{color:#a5b4fc;text-decoration:none}
 .site-footer a:hover{text-decoration:underline}
 
@@ -131,7 +170,14 @@ pre.code code{font:inherit;color:inherit}
   .to-top{right:14px;bottom:14px;width:42px;height:42px}
 }
 
+@media (max-width:640px){
+  .bg-fx .meteor{width:90px}
+  .bg-fx .heart{width:11px;height:11px}
+}
+
 @media (prefers-reduced-motion: reduce){
   .copy-btn::after{animation:none}
   .to-top{transition:opacity .01ms,visibility .01ms}
+  .bg-fx .meteor,.bg-fx .heart{animation:none}
+  .bg-fx .meteor{opacity:.25}
 }

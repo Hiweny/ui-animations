@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/sparkle-button.html">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="apple-touch-icon" href="../favicon.svg">
-<link rel="stylesheet" href="../assets/site.css?v=0933aacd">
+<link rel="stylesheet" href="../assets/site.css?v=fe3dd7ee">
 </head>
 <body>
 <div class="bg-fx" aria-hidden="true">
@@ -126,78 +126,79 @@
 
   <section class="code-panel">
     <div class="code-bar">
-      <span class="label">HTML + CSS</span>
-      <button class="copy-btn" type="button" data-copy="#src">复制全部代码</button>
+      <div class="code-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <span class="code-file">sparkle-button.html</span>
+      <button class="copy-btn" type="button" data-copy="#src">复制代码</button>
     </div>
-    <pre class="code" id="src"><code>&lt;button class="btn-sparkle"&gt;
-  &lt;span class="btn-sparkle-star" style="--i:0" aria-hidden="true"&gt;&lt;/span&gt;
-  &lt;span class="btn-sparkle-star" style="--i:1" aria-hidden="true"&gt;&lt;/span&gt;
-  &lt;span class="btn-sparkle-star" style="--i:2" aria-hidden="true"&gt;&lt;/span&gt;
-  &lt;span class="btn-sparkle-star" style="--i:3" aria-hidden="true"&gt;&lt;/span&gt;
-  &lt;svg class="btn-sparkle-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"&gt;&lt;path d="M12 2l2.3 7.7L22 12l-7.7 2.3L12 22l-2.3-7.7L2 12l7.7-2.3z"/&gt;&lt;/svg&gt;
+    <pre class="code" id="src"><code><span class="c-punc">&lt;</span><span class="c-tag">button</span> <span class="c-attr">class</span>=<span class="c-str">"btn-sparkle"</span>&gt;
+  <span class="c-punc">&lt;</span><span class="c-tag">span</span> <span class="c-attr">class</span>=<span class="c-str">"btn-sparkle-star"</span> <span class="c-attr">style</span>=<span class="c-str">"--i:0"</span> <span class="c-attr">aria-hidden</span>=<span class="c-str">"true"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">span</span>&gt;
+  <span class="c-punc">&lt;</span><span class="c-tag">span</span> <span class="c-attr">class</span>=<span class="c-str">"btn-sparkle-star"</span> <span class="c-attr">style</span>=<span class="c-str">"--i:1"</span> <span class="c-attr">aria-hidden</span>=<span class="c-str">"true"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">span</span>&gt;
+  <span class="c-punc">&lt;</span><span class="c-tag">span</span> <span class="c-attr">class</span>=<span class="c-str">"btn-sparkle-star"</span> <span class="c-attr">style</span>=<span class="c-str">"--i:2"</span> <span class="c-attr">aria-hidden</span>=<span class="c-str">"true"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">span</span>&gt;
+  <span class="c-punc">&lt;</span><span class="c-tag">span</span> <span class="c-attr">class</span>=<span class="c-str">"btn-sparkle-star"</span> <span class="c-attr">style</span>=<span class="c-str">"--i:3"</span> <span class="c-attr">aria-hidden</span>=<span class="c-str">"true"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">span</span>&gt;
+  <span class="c-punc">&lt;</span><span class="c-tag">svg</span> <span class="c-attr">class</span>=<span class="c-str">"btn-sparkle-icon"</span> <span class="c-attr">viewBox</span>=<span class="c-str">"0 0 24 24"</span> <span class="c-attr">fill</span>=<span class="c-str">"currentColor"</span> <span class="c-attr">aria-hidden</span>=<span class="c-str">"true"</span>&gt;<span class="c-punc">&lt;</span><span class="c-tag">path</span> <span class="c-attr">d</span>=<span class="c-str">"M12 2l2.3 7.7L22 12l-7.7 2.3L12 22l-2.3-7.7L2 12l7.7-2.3z"</span>/&gt;<span class="c-punc">&lt;/</span><span class="c-tag">svg</span>&gt;
   Generate
-&lt;/button&gt;
+<span class="c-punc">&lt;/</span><span class="c-tag">button</span>&gt;
 
-&lt;style&gt;
+<span class="c-punc">&lt;</span><span class="c-tag">style</span>&gt;
 .btn-sparkle {
-  --c: var(--btn-color, #3b82f6);
+  --c: var(--btn-color, #<span class="c-num">3</span>b82f6);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5em;
-  font: 600 var(--btn-size, 18px)/1.2 system-ui, sans-serif;
+  gap: <span class="c-num">0.5em</span>;
+  font: <span class="c-num">600</span> var(--btn-size, <span class="c-num">18px</span>)/<span class="c-num">1.2</span> system-ui, sans-serif;
   cursor: pointer;
   position: relative;
-  padding: 0.8em 1.7em;
-  border: 0;
-  border-radius: 2em;
-  background: linear-gradient(135deg, var(--c), color-mix(in srgb, var(--c) 45%, #d946ef));
+  padding: <span class="c-num">0.8em</span> <span class="c-num">1.7em</span>;
+  border: <span class="c-num">0</span>;
+  border-radius: <span class="c-num">2em</span>;
+  background: linear-gradient(<span class="c-num">135deg</span>, var(--c), color-mix(in srgb, var(--c) <span class="c-num">45%</span>, #d946ef));
   color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform <span class="c-num">0.3s</span> ease, box-shadow <span class="c-num">0.3s</span> ease;
 }
 .btn-sparkle-icon {
-  width: 1.1em;
-  height: 1.1em;
-  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  width: <span class="c-num">1.1em</span>;
+  height: <span class="c-num">1.1em</span>;
+  transition: transform <span class="c-num">0.6s</span> cubic-bezier(<span class="c-num">0.34</span>, <span class="c-num">1.56</span>, <span class="c-num">0.64</span>, <span class="c-num">1</span>);
 }
 .btn-sparkle-star {
   position: absolute;
-  width: 1.3em;
-  height: 1.3em;
-  background: color-mix(in srgb, var(--c) 15%, #fbbf24);
-  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
-  transform: scale(0);
+  width: <span class="c-num">1.3em</span>;
+  height: <span class="c-num">1.3em</span>;
+  background: color-mix(in srgb, var(--c) <span class="c-num">15%</span>, #fbbf24);
+  clip-path: polygon(<span class="c-num">50%</span> <span class="c-num">0</span>, <span class="c-num">62%</span> <span class="c-num">38%</span>, <span class="c-num">100%</span> <span class="c-num">50%</span>, <span class="c-num">62%</span> <span class="c-num">62%</span>, <span class="c-num">50%</span> <span class="c-num">100%</span>, <span class="c-num">38%</span> <span class="c-num">62%</span>, <span class="c-num">0</span> <span class="c-num">50%</span>, <span class="c-num">38%</span> <span class="c-num">38%</span>);
+  transform: scale(<span class="c-num">0</span>);
   pointer-events: none;
 }
-.btn-sparkle-star:nth-child(1) { top: -1.1em; left: 0.5em; }
-.btn-sparkle-star:nth-child(2) { top: -0.85em; right: 0; width: 0.85em; height: 0.85em; background: var(--c); }
-.btn-sparkle-star:nth-child(3) { bottom: -1.15em; right: 1.2em; }
-.btn-sparkle-star:nth-child(4) { bottom: -0.55em; left: -0.8em; width: 0.85em; height: 0.85em; background: var(--c); }
+.btn-sparkle-star:nth-child(<span class="c-num">1</span>) { top: -1.1em; left: <span class="c-num">0.5em</span>; }
+.btn-sparkle-star:nth-child(<span class="c-num">2</span>) { top: -0.85em; right: <span class="c-num">0</span>; width: <span class="c-num">0.85em</span>; height: <span class="c-num">0.85em</span>; background: var(--c); }
+.btn-sparkle-star:nth-child(<span class="c-num">3</span>) { bottom: -1.15em; right: <span class="c-num">1.2em</span>; }
+.btn-sparkle-star:nth-child(<span class="c-num">4</span>) { bottom: -0.55em; left: -0.8em; width: <span class="c-num">0.85em</span>; height: <span class="c-num">0.85em</span>; background: var(--c); }
 .btn-sparkle:is(:hover, :focus-visible) {
   transform: translateY(-0.1em);
-  box-shadow: 0 0.4em 1.2em color-mix(in srgb, var(--c) 40%, transparent);
+  box-shadow: <span class="c-num">0</span> <span class="c-num">0.4em</span> <span class="c-num">1.2em</span> color-mix(in srgb, var(--c) <span class="c-num">40%</span>, transparent);
 }
-.btn-sparkle:is(:hover, :focus-visible) .btn-sparkle-icon { transform: rotate(90deg) scale(1.2); }
+.btn-sparkle:is(:hover, :focus-visible) .btn-sparkle-icon { transform: rotate(<span class="c-num">90deg</span>) scale(<span class="c-num">1.2</span>); }
 .btn-sparkle:is(:hover, :focus-visible) .btn-sparkle-star {
-  animation: btn-sparkle-twinkle 1.2s ease-in-out calc(var(--i) * 0.3s) infinite;
+  animation: btn-sparkle-twinkle <span class="c-num">1.2s</span> ease-in-out calc(var(--i) * <span class="c-num">0.3s</span>) infinite;
 }
 @keyframes btn-sparkle-twinkle {
-  0%, 100% { transform: scale(0) rotate(0deg); }
-  35%      { transform: scale(1) rotate(45deg); }
-  65%      { transform: scale(0.85) rotate(90deg); }
+  <span class="c-num">0%</span>, <span class="c-num">100%</span> { transform: scale(<span class="c-num">0</span>) rotate(<span class="c-num">0deg</span>); }
+  <span class="c-num">35%</span>      { transform: scale(<span class="c-num">1</span>) rotate(<span class="c-num">45deg</span>); }
+  <span class="c-num">65%</span>      { transform: scale(<span class="c-num">0.85</span>) rotate(<span class="c-num">90deg</span>); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .btn-sparkle, .btn-sparkle *, .btn-sparkle::before, .btn-sparkle::after, .btn-sparkle *::before, .btn-sparkle *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    animation-duration: <span class="c-num">0.01ms</span> !important;
+    animation-iteration-count: <span class="c-num">1</span> !important;
+    transition-duration: <span class="c-num">0.01ms</span> !important;
   }
 }
-&lt;/style&gt;</code></pre>
+<span class="c-punc">&lt;/</span><span class="c-tag">style</span>&gt;</code></pre>
   </section>
 </div>
-<script src="../assets/site.js?v=0933aacd"></script>
+<script src="../assets/site.js?v=fe3dd7ee"></script>
 <footer class="site-footer">
   <div class="wrap">
     <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub</a>

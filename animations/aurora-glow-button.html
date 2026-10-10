@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>霓彩光晕按钮 · UI 动效画廊</title>
+<meta name="description" content="按钮底色是青粉蓝三色渐变，悬停时背后的一圈锥形彩虹光晕会模糊扩散开来，像极光从边缘溢出。">
+<link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/aurora-glow-button.html">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="apple-touch-icon" href="../favicon.svg">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="anim-head">
+    <a class="back-link" href="../index.html">← 返回</a>
+    <h1 class="anim-title">霓彩光晕按钮</h1>
+    <p class="anim-desc">按钮底色是青粉蓝三色渐变，悬停时背后的一圈锥形彩虹光晕会模糊扩散开来，像极光从边缘溢出。</p>
+    <div class="card-tags"><span class="tag">button</span><span class="tag">gradient</span><span class="tag">glow</span></div>
+  </header>
+
+  <section class="stage" aria-label="实时预览">
+    <iframe title="霓彩光晕按钮 实时预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.outer-cont {
+  padding: 12px 20px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  background: linear-gradient(90deg, #5bfcc4, #f593e4, #71a4f0);
+  border-radius: 12px;
+  color: #fff;
+  transition: all 0.3s ease;
+  box-shadow:
+    inset 0px 0px 5px #ffffffa9,
+    inset 0px 35px 30px #000,
+    0px 5px 10px #000000cc;
+  text-shadow: 1px 1px 1px #000;
+}
+.outer-cont::before {
+  content: &quot;&quot;;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: 12px;
+  filter: blur(0);
+  z-index: -1;
+  box-shadow: none;
+  background: conic-gradient(
+    #00000000 80deg,
+    #40baf7,
+    #f34ad7,
+    #5bfcc4,
+    #00000000 280deg
+  );
+  transition: all 0.3s ease;
+}
+.outer-cont:hover::before {
+  filter: blur(15px);
+}
+.outer-cont:active::before {
+  filter: blur(5px);
+  transform: translateY(1px);
+}
+.outer-cont:active {
+  box-shadow:
+    inset 0px 0px 5px #ffffffa9,
+    inset 0px 35px 30px #000;
+  margin-top: 3px;
+}
+
+</style>
+</head>
+<body>
+<div class=&quot;flex&quot;>
+  <button class=&quot;outer-cont&quot;>Ai Button</button>
+</div>
+
+</body>
+</html>"></iframe>
+  </section>
+
+  <section class="code-panel">
+    <div class="code-bar">
+      <span class="label">HTML + CSS</span>
+      <button class="copy-btn" type="button" data-copy="#src">复制全部代码</button>
+    </div>
+    <pre class="code" id="src"><code>&lt;div class="flex"&gt;
+  &lt;button class="outer-cont"&gt;Ai Button&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.outer-cont {
+  padding: 12px 20px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  background: linear-gradient(90deg, #5bfcc4, #f593e4, #71a4f0);
+  border-radius: 12px;
+  color: #fff;
+  transition: all 0.3s ease;
+  box-shadow:
+    inset 0px 0px 5px #ffffffa9,
+    inset 0px 35px 30px #000,
+    0px 5px 10px #000000cc;
+  text-shadow: 1px 1px 1px #000;
+}
+.outer-cont::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: 12px;
+  filter: blur(0);
+  z-index: -1;
+  box-shadow: none;
+  background: conic-gradient(
+    #00000000 80deg,
+    #40baf7,
+    #f34ad7,
+    #5bfcc4,
+    #00000000 280deg
+  );
+  transition: all 0.3s ease;
+}
+.outer-cont:hover::before {
+  filter: blur(15px);
+}
+.outer-cont:active::before {
+  filter: blur(5px);
+  transform: translateY(1px);
+}
+.outer-cont:active {
+  box-shadow:
+    inset 0px 0px 5px #ffffffa9,
+    inset 0px 35px 30px #000;
+  margin-top: 3px;
+}
+&lt;/style&gt;</code></pre>
+  </section>
+</div>
+<script src="../assets/site.js"></script>
+<footer class="site-footer">
+  <div class="wrap">
+    <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+<button id="toTop" class="to-top" type="button" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+</body>
+</html>

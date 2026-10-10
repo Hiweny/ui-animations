@@ -48,9 +48,12 @@ function highlight(src) {
   });
 }
 
-/** 实时预览用的独立文档：背景透明、禁止滚动，并按内容尺寸自适应缩放 */
-function previewDoc(a, extraCss = '') {
-  return `<!doctype html>\n<html lang="zh-CN">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n<style>\n  html,body{height:100%;margin:0}\n  body{display:grid;place-items:center;background:transparent;padding:0;box-sizing:border-box;overflow:hidden}\n${a.css}\n${extraCss}\n</style>\n</head>\n<body>\n${a.html}\n${a.js ? `<script>\n${a.js}\n<\/script>` : ''}\n<script>\n(function(){\n  function fit(){\n    var b=document.body;\n    b.style.transform='none';\n    var minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9,n=0,k=b.children;\n    for(var i=0;i<k.length;i++){\n      if(k[i].tagName==='SCRIPT')continue;\n      var r=k[i].getBoundingClientRect();\n      if(!r.width&&!r.height)continue;\n      if(r.left<minX)minX=r.left; if(r.top<minY)minY=r.top;\n      if(r.right>maxX)maxX=r.right; if(r.bottom>maxY)maxY=r.bottom; n++;\n    }\n    if(!n)return;\n    var w=maxX-minX,h=maxY-minY;\n    var W=document.documentElement.clientWidth,H=document.documentElement.clientHeight;\n    var s=Math.min(1,(W-20)/w,(H-20)/h);\n    if(s<1){\n      b.style.transformOrigin=((minX+maxX)/2)+'px '+((minY+maxY)/2)+'px';\n      b.style.transform='scale('+s+')';\n    }\n  }\n  window.addEventListener('load',fit);\n  window.addEventListener('resize',fit);\n  setTimeout(fit,60);setTimeout(fit,350);\n})();\n<\/script>\n</body>\n</html>`;
+/** 实时预览用的独立文档：背景透明、禁止滚动；测量内容真实尺寸回报父页，低端设备可冻结为单帧 */
+function previewDoc(a, extraCss = '', allowLite = false) {
+  const lite = allowLite
+    ? `\n<script>\n(function(){\n  try{\n    var low=false;\n    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) low=true;\n    var c=navigator.connection||{};\n    if(c.saveData||/slow-2g|2g|3g/.test(c.effectiveType||'')) low=true;\n    if(screen.width<=820){\n      var cores=navigator.hardwareConcurrency; if(cores&&cores<=4) low=true;\n      var mem=navigator.deviceMemory; if(mem&&mem<=4) low=true;\n    }\n    if(low){\n      document.documentElement.classList.add('perf-lite');\n      var raf=window.requestAnimationFrame.bind(window); var used=false;\n      window.requestAnimationFrame=function(cb){ if(used) return 0; used=true; return raf(cb); };\n      var s=document.createElement('style');\n      s.textContent='*,*::before,*::after{animation-play-state:paused!important;transition:none!important}';\n      (document.head||document.documentElement).appendChild(s);\n    }\n  }catch(e){}\n})();\n<\/script>`
+    : '';
+  return `<!doctype html>\n<html lang="zh-CN">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">${lite}\n<style>\n  html,body{height:100%;margin:0}\n  body{display:grid;place-items:center;background:transparent;padding:0;box-sizing:border-box;overflow:hidden}\n${a.css}\n${extraCss}\n</style>\n</head>\n<body>\n${a.html}\n${a.js ? `<script>\n${a.js}\n<\/script>` : ''}\n<script>\n(function(){\n  function measure(){\n    var b=document.body;\n    if(!b) return;\n    b.style.transform='none';\n    var minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9,n=0,k=b.children;\n    for(var i=0;i<k.length;i++){\n      if(k[i].tagName==='SCRIPT')continue;\n      var r=k[i].getBoundingClientRect();\n      if(!r.width&&!r.height)continue;\n      if(r.left<minX)minX=r.left; if(r.top<minY)minY=r.top;\n      if(r.right>maxX)maxX=r.right; if(r.bottom>maxY)maxY=r.bottom; n++;\n    }\n    var W=document.documentElement.clientWidth;\n    var w=n?(maxX-minX):(b.scrollWidth||W);\n    var h=n?(maxY-minY):(b.scrollHeight||120);\n    if(!w||!h){w=W;h=120;}\n    var s=Math.min(1,W/w);\n    b.style.transformOrigin='50% 50%';\n    b.style.transform=s<1?('scale('+s+')'):'none';\n    try{ parent.postMessage({__animSize:true,w:w,h:h,s:s},'*'); }catch(e){}\n  }\n  window.addEventListener('load',measure);\n  window.addEventListener('resize',measure);\n  setTimeout(measure,60);setTimeout(measure,400);setTimeout(measure,1200);\n})();\n<\/script>\n</body>\n</html>`;
 }
 
 function tagsHtml(tags) {
@@ -109,7 +112,7 @@ function indexPage(list) {
     <article class="card">
       <a class="card-link" href="animations/${a.slug}.html">
         <div class="card-stage">
-          <iframe class="card-frame" title="${a.name} 预览" loading="lazy" srcdoc="${attr(previewDoc(a, a.previewCss))}"></iframe>
+          <iframe class="card-frame" title="${a.name} 预览" loading="lazy" srcdoc="${attr(previewDoc(a, a.previewCss, true))}"></iframe>
         </div>
         <div class="card-body">
           <h2 class="card-name">${a.name}</h2>

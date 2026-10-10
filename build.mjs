@@ -48,9 +48,9 @@ function highlight(src) {
   });
 }
 
-/** 实时预览用的独立文档 */
+/** 实时预览用的独立文档：背景透明、禁止滚动，并按内容尺寸自适应缩放 */
 function previewDoc(a, extraCss = '') {
-  return `<!doctype html>\n<html lang="zh-CN">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n<style>\n  html,body{height:100%;margin:0}\n  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}\n${a.css}\n${extraCss}\n</style>\n</head>\n<body>\n${a.html}\n${a.js ? `<script>\n${a.js}\n<\/script>` : ''}\n</body>\n</html>`;
+  return `<!doctype html>\n<html lang="zh-CN">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n<style>\n  html,body{height:100%;margin:0}\n  body{display:grid;place-items:center;background:transparent;padding:0;box-sizing:border-box;overflow:hidden}\n${a.css}\n${extraCss}\n</style>\n</head>\n<body>\n${a.html}\n${a.js ? `<script>\n${a.js}\n<\/script>` : ''}\n<script>\n(function(){\n  function fit(){\n    var b=document.body;\n    b.style.transform='none';\n    var minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9,n=0,k=b.children;\n    for(var i=0;i<k.length;i++){\n      if(k[i].tagName==='SCRIPT')continue;\n      var r=k[i].getBoundingClientRect();\n      if(!r.width&&!r.height)continue;\n      if(r.left<minX)minX=r.left; if(r.top<minY)minY=r.top;\n      if(r.right>maxX)maxX=r.right; if(r.bottom>maxY)maxY=r.bottom; n++;\n    }\n    if(!n)return;\n    var w=maxX-minX,h=maxY-minY;\n    var W=document.documentElement.clientWidth,H=document.documentElement.clientHeight;\n    var s=Math.min(1,(W-20)/w,(H-20)/h);\n    if(s<1){\n      b.style.transformOrigin=((minX+maxX)/2)+'px '+((minY+maxY)/2)+'px';\n      b.style.transform='scale('+s+')';\n    }\n  }\n  window.addEventListener('load',fit);\n  window.addEventListener('resize',fit);\n  setTimeout(fit,60);setTimeout(fit,350);\n})();\n<\/script>\n</body>\n</html>`;
 }
 
 function tagsHtml(tags) {
@@ -109,7 +109,7 @@ function indexPage(list) {
     <article class="card">
       <a class="card-link" href="animations/${a.slug}.html">
         <div class="card-stage">
-          <iframe title="${a.name} 预览" loading="lazy" srcdoc="${attr(previewDoc(a, a.previewCss))}"></iframe>
+          <iframe class="card-frame" title="${a.name} 预览" loading="lazy" srcdoc="${attr(previewDoc(a, a.previewCss))}"></iframe>
         </div>
         <div class="card-body">
           <h2 class="card-name">${a.name}</h2>

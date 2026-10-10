@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/aurora-glow-button.html">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="apple-touch-icon" href="../favicon.svg">
-<link rel="stylesheet" href="../assets/site.css?v=0933aacd">
+<link rel="stylesheet" href="../assets/site.css?v=fe3dd7ee">
 </head>
 <body>
 <div class="bg-fx" aria-hidden="true">
@@ -118,70 +118,71 @@
 
   <section class="code-panel">
     <div class="code-bar">
-      <span class="label">HTML + CSS</span>
-      <button class="copy-btn" type="button" data-copy="#src">复制全部代码</button>
+      <div class="code-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <span class="code-file">aurora-glow-button.html</span>
+      <button class="copy-btn" type="button" data-copy="#src">复制代码</button>
     </div>
-    <pre class="code" id="src"><code>&lt;div class="flex"&gt;
-  &lt;button class="outer-cont"&gt;Ai Button&lt;/button&gt;
-&lt;/div&gt;
+    <pre class="code" id="src"><code><span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"flex"</span>&gt;
+  <span class="c-punc">&lt;</span><span class="c-tag">button</span> <span class="c-attr">class</span>=<span class="c-str">"outer-cont"</span>&gt;Ai Button<span class="c-punc">&lt;/</span><span class="c-tag">button</span>&gt;
+<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
 
-&lt;style&gt;
+<span class="c-punc">&lt;</span><span class="c-tag">style</span>&gt;
 .flex {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: <span class="c-num">5px</span>;
 }
 .outer-cont {
-  padding: 12px 20px;
+  padding: <span class="c-num">12px</span> <span class="c-num">20px</span>;
   border: none;
-  font-size: 1rem;
+  font-size: <span class="c-num">1rem</span>;
   cursor: pointer;
   position: relative;
-  background: linear-gradient(90deg, #5bfcc4, #f593e4, #71a4f0);
-  border-radius: 12px;
+  background: linear-gradient(<span class="c-num">90deg</span>, #<span class="c-num">5</span>bfcc4, #f593e4, #<span class="c-num">71</span>a4f0);
+  border-radius: <span class="c-num">12px</span>;
   color: #fff;
-  transition: all 0.3s ease;
+  transition: all <span class="c-num">0.3s</span> ease;
   box-shadow:
-    inset 0px 0px 5px #ffffffa9,
-    inset 0px 35px 30px #000,
-    0px 5px 10px #000000cc;
-  text-shadow: 1px 1px 1px #000;
+    inset <span class="c-num">0px</span> <span class="c-num">0px</span> <span class="c-num">5px</span> #ffffffa9,
+    inset <span class="c-num">0px</span> <span class="c-num">35px</span> <span class="c-num">30px</span> #<span class="c-num">000</span>,
+    <span class="c-num">0px</span> <span class="c-num">5px</span> <span class="c-num">10px</span> #<span class="c-num">000000</span>cc;
+  text-shadow: <span class="c-num">1px</span> <span class="c-num">1px</span> <span class="c-num">1px</span> #<span class="c-num">000</span>;
 }
 .outer-cont::before {
-  content: "";
+  content: <span class="c-str">""</span>;
   position: absolute;
-  inset: 0;
+  inset: <span class="c-num">0</span>;
   margin: auto;
-  border-radius: 12px;
-  filter: blur(0);
+  border-radius: <span class="c-num">12px</span>;
+  filter: blur(<span class="c-num">0</span>);
   z-index: -1;
   box-shadow: none;
   background: conic-gradient(
-    #00000000 80deg,
-    #40baf7,
+    #<span class="c-num">00000000</span> <span class="c-num">80deg</span>,
+    #<span class="c-num">40</span>baf7,
     #f34ad7,
-    #5bfcc4,
-    #00000000 280deg
+    #<span class="c-num">5</span>bfcc4,
+    #<span class="c-num">00000000</span> <span class="c-num">280deg</span>
   );
-  transition: all 0.3s ease;
+  transition: all <span class="c-num">0.3s</span> ease;
 }
 .outer-cont:hover::before {
-  filter: blur(15px);
+  filter: blur(<span class="c-num">15px</span>);
 }
 .outer-cont:active::before {
-  filter: blur(5px);
-  transform: translateY(1px);
+  filter: blur(<span class="c-num">5px</span>);
+  transform: translateY(<span class="c-num">1px</span>);
 }
 .outer-cont:active {
   box-shadow:
-    inset 0px 0px 5px #ffffffa9,
-    inset 0px 35px 30px #000;
-  margin-top: 3px;
+    inset <span class="c-num">0px</span> <span class="c-num">0px</span> <span class="c-num">5px</span> #ffffffa9,
+    inset <span class="c-num">0px</span> <span class="c-num">35px</span> <span class="c-num">30px</span> #<span class="c-num">000</span>;
+  margin-top: <span class="c-num">3px</span>;
 }
-&lt;/style&gt;</code></pre>
+<span class="c-punc">&lt;/</span><span class="c-tag">style</span>&gt;</code></pre>
   </section>
 </div>
-<script src="../assets/site.js?v=0933aacd"></script>
+<script src="../assets/site.js?v=fe3dd7ee"></script>
 <footer class="site-footer">
   <div class="wrap">
     <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub</a>

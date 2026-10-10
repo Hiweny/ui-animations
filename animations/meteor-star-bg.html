@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/meteor-star-bg.html">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="apple-touch-icon" href="../favicon.svg">
-<link rel="stylesheet" href="../assets/site.css?v=3a5a4283">
+<link rel="stylesheet" href="../assets/site.css?v=6d82ea28">
 </head>
 <body>
 <div class="bg-fx" aria-hidden="true">
@@ -118,8 +118,9 @@ body{background:radial-gradient(1200px 600px at 80% -10%, #1e1b4b 0%, transparen
 
 <script>
 (function(){
-  function fit(){
+  function measure(){
     var b=document.body;
+    if(!b) return;
     b.style.transform='none';
     var minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9,n=0,k=b.children;
     for(var i=0;i<k.length;i++){
@@ -129,18 +130,18 @@ body{background:radial-gradient(1200px 600px at 80% -10%, #1e1b4b 0%, transparen
       if(r.left<minX)minX=r.left; if(r.top<minY)minY=r.top;
       if(r.right>maxX)maxX=r.right; if(r.bottom>maxY)maxY=r.bottom; n++;
     }
-    if(!n)return;
-    var w=maxX-minX,h=maxY-minY;
-    var W=document.documentElement.clientWidth,H=document.documentElement.clientHeight;
-    var s=Math.min(1,(W-20)/w,(H-20)/h);
-    if(s<1){
-      b.style.transformOrigin=((minX+maxX)/2)+'px '+((minY+maxY)/2)+'px';
-      b.style.transform='scale('+s+')';
-    }
+    var W=document.documentElement.clientWidth;
+    var w=n?(maxX-minX):(b.scrollWidth||W);
+    var h=n?(maxY-minY):(b.scrollHeight||120);
+    if(!w||!h){w=W;h=120;}
+    var s=Math.min(1,W/w);
+    b.style.transformOrigin='50% 50%';
+    b.style.transform=s<1?('scale('+s+')'):'none';
+    try{ parent.postMessage({__animSize:true,w:w,h:h,s:s},'*'); }catch(e){}
   }
-  window.addEventListener('load',fit);
-  window.addEventListener('resize',fit);
-  setTimeout(fit,60);setTimeout(fit,350);
+  window.addEventListener('load',measure);
+  window.addEventListener('resize',measure);
+  setTimeout(measure,60);setTimeout(measure,400);setTimeout(measure,1200);
 })();
 </script>
 </body>
@@ -217,7 +218,7 @@ body{background:radial-gradient(<span class="c-num">1200px</span> <span class="c
 <span class="c-punc">&lt;/</span><span class="c-tag">style</span>&gt;</code></pre>
   </section>
 </div>
-<script src="../assets/site.js?v=3a5a4283"></script>
+<script src="../assets/site.js?v=6d82ea28"></script>
 <footer class="site-footer">
   <div class="wrap">
     <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub</a>

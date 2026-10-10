@@ -39,7 +39,7 @@ function head(title, desc, base) {
   return `<!doctype html>\n<html lang="zh-CN">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n<title>${title}</title>\n<meta name="description" content="${desc}">\n<link rel="canonical" href="${SITE}/{{PATH}}">\n<link rel="icon" type="image/svg+xml" href="${base}favicon.svg">\n<link rel="apple-touch-icon" href="${base}favicon.svg">\n<link rel="stylesheet" href="${base}assets/site.css">\n</head>\n<body>`;
 }
 
-const FOOT = `\n<footer class="site-footer">\n  <div class="wrap">\n    <a href="${REPO}" target="_blank" rel="noopener">GitHub</a>\n  </div>\n</footer>\n</body>\n</html>`;
+const FOOT = `\n<footer class="site-footer">\n  <div class="wrap">\n    <a href="${REPO}" target="_blank" rel="noopener">GitHub</a>\n  </div>\n</footer>\n<button id="toTop" class="to-top" type="button" aria-label="回到顶部">\n  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>\n</button>\n</body>\n</html>`;
 
 /* ----------------------------- 动效详情页 ----------------------------- */
 function detailPage(a) {

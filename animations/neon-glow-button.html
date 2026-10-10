@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>霓虹发光按钮 · UI 动效画廊</title>
+<meta name="description" content="描边与文字带霓虹光晕并持续呼吸，悬停时整颗按钮亮起白光、背景透出色彩。用 box-shadow 内外双层 + color-mix 控制光晕强度。">
+<link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/neon-glow-button.html">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="anim-head">
+    <a class="back-link" href="../index.html">← 返回画廊</a>
+    <h1 class="anim-title">霓虹发光按钮</h1>
+    <p class="anim-desc">描边与文字带霓虹光晕并持续呼吸，悬停时整颗按钮亮起白光、背景透出色彩。用 box-shadow 内外双层 + color-mix 控制光晕强度。</p>
+    <div class="anim-meta">
+      <span class="tag">本仓库原创</span>
+      
+    </div>
+    <p class="anim-url">深链地址：<a href="https://hiweny.github.io/ui-animations/animations/neon-glow-button.html">https://hiweny.github.io/ui-animations/animations/neon-glow-button.html</a></p>
+  </header>
+
+  <section class="stage" aria-label="实时预览">
+    <iframe title="霓虹发光按钮 实时预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+.btn-neon {
+  --c: #22d3ee;
+  padding: 0.9em 2em;
+  border: 2px solid var(--c);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--c);
+  font: 700 16px/1 system-ui, sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-shadow: 0 0 8px color-mix(in srgb, var(--c) 70%, transparent);
+  box-shadow:
+    0 0 8px color-mix(in srgb, var(--c) 60%, transparent),
+    inset 0 0 8px color-mix(in srgb, var(--c) 35%, transparent);
+  animation: neon-pulse 2.2s ease-in-out infinite alternate;
+  transition: color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-neon:hover {
+  color: #fff;
+  background: color-mix(in srgb, var(--c) 18%, transparent);
+  box-shadow:
+    0 0 22px var(--c),
+    inset 0 0 16px color-mix(in srgb, var(--c) 45%, transparent);
+  animation-play-state: paused;
+}
+@keyframes neon-pulse {
+  from { filter: brightness(0.92); }
+  to   { filter: brightness(1.18); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-neon { animation: none; }
+}
+
+</style>
+</head>
+<body>
+<button class=&quot;btn-neon&quot; type=&quot;button&quot;>Neon</button>
+
+</body>
+</html>"></iframe>
+  </section>
+
+  <section class="code-panel">
+    <div class="code-bar">
+      <span class="label">HTML + CSS · 一键复制</span>
+      <button class="copy-btn" type="button" data-copy="#src">复制全部代码</button>
+    </div>
+    <pre class="code" id="src"><code>&lt;button class="btn-neon" type="button"&gt;Neon&lt;/button&gt;
+
+&lt;style&gt;
+.btn-neon {
+  --c: #22d3ee;
+  padding: 0.9em 2em;
+  border: 2px solid var(--c);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--c);
+  font: 700 16px/1 system-ui, sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-shadow: 0 0 8px color-mix(in srgb, var(--c) 70%, transparent);
+  box-shadow:
+    0 0 8px color-mix(in srgb, var(--c) 60%, transparent),
+    inset 0 0 8px color-mix(in srgb, var(--c) 35%, transparent);
+  animation: neon-pulse 2.2s ease-in-out infinite alternate;
+  transition: color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-neon:hover {
+  color: #fff;
+  background: color-mix(in srgb, var(--c) 18%, transparent);
+  box-shadow:
+    0 0 22px var(--c),
+    inset 0 0 16px color-mix(in srgb, var(--c) 45%, transparent);
+  animation-play-state: paused;
+}
+@keyframes neon-pulse {
+  from { filter: brightness(0.92); }
+  to   { filter: brightness(1.18); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-neon { animation: none; }
+}
+&lt;/style&gt;</code></pre>
+  </section>
+
+  <section class="anim-tags">
+    <h2 class="anim-subtitle">标签</h2>
+    <div class="card-tags"><span class="tag">button</span><span class="tag">neon</span><span class="tag">glow</span><span class="tag">hover</span></div>
+  </section>
+</div>
+<script src="../assets/site.js"></script>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>UI 动效画廊 · 持续收集中 · <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub 仓库</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>星星闪光按钮 · UI 动效画廊</title>
 <meta name="description" content="按钮四角藏着四颗小星星，鼠标悬停时依次旋转、放大、闪烁，图标同时旋转放大。纯 CSS 驱动，靠 --i 变量错开每颗星的动画延迟。">
+<link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/sparkle-button.html">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
@@ -16,11 +17,11 @@
     <div class="anim-meta">
       <span class="tag">来源：主人知识库收藏</span>
       
-      <a href="https://hiweny.github.io/ui-animations/animations/sparkle-button.html" target="_blank" rel="noopener">深链 ↗</a>
     </div>
+    <p class="anim-url">深链地址：<a href="https://hiweny.github.io/ui-animations/animations/sparkle-button.html">https://hiweny.github.io/ui-animations/animations/sparkle-button.html</a></p>
   </header>
 
-  <section class="stage">
+  <section class="stage" aria-label="实时预览">
     <iframe title="星星闪光按钮 实时预览" loading="lazy" srcdoc="<!doctype html>
 <html lang=&quot;zh-CN&quot;>
 <head>
@@ -28,12 +29,7 @@
 <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
 <style>
   html,body{height:100%;margin:0}
-  body{
-    display:grid;place-items:center;
-    background:#080c16;
-    padding:24px;
-    box-sizing:border-box;
-  }
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
 .btn-sparkle {
   --c: var(--btn-color, #3b82f6);
   display: inline-flex;
@@ -101,6 +97,7 @@
   <svg class=&quot;btn-sparkle-icon&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot;><path d=&quot;M12 2l2.3 7.7L22 12l-7.7 2.3L12 22l-2.3-7.7L2 12l7.7-2.3z&quot;/></svg>
   Generate
 </button>
+
 </body>
 </html>"></iframe>
   </section>
@@ -110,20 +107,16 @@
       <span class="label">HTML + CSS · 一键复制</span>
       <button class="copy-btn" type="button" data-copy="#src">复制全部代码</button>
     </div>
-    <pre class="code" id="src" data-src="#raw"></pre>
-  </section>
-</div>
-
-<script type="text/plain" id="raw"><button class="btn-sparkle">
-  <span class="btn-sparkle-star" style="--i:0" aria-hidden="true"></span>
-  <span class="btn-sparkle-star" style="--i:1" aria-hidden="true"></span>
-  <span class="btn-sparkle-star" style="--i:2" aria-hidden="true"></span>
-  <span class="btn-sparkle-star" style="--i:3" aria-hidden="true"></span>
-  <svg class="btn-sparkle-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.3 7.7L22 12l-7.7 2.3L12 22l-2.3-7.7L2 12l7.7-2.3z"/></svg>
+    <pre class="code" id="src"><code>&lt;button class="btn-sparkle"&gt;
+  &lt;span class="btn-sparkle-star" style="--i:0" aria-hidden="true"&gt;&lt;/span&gt;
+  &lt;span class="btn-sparkle-star" style="--i:1" aria-hidden="true"&gt;&lt;/span&gt;
+  &lt;span class="btn-sparkle-star" style="--i:2" aria-hidden="true"&gt;&lt;/span&gt;
+  &lt;span class="btn-sparkle-star" style="--i:3" aria-hidden="true"&gt;&lt;/span&gt;
+  &lt;svg class="btn-sparkle-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"&gt;&lt;path d="M12 2l2.3 7.7L22 12l-7.7 2.3L12 22l-2.3-7.7L2 12l7.7-2.3z"/&gt;&lt;/svg&gt;
   Generate
-</button>
+&lt;/button&gt;
 
-<style>
+&lt;style&gt;
 .btn-sparkle {
   --c: var(--btn-color, #3b82f6);
   display: inline-flex;
@@ -179,7 +172,14 @@
     transition-duration: 0.01ms !important;
   }
 }
-</style></script>
+&lt;/style&gt;</code></pre>
+  </section>
+
+  <section class="anim-tags">
+    <h2 class="anim-subtitle">标签</h2>
+    <div class="card-tags"><span class="tag">button</span><span class="tag">star</span><span class="tag">sparkle</span><span class="tag">hover</span></div>
+  </section>
+</div>
 <script src="../assets/site.js"></script>
 <footer class="site-footer">
   <div class="wrap">

@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>展开天气卡片 · UI 动效画廊</title>
+<meta name="description" content="白色天气卡片，悬停时卡片变黄并向下展开，露出湿度、风速、空气质量、体感温度与气压等详细数据。">
+<link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/expand-weather-card.html">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="apple-touch-icon" href="../favicon.svg">
+<link rel="stylesheet" href="../assets/site.css?v=fe3dd7ee">
+</head>
+<body>
+<div class="bg-fx" aria-hidden="true">
+  <span class="meteor" style="--x:-12%;--delay:0s;--dur:6.5s"></span>
+  <span class="meteor" style="--x:6%;--delay:1.8s;--dur:7.8s"></span>
+  <span class="meteor" style="--x:24%;--delay:3.6s;--dur:7s"></span>
+  <span class="meteor" style="--x:44%;--delay:0.9s;--dur:8.4s"></span>
+  <span class="meteor" style="--x:63%;--delay:2.7s;--dur:6.8s"></span>
+  <span class="meteor" style="--x:82%;--delay:4.5s;--dur:9s"></span>
+  <span class="star" style="--x:10%;--y:18%;--delay:0s;--dur:2.6s"></span>
+  <span class="star" style="--x:22%;--y:42%;--delay:.6s;--dur:3.4s"></span>
+  <span class="star" style="--x:34%;--y:12%;--delay:1.2s;--dur:2.9s"></span>
+  <span class="star" style="--x:46%;--y:66%;--delay:.3s;--dur:3.8s"></span>
+  <span class="star" style="--x:58%;--y:28%;--delay:1.5s;--dur:2.4s"></span>
+  <span class="star" style="--x:70%;--y:54%;--delay:.9s;--dur:3.2s"></span>
+  <span class="star" style="--x:82%;--y:16%;--delay:2.1s;--dur:2.7s"></span>
+  <span class="star" style="--x:93%;--y:38%;--delay:.4s;--dur:4.2s"></span>
+  <span class="star" style="--x:16%;--y:78%;--delay:1.8s;--dur:3.1s"></span>
+  <span class="star" style="--x:28%;--y:58%;--delay:.2s;--dur:2.8s"></span>
+  <span class="star" style="--x:40%;--y:88%;--delay:2.4s;--dur:3.6s"></span>
+  <span class="star" style="--x:52%;--y:34%;--delay:1.1s;--dur:2.5s"></span>
+  <span class="star" style="--x:64%;--y:72%;--delay:.7s;--dur:3.9s"></span>
+  <span class="star" style="--x:76%;--y:46%;--delay:2.0s;--dur:2.3s"></span>
+  <span class="star" style="--x:88%;--y:64%;--delay:1.4s;--dur:3.3s"></span>
+  <span class="star" style="--x:6%;--y:52%;--delay:.5s;--dur:3.7s"></span>
+</div>
+<div class="wrap">
+  <header class="anim-head">
+    <a class="back-link" href="../index.html">← 返回</a>
+    <h1 class="anim-title">展开天气卡片</h1>
+    <p class="anim-desc">白色天气卡片，悬停时卡片变黄并向下展开，露出湿度、风速、空气质量、体感温度与气压等详细数据。</p>
+    <div class="card-tags"><span class="tag">card</span><span class="tag">weather</span><span class="tag">hover</span><span class="tag">expand</span></div>
+  </header>
+
+  <section class="stage" aria-label="实时预览">
+    <iframe title="展开天气卡片 实时预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+.cardm {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 46.64%;
+  left: 50%;
+}
+
+.card {
+  position: absolute;
+  width: 250px;
+  height: 130px;
+  border-radius: 25px;
+  background: whitesmoke;
+  color: black;
+  z-index: 2;
+  transition: .4s ease-in-out;
+}
+
+.weather {
+  position: relative;
+  margin: 1em;
+}
+
+.main {
+  font-size: 2em;
+  position: relative;
+  top: -3em;
+  left: 4.3em;
+}
+
+.mainsub {
+  position: relative;
+  top: -10.2em;
+  left: 14em;
+  font-size: 0.6em;
+}
+
+.card2 {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  width: 240px;
+  height: 130px;
+  border-radius: 35px;
+  background: white;
+  z-index: -1;
+  transition: .4s ease-in-out;
+}
+
+.card:hover {
+  background-color: #FFE87C;
+  cursor: pointer;
+}
+
+.card:hover + .card2 {
+  height: 300px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.card:hover + .card2 .lower {
+  top: 20.2em;
+}
+
+.upper {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  color: black;
+  left: 1.8em;
+  top: 0.5em;
+  gap: 4em;
+}
+
+.humiditytext {
+  position: relative;
+  left: 3.6em;
+  top: 2.7em;
+  font-size: 0.6em;
+}
+
+.airtext {
+  position: relative;
+  left: 3.8em;
+  top: 2.7em;
+  font-size: 0.6em;
+}
+
+.lower {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  text-align: center;
+  color: black;
+  left: 3em;
+  top: 1em;
+  margin-top: 0.7em;
+  font-size: 0.7em;
+  transition: .4s ease-in-out;
+}
+
+.aqi {
+  margin-right: 3.25em;
+}
+
+.realfeel {
+  margin-right: 1.8em;
+}
+
+.card3 {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 240px;
+  height: 30px;
+  top: 4.7em;
+  left: -2.4em;
+  font-size: 1.24em;
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+  background: limegreen;
+  transition: .4s ease-in-out;
+}
+
+</style>
+</head>
+<body>
+<div class=&quot;cardm&quot;>
+  <div class=&quot;card&quot;>
+    <svg class=&quot;weather&quot; version=&quot;1.1&quot; id=&quot;Layer_1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; width=&quot;100px&quot; height=&quot;100px&quot; viewBox=&quot;0 0 100 100&quot; xml:space=&quot;preserve&quot;>  <image id=&quot;image0&quot; width=&quot;100&quot; height=&quot;100&quot; x=&quot;0&quot; y=&quot;0&quot; href=&quot;data:image/png;base64,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&quot;></image>
+    </svg>
+    <div class=&quot;main&quot;>23 °C</div>
+    <div class=&quot;mainsub&quot;>Dunmore, Ireland</div>
+
+  </div>
+
+  <div class=&quot;card2&quot;>
+    <div class=&quot;upper&quot;>
+      <div class=&quot;humidity&quot;>
+        <div class=&quot;humiditytext&quot;>Humidity<br>30%</div>
+        <svg xml:space=&quot;preserve&quot; viewBox=&quot;0 0 30 30&quot; height=&quot;30px&quot; width=&quot;30px&quot; y=&quot;0px&quot; x=&quot;0px&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; id=&quot;Layer_1&quot; version=&quot;1.1&quot; class=&quot;humiditysvg&quot;>  <image href=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+          AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABiVBMVEUAAAAAAP9NerV/f39O
+          e7ZQfLZVf6pRfbfL5fdRfbZIbbZmmcxols5nl85OebSPsteLrdVSfLZxl89ok9FqlM5ahsBdicNa
+          hsFcicRhjcdWgbpahsFfi8ZbhsFijsmErOWLt+9xndZcicJahsFahsFdicN5n81xjcZqlNRpls1q
+          lNBfn99pls9nkcxXgrpZgrtik81OebWNsdeMrtZOebRNerVZg7pwmMhNebRKdLRNerZNebHZ8v9o
+          lM9jj8rV7v3W7v1ch7+Ktu6Lt/CEsep7p+Cz1PO+3fqJte5/q+V+quOUvvLY8f+TvfKpzvapzfaq
+          z/aRvPGdxfSVv/LX8P/W8P+32fnK5vyMuPCmzPXW8P6ny/WWv/KOufGawvO22PjJ5vzB4PrU7v6i
+          yPSz1fiYwfKOufDD4funzPXF4vvE4vuOuvHV7/7U7/7G4/uNufCx1Pew0/ev0veu0feQu/G01viP
+          ufF/q+SCrud+quSItO2kyvWjyfVijslrltFmkcyEqtZgjMf///8NXQssAAAAPHRSTlMAAZgCW+EG
+          y+jMBxRaRXHC2H8bX0ry/vrhyvnw0PDHR0Be/e/4/f4SDDNiEFVb0eI5iMHCho7NwI0YOBdy59Cm
+          AAAAAWJLR0SCi7P/RAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+cCEBITAJMBs+kAAAFb
+          SURBVCjPY2CAAUYmZgY8gIWVBY8sGzsHJxc2CW4eXiDJx28jIAjiCgnzgoV5ebiBpIiomK2duISk
+          lL2Ng6O0jIwsmCsnIW5nKyYqwiDv5AwELq5uNjY27h6enh5grpcLiHKSZ1BwBgNvH6C0j68zKlCA
+          SfvZgIA/LukAsHQAVDgwCE06OAQoGxoMlQ4Lj0CVdo6MsomKhrJjfGwi0aSdY+NiYcx4G5sEdGkk
+          kGhjk4RHOjnEJgWPtLNvKprL07CpgktHpEfgk/a3ycAnnWmThRDMxpDOscmFi6Xl5aNLF+QUwqWL
+          bIoxogQBSpJskkpwS5cC4yYFp3RZElA6qQwh7VFeAWZXVFYByWpwxNcAueUeQGlFJWUZCZXauloV
+          CRllVdt6NbB0QyOIq6TIoK4BSrWaWpogSltHVw8srW8A4mqoY6R6QyOgrLEJztxiamZuZsGGOztZ
+          WlnD2QBCYbJl9Cx9XAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMy0wMi0xNlQxODoxOTowMCswMDow
+          MG/wqfUAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjMtMDItMTZUMTg6MTk6MDArMDA6MDAerRFJAAAA
+          KHRFWHRkYXRlOnRpbWVzdGFtcAAyMDIzLTAyLTE2VDE4OjE5OjAwKzAwOjAwSbgwlgAAAABJRU5ErkJggg==&quot; y=&quot;0&quot; x=&quot;0&quot; height=&quot;30&quot; width=&quot;30&quot; id=&quot;image0&quot;></image>
+          </svg>
+      </div>
+
+      <div class=&quot;air&quot;>
+        <div class=&quot;airtext&quot;>Wind<br>8 Km/h</div>
+          <svg class=&quot;airsvg&quot; version=&quot;1.1&quot; id=&quot;Layer_1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; width=&quot;30px&quot; height=&quot;30px&quot; viewBox=&quot;0 0 30 30&quot; xml:space=&quot;preserve&quot;>  <image id=&quot;image0&quot; width=&quot;30&quot; height=&quot;30&quot; x=&quot;0&quot; y=&quot;0&quot; href=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+            AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABaFBMVEUAAAAA//8ilfIhlfMg
+            lvIglfMglvIeku8cjf8glvMhlfIflvMhlfIhlvIglvMhl/MglvIglfIglPEfmfIhlfIglvQfn/8g
+            lfIglvIhlfMglfIglvMhl/AhlfIcm/AAf/8qlOkglPYglvIZmf8zmf8hlfIglfIXi+cilPMhlvMg
+            lfQhlvMglvIhlfIgl/MglvMhlvMhlfMhlvIfl+8hlvMhlfMglvMglvI/f/8hlvMilvMelvAglfIg
+            lvMhlvIglPIglvIhlfIkkfUglfMglfMhlvMhlvMilvMjlfEglvMhlfIhlfMglfIflvEnnOshlvIf
+            lPEflfIek/QglvIglvMhlfIime4jlPAglvMglvEhlvMhl/MglfMglfMhlvIak/Edk/UhlvIglfMg
+            l/IglvIglfIilPIhlvMhlfMhk/Eqqv8glvIglfMcl/UhlfMhlvIhlvMhlfIglfIhlfIgl/QflPQh
+            lvP///+FIn/GAAAAdnRSTlMAAVKu1MmNIQmy91ig/Z5s0fo3KP5dCL27Lvm0NvwSAgwf+woFv7oL
+            Q0RGa9L1Vtndx4sgme3FZgTIFiI/hvZld3sch8Tv7kI683nV6DgN4GBQMsycjw8k6nWqRW3cUxMa
+            5dpnfLU87N8mBrxXG5jnibjLoi8YaHuXCQAAAAFiS0dEd0Zk+dcAAAAJcEhZcwAACxMAAAsTAQCa
+            nBgAAAAHdElNRQfnAhEIBBbLW8PtAAABJ0lEQVQoz62RZ1fCMBSG46atomBR1IJ7g+KotKKgxYl7
+            4Z6493x/v6T0QKMtn/p8ec/Nk5Pc5BLiHCWlZeUVlVU21sWBwgvWuho1bqG2Dh6vla0X4ctGQyP8
+            VrqpuUVPCQGXlQ+26tEGtBfpX0JHp73t6kYPs9Db159nYDAEj8RoNxjCQ+xxvuFIgZHRMcemQMi4
+            iP+I8kRU0TUHG9RJqpWYFVPTcahKsc/jkSAzfgNuVvvjk5gj84W7FhZZvYRl4o0apFawGmT0GsKm
+            an0DmzS31O3cQgo75t27SNLYQyRNc/8AhzkROzrOPjCEE1poMk7Pzi8Sl7gyxp5B/Fq4Aa//A7m9
+            y7V6/2Ac+/hEy8CzUb68ysDbezp/rZL5+Pz6NvWh/TgwzV+1HV523WQ81AAAACV0RVh0ZGF0ZTpj
+            cmVhdGUAMjAyMy0wMi0xN1QwODowNDoyMiswMDowML1dmzYAAAAldEVYdGRhdGU6bW9kaWZ5ADIw
+            MjMtMDItMTdUMDg6MDQ6MjIrMDA6MDDMACOKAAAAKHRFWHRkYXRlOnRpbWVzdGFtcAAyMDIzLTAy
+            LTE3VDA4OjA0OjIyKzAwOjAwmxUCVQAAAABJRU5ErkJggg==&quot;></image>
+        </svg>
+      </div>
+    </div>
+
+    <div class=&quot;lower&quot;>
+      <div class=&quot;aqi&quot;>
+        <svg class=&quot;aqisvg&quot; version=&quot;1.1&quot; id=&quot;Layer_1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; width=&quot;20px&quot; height=&quot;20px&quot; viewBox=&quot;0 0 20 20&quot; xml:space=&quot;preserve&quot;>  <image id=&quot;image0&quot; width=&quot;20&quot; height=&quot;20&quot; x=&quot;0&quot; y=&quot;0&quot; href=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+          AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABBVBMVEUAAABL4f9O5v9P5f9Q
+          5f9R5/8AZsxB0vYAd9EAeNQAd9MeoOM1w/EYmuIZm+IXnOIAAP8AccYmrOgYmuAWneEA//8AdtQZ
+          m+JP5f8ZmeUAf89L3vwcoOQYmeIAddEAeNUrseocjeIAd9QAeNMxu+4kqucZmuEYm+IWmeI5xfIf
+          n99P3/9Q5v9Q5v9Q5v9G2Pk0wPA+zfZN4v5L3/w+zfUyve8iqOcrs+s9zPVM4f1N4v1E1vklrOki
+          p+cmrOhH2fpP5f5F1/kstewqs+tO4/4nruott+0or+pL3vxE1flK3vxA0fcjqecrtOxO5P4yvvAs
+          tOw6yPNA0Pc7yfQ4xfI3xPL////cI4U2AAAALnRSTlMAEXF3ZWsFeC3S26iVh7MsAQnAVCIBZ7Ft
+          ChBv6GonVZQJs4yLxtPNLY8IEHuINVg0ZAAAAAFiS0dEVgoN6YkAAAAJcEhZcwAACxMAAAsTAQCa
+          nBgAAAAHdElNRQfnAhIFCRn0J5yMAAAAq0lEQVQY02NgIAkwMjFDARMjXJBFDw5Y4IKsCEFWmBgb
+          u56+gaERsiAHJxe3nrGJqZm5haWeFQ8vHz9QUEAQqt3a1MbWTkhYRBRmprG9A5qZYuJ6jk62ziYu
+          QEEJSaiglDRIjaOpraubu4wsupM8PL2g2gXk5BX0vH18LYwgZiqCLOJQUlbR0/Nz9LcNCAwKVlVT
+          10DRbh1iGqqphc+b2ANEW0cXCnS0SQt0ALCcIug70CWhAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIz
+          LTAyLTE4VDA1OjA5OjI1KzAwOjAwRMIpTAAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMy0wMi0xOFQw
+          NTowOToyNSswMDowMDWfkfAAAAAodEVYdGRhdGU6dGltZXN0YW1wADIwMjMtMDItMThUMDU6MDk6
+          MjUrMDA6MDBiirAvAAAAAElFTkSuQmCC&quot;></image>
+        </svg>
+        <div class=&quot;aqitext&quot;>AQI<br>30</div>
+      </div>
+
+      <div class=&quot;realfeel&quot;>
+        <svg class=&quot;rfsvg&quot; version=&quot;1.1&quot; id=&quot;Layer_1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; width=&quot;20px&quot; height=&quot;20px&quot; viewBox=&quot;0 0 20 20&quot; xml:space=&quot;preserve&quot;>  <image id=&quot;image0&quot; width=&quot;20&quot; height=&quot;20&quot; x=&quot;0&quot; y=&quot;0&quot; href=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+          AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABuVBMVEUAAAAAAAAECQkIDg4E
+          BAQAAAAAAAAFBQUHDAwIDg4MFBUNFRUKCgoPGhxGenw/b3FDdXcmRUYJDAwJDw9Pi40LFBQNFhYM
+          FhYPGhsMExUKEhIPGhoKEhQMExMOGhoMExMPGhoKFBQLExMNFxcKEhILFBQKExMKExQLEhILERMK
+          EREHDQ1SkJMuUlMABAQAAAASHh9FeXtAcXI8aWszWlwvU1M4Y2QjPT4NGBoAAAAAAAAAAAAAAAAA
+          AAAAAAAAAAAAAABYmZtWlplKgoVlsbRsvsF0zM9uwsVuwcNsvb9ecU53czF0bStgbkdqt7dntbhp
+          tbVxaCf5uxD+vxD7vBBTUilYlZdtwMNms7Zdc1P8vRDYpBR5b0imsKy0wcFzhoZdkpRldEx6cU3W
+          5eWLnJxdm51otrlZdl67kBWxvbmUo6RmfHxajo9ouLpqt7mJdiN8YxnH1dWVpaVfn6Jgl41OUUKv
+          u7pWe3xwxsldn6KmtLTO3NxUf4BswMN0ys1gpaedrKzT4uJjd3dsvcBqubxXg4Vgd3hthYVid3dh
+          dnZof39shYVkf4BVeXpqt7pksbJjr7Jdo6X////f0mPcAAAAQXRSTlMABGh/a1xUZIqPo7BH2vv4
+          /vJQgvyxwLLCpqXBsafBqcKutcCwuamtop+SgPzwOQzg/f728fD166Zla1o/PiEmFs+XjUIAAAAB
+          YktHRJKWBO8gAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5wISBQ8aO3RqsAAAAQlJREFU
+          GNNjYMAOGJmYmVlY2djYmZk5OLm4ecBivHyOTs7O/ALOTo6Oji6ugkJAQWERNxTgLgoUFEMVc/MQ
+          BwpKuLl5enn7+PpBBf0lwYIBgUHBwSGhYeFgwQgpoKC0W2RUcHB0TGxcfAJYuwxYMDE4OCgpGQhS
+          UoGCabJAQTm39KDgjEyQYHJWdo5brjxQUMEtLz+ooDAZAoqKXRXBgm4lpWXJMFBeoQQUVHZzq6yC
+          i1XX1KoABVXr3OobYGKNTc0takBBdVc3t9a29vaOzq7unt4+t34NoKDmBFRvTtQCCmrroArq6gEF
+          9Q0MnY2MTUxNzYxBwNwCHMj6llbWNrZ29jZg4IAjKhgAAWdbVO4nzP4AAAAldEVYdGRhdGU6Y3Jl
+          YXRlADIwMjMtMDItMThUMDU6MTU6MjYrMDA6MDCumAyfAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIz
+          LTAyLTE4VDA1OjE1OjI2KzAwOjAw38W0IwAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyMy0wMi0x
+          OFQwNToxNToyNiswMDowMIjQlfwAAAAASUVORK5CYII=&quot;></image>
+        </svg>
+        <div class=&quot;realfeeltext&quot;>Real Feel<br>21 °C</div>
+      </div>
+
+      <div class=&quot;pressure&quot;>
+        <svg class=&quot;pressuresvg&quot; version=&quot;1.1&quot; id=&quot;Layer_1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; width=&quot;20px&quot; height=&quot;20px&quot; viewBox=&quot;0 0 20 20&quot; xml:space=&quot;preserve&quot;>  <image id=&quot;image0&quot; width=&quot;20&quot; height=&quot;20&quot; x=&quot;0&quot; y=&quot;0&quot; href=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+          AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABNVBMVEUAAAAAr8EArMAAqsAA
+          rMEBrMEBrMAAq8AArb8AqsIBrMEgtMa53+S53+QetMYArMEArMEAqrsArMA9scFegp4Cqr8Ao8gA
+          rMEErMHn6+wTobgArMAArMBCvc1sco8Aq8EArMFSqrmNWn1Dvs4Aq8EErcLo7O0SorgArMAAq8A8
+          sMBie5gCqr8BrMEftMa23eO33uQcs8YAq8AArMAAq8ABq8AAq8EAq8Mtdn9DW2OvvcSwvcSrucJ3
+          kZyvvcWvv8OruMJ6kZ55kJ2rusAArMHFzdLH0NS5xMru7u7l5+jm6Ojp3eDd4OK2ubvAhZL4G0en
+          rK1YYWV3foHu7e39Mlns7OwzXWQxW2Tl5+f6VHSssLKpra/9MVnc4OL1m6y5xcvv09kxcX5FWmR4
+          kJywvsWsusL///80ikJBAAAARHRSTlMAHUotv/j5vSw/9cvd3MrzPg/q4+rqDnXk+/NzucP3t873
+          /cJ05Przcunj8en0y93cyz28/vu7K1RASpWb/YBAhvP3hpKCbb4AAAABYktHRGYs1NklAAAACXBI
+          WXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5wISBRAIBZcVZgAAAM1JREFUGNNjYMAHGJmYGNGEmFlc
+          WNlc2DmQxTi5uHlc3Xj5+AUQYoJCwu4enl4e3iKiYnBBcQlJHw8PD18/fylpuKCMLFAoIDAoOERO
+          Hi6ooOjuERoWHuERqaSAUKkMVBkV7REcg6RSRVUtFijsEeevroGwXVMrHiSYoK2DsJ1BQFdP38PD
+          wJDfCNn1HMYmpqYmZuZoHrVITLTACBDLpCRLJK6VNRDY2CYn29qAWFZgQbsUIEhNBoJUEMsOLGhv
+          BwQOjk5Ojs4glj0DCQAAJCUofMKIT9cAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjMtMDItMThUMDU6
+          MTY6MDgrMDA6MDBXtcu8AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIzLTAyLTE4VDA1OjE2OjA4KzAw
+          OjAwJuhzAAAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyMy0wMi0xOFQwNToxNjowOCswMDowMHH9
+          Ut8AAAAASUVORK5CYII=&quot;></image>
+        </svg>
+        <div class=&quot;pressuretext&quot;>Pressure<br>1012 mbar</div>
+      </div>
+      <div class=&quot;card3&quot;>
+      Healthy
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>"></iframe>
+  </section>
+
+  <section class="code-panel">
+    <div class="code-bar">
+      <div class="code-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <span class="code-file">expand-weather-card.html</span>
+      <button class="copy-btn" type="button" data-copy="#src">复制代码</button>
+    </div>
+    <pre class="code" id="src"><code><span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"cardm"</span>&gt;
+  <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"card"</span>&gt;
+    <span class="c-punc">&lt;</span><span class="c-tag">svg</span> <span class="c-attr">class</span>=<span class="c-str">"weather"</span> <span class="c-attr">version</span>=<span class="c-str">"1.1"</span> <span class="c-attr">id</span>=<span class="c-str">"Layer_1"</span> <span class="c-attr">xmlns</span>=<span class="c-str">"http://www.w3.org/2000/svg"</span> xmlns:<span class="c-attr">xlink</span>=<span class="c-str">"http://www.w3.org/1999/xlink"</span> <span class="c-attr">x</span>=<span class="c-str">"0px"</span> <span class="c-attr">y</span>=<span class="c-str">"0px"</span> <span class="c-attr">width</span>=<span class="c-str">"100px"</span> <span class="c-attr">height</span>=<span class="c-str">"100px"</span> <span class="c-attr">viewBox</span>=<span class="c-str">"0 0 100 100"</span> xml:<span class="c-attr">space</span>=<span class="c-str">"preserve"</span>&gt;  <span class="c-punc">&lt;</span><span class="c-tag">image</span> <span class="c-attr">id</span>=<span class="c-str">"image0"</span> <span class="c-attr">width</span>=<span class="c-str">"100"</span> <span class="c-attr">height</span>=<span class="c-str">"100"</span> <span class="c-attr">x</span>=<span class="c-str">"0"</span> <span class="c-attr">y</span>=<span class="c-str">"0"</span> <span class="c-attr">href</span>=<span class="c-str">"data:image/png;base64,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"</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">image</span>&gt;
+    <span class="c-punc">&lt;/</span><span class="c-tag">svg</span>&gt;
+    <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"main"</span>&gt;<span class="c-num">23</span> °C<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+    <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"mainsub"</span>&gt;Dunmore, Ireland<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+
+  <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+
+  <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"card2"</span>&gt;
+    <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"upper"</span>&gt;
+      <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"humidity"</span>&gt;
+        <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"humiditytext"</span>&gt;Humidity<span class="c-punc">&lt;</span><span class="c-tag">br</span>&gt;<span class="c-num">30%</span><span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+        <span class="c-punc">&lt;</span><span class="c-tag">svg</span> xml:<span class="c-attr">space</span>=<span class="c-str">"preserve"</span> <span class="c-attr">viewBox</span>=<span class="c-str">"0 0 30 30"</span> <span class="c-attr">height</span>=<span class="c-str">"30px"</span> <span class="c-attr">width</span>=<span class="c-str">"30px"</span> <span class="c-attr">y</span>=<span class="c-str">"0px"</span> <span class="c-attr">x</span>=<span class="c-str">"0px"</span> xmlns:<span class="c-attr">xlink</span>=<span class="c-str">"http://www.w3.org/1999/xlink"</span> <span class="c-attr">xmlns</span>=<span class="c-str">"http://www.w3.org/2000/svg"</span> <span class="c-attr">id</span>=<span class="c-str">"Layer_1"</span> <span class="c-attr">version</span>=<span class="c-str">"1.1"</span> <span class="c-attr">class</span>=<span class="c-str">"humiditysvg"</span>&gt;  <span class="c-punc">&lt;</span><span class="c-tag">image</span> <span class="c-attr">href</span>="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+          AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABiVBMVEUAAAAAAP9NerV/f39O
+          e7ZQfLZVf6pRfbfL5fdRfbZIbbZmmcxols5nl85OebSPsteLrdVSfLZxl89ok9FqlM5ahsBdicNa
+          hsFcicRhjcdWgbpahsFfi8ZbhsFijsmErOWLt+<span class="c-num">9</span>xndZcicJahsFahsFdicN5n81xjcZqlNRpls1q
+          lNBfn99pls9nkcxXgrpZgrtik81OebWNsdeMrtZOebRNerVZg7pwmMhNebRKdLRNerZNebHZ8v9o
+          lM9jj8rV7v3W7v1ch7+Ktu6Lt/CEsep7p+Cz1PO+<span class="c-num">3</span>fqJte5/q+V+quOUvvLY8f+TvfKpzvapzfaq
+          z/aRvPGdxfSVv/LX8P/W8P+<span class="c-num">32</span>fnK5vyMuPCmzPXW8P6ny/WWv/KOufGawvO22PjJ5vzB4PrU7v6i
+          yPSz1fiYwfKOufDD4funzPXF4vvE4vuOuvHV7/<span class="c-num">7</span>U7/<span class="c-num">7</span>G4/uNufCx1Pew0/ev0veu0feQu/G01viP
+          ufF/q+SCrud+quSItO2kyvWjyfVijslrltFmkcyEqtZgjMf///<span class="c-num">8</span>NXQssAAAAPHRSTlMAAZgCW+EG
+          y+jMBxRaRXHC2H8bX0ry/vrhyvnw0PDHR0Be/e/<span class="c-num">4</span>/f4SDDNiEFVb0eI5iMHCho7NwI0YOBdy59Cm
+          AAAAAWJLR0SCi7P/RAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+cCEBITAJMBs+kAAAFb
+          SURBVCjPY2CAAUYmZgY8gIWVBY8sGzsHJxc2CW4eXiDJx28jIAjiCgnzgoV5ebiBpIiomK2duISk
+          lL2Ng6O0jIwsmCsnIW5nKyYqwiDv5AwELq5uNjY27h6enh5grpcLiHKSZ1BwBgNvH6C0j68zKlCA
+          SfvZgIA/LukAsHQAVDgwCE06OAQoGxoMlQ4Lj0CVdo6MsomKhrJjfGwi0aSdY+NiYcx4G5sEdGkk
+          kGhjk4RHOjnEJgWPtLNvKprL07CpgktHpEfgk/a3ycAnnWmThRDMxpDOscmFi6Xl5aNLF+QUwqWL
+          bIoxogQBSpJskkpwS5cC4yYFp3RZElA6qQwh7VFeAWZXVFYByWpwxNcAueUeQGlFJWUZCZXauloV
+          CRllVdt6NbB0QyOIq6TIoK4BSrWaWpogSltHVw8srW8A4mqoY6R6QyOgrLEJztxiamZuZsGGOztZ
+          WlnD2QBCYbJl9Cx9XAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMy0wMi0xNlQxODoxOTowMCswMDow
+          MG/wqfUAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjMtMDItMTZUMTg6MTk6MDArMDA6MDAerRFJAAAA
+          <span class="c-attr">KHRFWHRkYXRlOnRpbWVzdGFtcAAyMDIzLTAyLTE2VDE4OjE5OjAwKzAwOjAwSbgwlgAAAABJRU5ErkJggg</span>==<span class="c-str">" y="</span><span class="c-num">0</span><span class="c-str">" x="</span><span class="c-num">0</span><span class="c-str">" height="</span><span class="c-num">30</span><span class="c-str">" width="</span><span class="c-num">30</span><span class="c-str">" id="</span>image0"&gt;<span class="c-punc">&lt;/</span><span class="c-tag">image</span>&gt;
+          <span class="c-punc">&lt;/</span><span class="c-tag">svg</span>&gt;
+      <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+
+      <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"air"</span>&gt;
+        <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"airtext"</span>&gt;Wind<span class="c-punc">&lt;</span><span class="c-tag">br</span>&gt;<span class="c-num">8</span> Km/h<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+          <span class="c-punc">&lt;</span><span class="c-tag">svg</span> <span class="c-attr">class</span>=<span class="c-str">"airsvg"</span> <span class="c-attr">version</span>=<span class="c-str">"1.1"</span> <span class="c-attr">id</span>=<span class="c-str">"Layer_1"</span> <span class="c-attr">xmlns</span>=<span class="c-str">"http://www.w3.org/2000/svg"</span> xmlns:<span class="c-attr">xlink</span>=<span class="c-str">"http://www.w3.org/1999/xlink"</span> <span class="c-attr">x</span>=<span class="c-str">"0px"</span> <span class="c-attr">y</span>=<span class="c-str">"0px"</span> <span class="c-attr">width</span>=<span class="c-str">"30px"</span> <span class="c-attr">height</span>=<span class="c-str">"30px"</span> <span class="c-attr">viewBox</span>=<span class="c-str">"0 0 30 30"</span> xml:<span class="c-attr">space</span>=<span class="c-str">"preserve"</span>&gt;  <span class="c-punc">&lt;</span><span class="c-tag">image</span> <span class="c-attr">id</span>=<span class="c-str">"image0"</span> <span class="c-attr">width</span>=<span class="c-str">"30"</span> <span class="c-attr">height</span>=<span class="c-str">"30"</span> <span class="c-attr">x</span>=<span class="c-str">"0"</span> <span class="c-attr">y</span>=<span class="c-str">"0"</span> <span class="c-attr">href</span>="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+            AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABaFBMVEUAAAAA//<span class="c-num">8</span>ilfIhlfMg
+            lvIglfMglvIeku8cjf8glvMhlfIflvMhlfIhlvIglvMhl/MglvIglfIglPEfmfIhlfIglvQfn/<span class="c-num">8</span>g
+            lfIglvIhlfMglfIglvMhl/AhlfIcm/AAf/<span class="c-num">8</span>qlOkglPYglvIZmf8zmf8hlfIglfIXi+cilPMhlvMg
+            lfQhlvMglvIhlfIgl/MglvMhlvMhlfMhlvIfl+<span class="c-num">8</span>hlvMhlfMglvMglvI/f/<span class="c-num">8</span>hlvMilvMelvAglfIg
+            lvMhlvIglPIglvIhlfIkkfUglfMglfMhlvMhlvMilvMjlfEglvMhlfIhlfMglfIflvEnnOshlvIf
+            lPEflfIek/QglvIglvMhlfIime4jlPAglvMglvEhlvMhl/MglfMglfMhlvIak/Edk/UhlvIglfMg
+            l/IglvIglfIilPIhlvMhlfMhk/Eqqv8glvIglfMcl/UhlfMhlvIhlvMhlfIglfIhlfIgl/QflPQh
+            lvP///+FIn/GAAAAdnRSTlMAAVKu1MmNIQmy91ig/Z5s0fo3KP5dCL27Lvm0NvwSAgwf+woFv7oL
+            Q0RGa9L1Vtndx4sgme3FZgTIFiI/hvZld3sch8Tv7kI683nV6DgN4GBQMsycjw8k6nWqRW3cUxMa
+            <span class="c-num">5</span>dpnfLU87N8mBrxXG5jnibjLoi8YaHuXCQAAAAFiS0dEd0Zk+dcAAAAJcEhZcwAACxMAAAsTAQCa
+            nBgAAAAHdElNRQfnAhEIBBbLW8PtAAABJ0lEQVQoz62RZ1fCMBSG46atomBR1IJ7g+KotKKgxYl7
+            <span class="c-num">4</span>Z6493x/v6T0QKMtn/p8ec/Nk5Pc5BLiHCWlZeUVlVU21sWBwgvWuho1bqG2Dh6vla0X4ctGQyP8
+            VrqpuUVPCQGXlQ+<span class="c-num">26</span>tEGtBfpX0JHp73t6kYPs9Db159nYDAEj8RoNxjCQ+xxvuFIgZHRMcemQMi4
+            iP+I8kRU0TUHG9RJqpWYFVPTcahKsc/jkSAzfgNuVvvjk5gj84W7FhZZvYRl4o0apFawGmT0GsKm
+            an0DmzS31O3cQgo75t27SNLYQyRNc/<span class="c-num">8</span>AhzkROzrOPjCEE1poMk7Pzi8Sl7gyxp5B/Fq4Aa//A7m9
+            y7V6/<span class="c-num">2</span>Ac+/hEy8CzUb68ysDbezp/rZL5+Pz6NvWh/TgwzV+<span class="c-num">1</span>HV523WQ81AAAACV0RVh0ZGF0ZTpj
+            cmVhdGUAMjAyMy0wMi0xN1QwODowNDoyMiswMDowML1dmzYAAAAldEVYdGRhdGU6bW9kaWZ5ADIw
+            MjMtMDItMTdUMDg6MDQ6MjIrMDA6MDDMACOKAAAAKHRFWHRkYXRlOnRpbWVzdGFtcAAyMDIzLTAy
+            <span class="c-attr">LTE3VDA4OjA0OjIyKzAwOjAwmxUCVQAAAABJRU5ErkJggg</span>=="&gt;<span class="c-punc">&lt;/</span><span class="c-tag">image</span>&gt;
+        <span class="c-punc">&lt;/</span><span class="c-tag">svg</span>&gt;
+      <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+    <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+
+    <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"lower"</span>&gt;
+      <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"aqi"</span>&gt;
+        <span class="c-punc">&lt;</span><span class="c-tag">svg</span> <span class="c-attr">class</span>=<span class="c-str">"aqisvg"</span> <span class="c-attr">version</span>=<span class="c-str">"1.1"</span> <span class="c-attr">id</span>=<span class="c-str">"Layer_1"</span> <span class="c-attr">xmlns</span>=<span class="c-str">"http://www.w3.org/2000/svg"</span> xmlns:<span class="c-attr">xlink</span>=<span class="c-str">"http://www.w3.org/1999/xlink"</span> <span class="c-attr">x</span>=<span class="c-str">"0px"</span> <span class="c-attr">y</span>=<span class="c-str">"0px"</span> <span class="c-attr">width</span>=<span class="c-str">"20px"</span> <span class="c-attr">height</span>=<span class="c-str">"20px"</span> <span class="c-attr">viewBox</span>=<span class="c-str">"0 0 20 20"</span> xml:<span class="c-attr">space</span>=<span class="c-str">"preserve"</span>&gt;  <span class="c-punc">&lt;</span><span class="c-tag">image</span> <span class="c-attr">id</span>=<span class="c-str">"image0"</span> <span class="c-attr">width</span>=<span class="c-str">"20"</span> <span class="c-attr">height</span>=<span class="c-str">"20"</span> <span class="c-attr">x</span>=<span class="c-str">"0"</span> <span class="c-attr">y</span>=<span class="c-str">"0"</span> <span class="c-attr">href</span>="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+<span class="c-num">0</span>/AAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+          AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABBVBMVEUAAABL4f9O5v9P5f9Q
+          <span class="c-num">5</span>f9R5/<span class="c-num">8</span>AZsxB0vYAd9EAeNQAd9MeoOM1w/EYmuIZm+IXnOIAAP8AccYmrOgYmuAWneEA//<span class="c-num">8</span>AdtQZ
+          m+JP5f8ZmeUAf89L3vwcoOQYmeIAddEAeNUrseocjeIAd9QAeNMxu+<span class="c-num">4</span>kqucZmuEYm+IWmeI5xfIf
+          n99P3/<span class="c-num">9</span>Q5v9Q5v9Q5v9G2Pk0wPA+zfZN4v5L3/w+zfUyve8iqOcrs+s9zPVM4f1N4v1E1vklrOki
+          p+cmrOhH2fpP5f5F1/kstewqs+tO4/<span class="c-num">4</span>nruott+<span class="c-num">0</span>or+pL3vxE1flK3vxA0fcjqecrtOxO5P4yvvAs
+          tOw6yPNA0Pc7yfQ4xfI3xPL////cI4U2AAAALnRSTlMAEXF3ZWsFeC3S26iVh7MsAQnAVCIBZ7Ft
+          ChBv6GonVZQJs4yLxtPNLY8IEHuINVg0ZAAAAAFiS0dEVgoN6YkAAAAJcEhZcwAACxMAAAsTAQCa
+          nBgAAAAHdElNRQfnAhIFCRn0J5yMAAAAq0lEQVQY02NgIAkwMjFDARMjXJBFDw5Y4IKsCEFWmBgb
+          u56+gaERsiAHJxe3nrGJqZm5haWeFQ8vHz9QUEAQqt3a1MbWTkhYRBRmprG9A5qZYuJ6jk62ziYu
+          QEEJSaiglDRIjaOpraubu4wsupM8PL2g2gXk5BX0vH18LYwgZiqCLOJQUlbR0/Nz9LcNCAwKVlVT
+          <span class="c-num">10</span>DRbh1iGqqphc+b2ANEW0cXCnS0SQt0ALCcIug70CWhAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIz
+          LTAyLTE4VDA1OjA5OjI1KzAwOjAwRMIpTAAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMy0wMi0xOFQw
+          NTowOToyNSswMDowMDWfkfAAAAAodEVYdGRhdGU6dGltZXN0YW1wADIwMjMtMDItMThUMDU6MDk6
+          MjUrMDA6MDBiirAvAAAAAElFTkSuQmCC"&gt;<span class="c-punc">&lt;/</span><span class="c-tag">image</span>&gt;
+        <span class="c-punc">&lt;/</span><span class="c-tag">svg</span>&gt;
+        <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"aqitext"</span>&gt;AQI<span class="c-punc">&lt;</span><span class="c-tag">br</span>&gt;<span class="c-num">30</span><span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+      <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+
+      <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"realfeel"</span>&gt;
+        <span class="c-punc">&lt;</span><span class="c-tag">svg</span> <span class="c-attr">class</span>=<span class="c-str">"rfsvg"</span> <span class="c-attr">version</span>=<span class="c-str">"1.1"</span> <span class="c-attr">id</span>=<span class="c-str">"Layer_1"</span> <span class="c-attr">xmlns</span>=<span class="c-str">"http://www.w3.org/2000/svg"</span> xmlns:<span class="c-attr">xlink</span>=<span class="c-str">"http://www.w3.org/1999/xlink"</span> <span class="c-attr">x</span>=<span class="c-str">"0px"</span> <span class="c-attr">y</span>=<span class="c-str">"0px"</span> <span class="c-attr">width</span>=<span class="c-str">"20px"</span> <span class="c-attr">height</span>=<span class="c-str">"20px"</span> <span class="c-attr">viewBox</span>=<span class="c-str">"0 0 20 20"</span> xml:<span class="c-attr">space</span>=<span class="c-str">"preserve"</span>&gt;  <span class="c-punc">&lt;</span><span class="c-tag">image</span> <span class="c-attr">id</span>=<span class="c-str">"image0"</span> <span class="c-attr">width</span>=<span class="c-str">"20"</span> <span class="c-attr">height</span>=<span class="c-str">"20"</span> <span class="c-attr">x</span>=<span class="c-str">"0"</span> <span class="c-attr">y</span>=<span class="c-str">"0"</span> <span class="c-attr">href</span>="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+<span class="c-num">0</span>/AAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+          AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABuVBMVEUAAAAAAAAECQkIDg4E
+          BAQAAAAAAAAFBQUHDAwIDg4MFBUNFRUKCgoPGhxGenw/b3FDdXcmRUYJDAwJDw9Pi40LFBQNFhYM
+          FhYPGhsMExUKEhIPGhoKEhQMExMOGhoMExMPGhoKFBQLExMNFxcKEhILFBQKExMKExQLEhILERMK
+          EREHDQ1SkJMuUlMABAQAAAASHh9FeXtAcXI8aWszWlwvU1M4Y2QjPT4NGBoAAAAAAAAAAAAAAAAA
+          AAAAAAAAAAAAAABYmZtWlplKgoVlsbRsvsF0zM9uwsVuwcNsvb9ecU53czF0bStgbkdqt7dntbhp
+          tbVxaCf5uxD+vxD7vBBTUilYlZdtwMNms7Zdc1P8vRDYpBR5b0imsKy0wcFzhoZdkpRldEx6cU3W
+          <span class="c-num">5</span>eWLnJxdm51otrlZdl67kBWxvbmUo6RmfHxajo9ouLpqt7mJdiN8YxnH1dWVpaVfn6Jgl41OUUKv
+          u7pWe3xwxsldn6KmtLTO3NxUf4BswMN0ys1gpaedrKzT4uJjd3dsvcBqubxXg4Vgd3hthYVid3dh
+          dnZof39shYVkf4BVeXpqt7pksbJjr7Jdo6X////f0mPcAAAAQXRSTlMABGh/a1xUZIqPo7BH2vv4
+          /vJQgvyxwLLCpqXBsafBqcKutcCwuamtop+SgPzwOQzg/f728fD166Zla1o/PiEmFs+XjUIAAAAB
+          YktHRJKWBO8gAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5wISBQ8aO3RqsAAAAQlJREFU
+          GNNjYMAOGJmYmVlY2djYmZk5OLm4ecBivHyOTs7O/ALOTo6Oji6ugkJAQWERNxTgLgoUFEMVc/MQ
+          BwpKuLl5enn7+PpBBf0lwYIBgUHBwSGhYeFgwQgpoKC0W2RUcHB0TGxcfAJYuwxYMDE4OCgpGQhS
+          UoGCabJAQTm39KDgjEyQYHJWdo5brjxQUMEtLz+ooDAZAoqKXRXBgm4lpWXJMFBeoQQUVHZzq6yC
+          i1XX1KoABVXr3OobYGKNTc0takBBdVc3t9a29vaOzq7unt4+t34NoKDmBFRvTtQCCmrroArq6gEF
+          <span class="c-num">9</span>Q0MnY2MTUxNzYxBwNwCHMj6llbWNrZ29jZg4IAjKhgAAWdbVO4nzP4AAAAldEVYdGRhdGU6Y3Jl
+          YXRlADIwMjMtMDItMThUMDU6MTU6MjYrMDA6MDCumAyfAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIz
+          LTAyLTE4VDA1OjE1OjI2KzAwOjAw38W0IwAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyMy0wMi0x
+          <span class="c-attr">OFQwNToxNToyNiswMDowMIjQlfwAAAAASUVORK5CYII</span>="&gt;<span class="c-punc">&lt;/</span><span class="c-tag">image</span>&gt;
+        <span class="c-punc">&lt;/</span><span class="c-tag">svg</span>&gt;
+        <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"realfeeltext"</span>&gt;Real Feel<span class="c-punc">&lt;</span><span class="c-tag">br</span>&gt;<span class="c-num">21</span> °C<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+      <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+
+      <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"pressure"</span>&gt;
+        <span class="c-punc">&lt;</span><span class="c-tag">svg</span> <span class="c-attr">class</span>=<span class="c-str">"pressuresvg"</span> <span class="c-attr">version</span>=<span class="c-str">"1.1"</span> <span class="c-attr">id</span>=<span class="c-str">"Layer_1"</span> <span class="c-attr">xmlns</span>=<span class="c-str">"http://www.w3.org/2000/svg"</span> xmlns:<span class="c-attr">xlink</span>=<span class="c-str">"http://www.w3.org/1999/xlink"</span> <span class="c-attr">x</span>=<span class="c-str">"0px"</span> <span class="c-attr">y</span>=<span class="c-str">"0px"</span> <span class="c-attr">width</span>=<span class="c-str">"20px"</span> <span class="c-attr">height</span>=<span class="c-str">"20px"</span> <span class="c-attr">viewBox</span>=<span class="c-str">"0 0 20 20"</span> xml:<span class="c-attr">space</span>=<span class="c-str">"preserve"</span>&gt;  <span class="c-punc">&lt;</span><span class="c-tag">image</span> <span class="c-attr">id</span>=<span class="c-str">"image0"</span> <span class="c-attr">width</span>=<span class="c-str">"20"</span> <span class="c-attr">height</span>=<span class="c-str">"20"</span> <span class="c-attr">x</span>=<span class="c-str">"0"</span> <span class="c-attr">y</span>=<span class="c-str">"0"</span> <span class="c-attr">href</span>="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+<span class="c-num">0</span>/AAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+          AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABNVBMVEUAAAAAr8EArMAAqsAA
+          rMEBrMEBrMAAq8AArb8AqsIBrMEgtMa53+S53+QetMYArMEArMEAqrsArMA9scFegp4Cqr8Ao8gA
+          rMEErMHn6+wTobgArMAArMBCvc1sco8Aq8EArMFSqrmNWn1Dvs4Aq8EErcLo7O0SorgArMAAq8A8
+          sMBie5gCqr8BrMEftMa23eO33uQcs8YAq8AArMAAq8ABq8AAq8EAq8Mtdn9DW2OvvcSwvcSrucJ3
+          kZyvvcWvv8OruMJ6kZ55kJ2rusAArMHFzdLH0NS5xMru7u7l5+jm6Ojp3eDd4OK2ubvAhZL4G0en
+          rK1YYWV3foHu7e39Mlns7OwzXWQxW2Tl5+f6VHSssLKpra/<span class="c-num">9</span>MVnc4OL1m6y5xcvv09kxcX5FWmR4
+          kJywvsWsusL///<span class="c-num">80</span>ikJBAAAARHRSTlMAHUotv/j5vSw/<span class="c-num">9</span>cvd3MrzPg/q4+rqDnXk+/NzucP3t873
+          /cJ05Przcunj8en0y93cyz28/vu7K1RASpWb/YBAhvP3hpKCbb4AAAABYktHRGYs1NklAAAACXBI
+          WXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5wISBRAIBZcVZgAAAM1JREFUGNNjYMAHGJmYGNGEmFlc
+          WNlc2DmQxTi5uHlc3Xj5+AUQYoJCwu4enl4e3iKiYnBBcQlJHw8PD18/fylpuKCMLFAoIDAoOERO
+          Hi6ooOjuERoWHuERqaSAUKkMVBkV7REcg6RSRVUtFijsEeevroGwXVMrHiSYoK2DsJ1BQFdP38PD
+          wJDfCNn1HMYmpqYmZuZoHrVITLTACBDLpCRLJK6VNRDY2CYn29qAWFZgQbsUIEhNBoJUEMsOLGhv
+          BwQOjk5Ojs4glj0DCQAAJCUofMKIT9cAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjMtMDItMThUMDU6
+          MTY6MDgrMDA6MDBXtcu8AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIzLTAyLTE4VDA1OjE2OjA4KzAw
+          OjAwJuhzAAAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyMy0wMi0xOFQwNToxNjowOCswMDowMHH9
+          <span class="c-attr">Ut8AAAAASUVORK5CYII</span>="&gt;<span class="c-punc">&lt;/</span><span class="c-tag">image</span>&gt;
+        <span class="c-punc">&lt;/</span><span class="c-tag">svg</span>&gt;
+        <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"pressuretext"</span>&gt;Pressure<span class="c-punc">&lt;</span><span class="c-tag">br</span>&gt;<span class="c-num">1012</span> mbar<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+      <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+      <span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"card3"</span>&gt;
+      Healthy
+      <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+    <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+  <span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+
+<span class="c-punc">&lt;</span><span class="c-tag">style</span>&gt;
+.cardm {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: <span class="c-num">46.64%</span>;
+  left: <span class="c-num">50%</span>;
+}
+
+.card {
+  position: absolute;
+  width: <span class="c-num">250px</span>;
+  height: <span class="c-num">130px</span>;
+  border-radius: <span class="c-num">25px</span>;
+  background: whitesmoke;
+  color: black;
+  z-index: <span class="c-num">2</span>;
+  transition: .4s ease-in-out;
+}
+
+.weather {
+  position: relative;
+  margin: <span class="c-num">1em</span>;
+}
+
+.main {
+  font-size: <span class="c-num">2em</span>;
+  position: relative;
+  top: -3em;
+  left: <span class="c-num">4.3em</span>;
+}
+
+.mainsub {
+  position: relative;
+  top: -10.2em;
+  left: <span class="c-num">14em</span>;
+  font-size: <span class="c-num">0.6em</span>;
+}
+
+.card2 {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  width: <span class="c-num">240px</span>;
+  height: <span class="c-num">130px</span>;
+  border-radius: <span class="c-num">35px</span>;
+  background: white;
+  z-index: -1;
+  transition: .4s ease-in-out;
+}
+
+.card:hover {
+  background-color: #FFE87C;
+  cursor: pointer;
+}
+
+.card:hover + .card2 {
+  height: <span class="c-num">300px</span>;
+  border-bottom-left-radius: <span class="c-num">0px</span>;
+  border-bottom-right-radius: <span class="c-num">0px</span>;
+}
+
+.card:hover + .card2 .lower {
+  top: <span class="c-num">20.2em</span>;
+}
+
+.upper {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  color: black;
+  left: <span class="c-num">1.8em</span>;
+  top: <span class="c-num">0.5em</span>;
+  gap: <span class="c-num">4em</span>;
+}
+
+.humiditytext {
+  position: relative;
+  left: <span class="c-num">3.6em</span>;
+  top: <span class="c-num">2.7em</span>;
+  font-size: <span class="c-num">0.6em</span>;
+}
+
+.airtext {
+  position: relative;
+  left: <span class="c-num">3.8em</span>;
+  top: <span class="c-num">2.7em</span>;
+  font-size: <span class="c-num">0.6em</span>;
+}
+
+.lower {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  text-align: center;
+  color: black;
+  left: <span class="c-num">3em</span>;
+  top: <span class="c-num">1em</span>;
+  margin-top: <span class="c-num">0.7em</span>;
+  font-size: <span class="c-num">0.7em</span>;
+  transition: .4s ease-in-out;
+}
+
+.aqi {
+  margin-right: <span class="c-num">3.25em</span>;
+}
+
+.realfeel {
+  margin-right: <span class="c-num">1.8em</span>;
+}
+
+.card3 {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: <span class="c-num">240px</span>;
+  height: <span class="c-num">30px</span>;
+  top: <span class="c-num">4.7em</span>;
+  left: -2.4em;
+  font-size: <span class="c-num">1.24em</span>;
+  border-bottom-left-radius: <span class="c-num">35px</span>;
+  border-bottom-right-radius: <span class="c-num">35px</span>;
+  background: limegreen;
+  transition: .4s ease-in-out;
+}
+<span class="c-punc">&lt;/</span><span class="c-tag">style</span>&gt;</code></pre>
+  </section>
+</div>
+<script src="../assets/site.js?v=fe3dd7ee"></script>
+<footer class="site-footer">
+  <div class="wrap">
+    <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+<button id="toTop" class="to-top" type="button" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+</body>
+</html>

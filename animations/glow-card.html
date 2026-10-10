@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>渐变光晕卡片 · UI 动效画廊</title>
+<meta name="description" content="深色卡片背后垫着一层青紫渐变光晕，悬停时光晕旋转并放大、模糊加深，呈现出流动的霓虹质感。">
+<link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/glow-card.html">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="apple-touch-icon" href="../favicon.svg">
+<link rel="stylesheet" href="../assets/site.css?v=fe3dd7ee">
+</head>
+<body>
+<div class="bg-fx" aria-hidden="true">
+  <span class="meteor" style="--x:-12%;--delay:0s;--dur:6.5s"></span>
+  <span class="meteor" style="--x:6%;--delay:1.8s;--dur:7.8s"></span>
+  <span class="meteor" style="--x:24%;--delay:3.6s;--dur:7s"></span>
+  <span class="meteor" style="--x:44%;--delay:0.9s;--dur:8.4s"></span>
+  <span class="meteor" style="--x:63%;--delay:2.7s;--dur:6.8s"></span>
+  <span class="meteor" style="--x:82%;--delay:4.5s;--dur:9s"></span>
+  <span class="star" style="--x:10%;--y:18%;--delay:0s;--dur:2.6s"></span>
+  <span class="star" style="--x:22%;--y:42%;--delay:.6s;--dur:3.4s"></span>
+  <span class="star" style="--x:34%;--y:12%;--delay:1.2s;--dur:2.9s"></span>
+  <span class="star" style="--x:46%;--y:66%;--delay:.3s;--dur:3.8s"></span>
+  <span class="star" style="--x:58%;--y:28%;--delay:1.5s;--dur:2.4s"></span>
+  <span class="star" style="--x:70%;--y:54%;--delay:.9s;--dur:3.2s"></span>
+  <span class="star" style="--x:82%;--y:16%;--delay:2.1s;--dur:2.7s"></span>
+  <span class="star" style="--x:93%;--y:38%;--delay:.4s;--dur:4.2s"></span>
+  <span class="star" style="--x:16%;--y:78%;--delay:1.8s;--dur:3.1s"></span>
+  <span class="star" style="--x:28%;--y:58%;--delay:.2s;--dur:2.8s"></span>
+  <span class="star" style="--x:40%;--y:88%;--delay:2.4s;--dur:3.6s"></span>
+  <span class="star" style="--x:52%;--y:34%;--delay:1.1s;--dur:2.5s"></span>
+  <span class="star" style="--x:64%;--y:72%;--delay:.7s;--dur:3.9s"></span>
+  <span class="star" style="--x:76%;--y:46%;--delay:2.0s;--dur:2.3s"></span>
+  <span class="star" style="--x:88%;--y:64%;--delay:1.4s;--dur:3.3s"></span>
+  <span class="star" style="--x:6%;--y:52%;--delay:.5s;--dur:3.7s"></span>
+</div>
+<div class="wrap">
+  <header class="anim-head">
+    <a class="back-link" href="../index.html">← 返回</a>
+    <h1 class="anim-title">渐变光晕卡片</h1>
+    <p class="anim-desc">深色卡片背后垫着一层青紫渐变光晕，悬停时光晕旋转并放大、模糊加深，呈现出流动的霓虹质感。</p>
+    <div class="card-tags"><span class="tag">card</span><span class="tag">gradient</span><span class="tag">glow</span><span class="tag">hover</span></div>
+  </header>
+
+  <section class="stage" aria-label="实时预览">
+    <iframe title="渐变光晕卡片 实时预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+.card {
+  position: relative;
+  width: 190px;
+  height: 254px;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 12px;
+  gap: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: -5px;
+  margin: auto;
+  width: 200px;
+  height: 264px;
+  border-radius: 10px;
+  background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
+  z-index: -10;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card::after {
+  content: &quot;&quot;;
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
+}
+
+.heading {
+  font-size: 20px;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.card p:not(.heading) {
+  font-size: 14px;
+}
+
+.card p:last-child {
+  color: #e81cff;
+  font-weight: 600;
+}
+
+.card:hover::after {
+  filter: blur(30px);
+}
+
+.card:hover::before {
+  transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
+}
+
+</style>
+</head>
+<body>
+<div class=&quot;card&quot;>
+  <p class=&quot;heading&quot;>
+    Popular this month
+  </p>
+  <p>
+    Powered By
+  </p>
+  <p>Uiverse
+</p></div>
+
+</body>
+</html>"></iframe>
+  </section>
+
+  <section class="code-panel">
+    <div class="code-bar">
+      <div class="code-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <span class="code-file">glow-card.html</span>
+      <button class="copy-btn" type="button" data-copy="#src">复制代码</button>
+    </div>
+    <pre class="code" id="src"><code><span class="c-punc">&lt;</span><span class="c-tag">div</span> <span class="c-attr">class</span>=<span class="c-str">"card"</span>&gt;
+  <span class="c-punc">&lt;</span><span class="c-tag">p</span> <span class="c-attr">class</span>=<span class="c-str">"heading"</span>&gt;
+    Popular this month
+  <span class="c-punc">&lt;/</span><span class="c-tag">p</span>&gt;
+  <span class="c-punc">&lt;</span><span class="c-tag">p</span>&gt;
+    Powered By
+  <span class="c-punc">&lt;/</span><span class="c-tag">p</span>&gt;
+  <span class="c-punc">&lt;</span><span class="c-tag">p</span>&gt;Uiverse
+<span class="c-punc">&lt;/</span><span class="c-tag">p</span>&gt;<span class="c-punc">&lt;/</span><span class="c-tag">div</span>&gt;
+
+<span class="c-punc">&lt;</span><span class="c-tag">style</span>&gt;
+.card {
+  position: relative;
+  width: <span class="c-num">190px</span>;
+  height: <span class="c-num">254px</span>;
+  background-color: #<span class="c-num">000</span>;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: <span class="c-num">12px</span>;
+  gap: <span class="c-num">12px</span>;
+  border-radius: <span class="c-num">8px</span>;
+  cursor: pointer;
+  color: white;
+}
+
+.card::before {
+  content: <span class="c-str">''</span>;
+  position: absolute;
+  inset: <span class="c-num">0</span>;
+  left: -5px;
+  margin: auto;
+  width: <span class="c-num">200px</span>;
+  height: <span class="c-num">264px</span>;
+  border-radius: <span class="c-num">10px</span>;
+  background: linear-gradient(-45deg, #e81cff <span class="c-num">0%</span>, #<span class="c-num">40</span>c9ff <span class="c-num">100%</span> );
+  z-index: -10;
+  pointer-events: none;
+  transition: all <span class="c-num">0.6s</span> cubic-bezier(<span class="c-num">0.175</span>, <span class="c-num">0.885</span>, <span class="c-num">0.32</span>, <span class="c-num">1.275</span>);
+}
+
+.card::after {
+  content: <span class="c-str">""</span>;
+  z-index: -1;
+  position: absolute;
+  inset: <span class="c-num">0</span>;
+  background: linear-gradient(-45deg, #fc00ff <span class="c-num">0%</span>, #<span class="c-num">00</span>dbde <span class="c-num">100%</span> );
+  transform: translate3d(<span class="c-num">0</span>, <span class="c-num">0</span>, <span class="c-num">0</span>) scale(<span class="c-num">0.95</span>);
+  filter: blur(<span class="c-num">20px</span>);
+}
+
+.heading {
+  font-size: <span class="c-num">20px</span>;
+  text-transform: capitalize;
+  font-weight: <span class="c-num">700</span>;
+}
+
+.card p:not(.heading) {
+  font-size: <span class="c-num">14px</span>;
+}
+
+.card p:last-child {
+  color: #e81cff;
+  font-weight: <span class="c-num">600</span>;
+}
+
+.card:hover::after {
+  filter: blur(<span class="c-num">30px</span>);
+}
+
+.card:hover::before {
+  transform: rotate(-90deg) scaleX(<span class="c-num">1.34</span>) scaleY(<span class="c-num">0.77</span>);
+}
+<span class="c-punc">&lt;/</span><span class="c-tag">style</span>&gt;</code></pre>
+  </section>
+</div>
+<script src="../assets/site.js?v=fe3dd7ee"></script>
+<footer class="site-footer">
+  <div class="wrap">
+    <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+<button id="toTop" class="to-top" type="button" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+</body>
+</html>

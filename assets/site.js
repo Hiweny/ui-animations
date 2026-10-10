@@ -64,9 +64,56 @@ function bindToTop() {
   });
 }
 
+// 预览自适应：子页测量内容真实尺寸后回报，父页按内容调整预览区高度，保证 UI 完整展示
+function bindPreviewFit() {
+  window.addEventListener('message', function (e) {
+    var d = e.data;
+    if (!d || !d.__animSize) return;
+    var frames = document.querySelectorAll('iframe');
+    var ifr = null;
+    for (var i = 0; i < frames.length; i++) {
+      if (frames[i].contentWindow === e.source) { ifr = frames[i]; break; }
+    }
+    if (!ifr) return;
+    var stage = ifr.closest('.card-stage') || ifr.closest('.stage');
+    if (!stage) return;
+    var detail = stage.classList.contains('stage');
+    var pad = detail ? 88 : 40;
+    var minInner = detail ? 160 : 110;
+    var maxInner = detail ? 420 : 300;
+    var inner = Math.round(d.h * d.s);
+    if (inner < minInner) inner = minInner;
+    if (inner > maxInner) inner = maxInner;
+    ifr.style.height = inner + 'px';
+    stage.style.height = (inner + pad) + 'px';
+  });
+}
+
+// 低端设备识别：手机/低内存/省流时，首页装饰动效降级
+function isLowPerf() {
+  try {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return true;
+    var c = navigator.connection || {};
+    if (c.saveData || /slow-2g|2g|3g/.test(c.effectiveType || '')) return true;
+    if (window.innerWidth <= 820) {
+      var cores = navigator.hardwareConcurrency;
+      if (cores && cores <= 4) return true;
+      var mem = navigator.deviceMemory;
+      if (mem && mem <= 4) return true;
+    }
+  } catch (e) {}
+  return false;
+}
+
+function applyPerf() {
+  if (isLowPerf()) document.documentElement.classList.add('perf-lite');
+}
+
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', function () { bindCopy(); bindToTop(); });
+  document.addEventListener('DOMContentLoaded', function () { applyPerf(); bindCopy(); bindPreviewFit(); bindToTop(); });
 } else {
+  applyPerf();
   bindCopy();
+  bindPreviewFit();
   bindToTop();
 }

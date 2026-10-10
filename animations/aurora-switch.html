@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>彩虹光晕开关 · UI 动效画廊</title>
+<meta name="description" content="开关背后是一团由多个彩色径向渐变叠加、模糊 20px 的光晕，整个开关还带轻微的 3D 摆动。拨动时滑块滑到另一侧，轨道变深色。">
+<link rel="canonical" href="https://hiweny.github.io/ui-animations/animations/aurora-switch.html">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="apple-touch-icon" href="../favicon.svg">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="anim-head">
+    <a class="back-link" href="../index.html">← 返回</a>
+    <h1 class="anim-title">彩虹光晕开关</h1>
+    <p class="anim-desc">开关背后是一团由多个彩色径向渐变叠加、模糊 20px 的光晕，整个开关还带轻微的 3D 摆动。拨动时滑块滑到另一侧，轨道变深色。</p>
+    <div class="card-tags"><span class="tag">switch</span><span class="tag">toggle</span><span class="tag">gradient</span></div>
+  </header>
+
+  <section class="stage" aria-label="实时预览">
+    <iframe title="彩虹光晕开关 实时预览" loading="lazy" srcdoc="<!doctype html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#080c16;padding:24px;box-sizing:border-box}
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+  transform-style: preserve-3d;
+  perspective: 500px;
+  animation: toggle__animation 3s infinite;
+}
+.switch::before {
+  content: &quot;&quot;;
+  position: absolute;
+  width: 100%; height: 100%;
+  left: 0; top: 0;
+  filter: blur(20px);
+  z-index: -1;
+  border-radius: 50px;
+  background-color: #d8ff99;
+  background-image: radial-gradient(at 21% 46%, hsla(183,65%,60%,1) 0px, transparent 50%),
+    radial-gradient(at 23% 25%, hsla(359,74%,70%,1) 0px, transparent 50%),
+    radial-gradient(at 20% 1%, hsla(267,83%,75%,1) 0px, transparent 50%),
+    radial-gradient(at 86% 87%, hsla(204,69%,68%,1) 0px, transparent 50%),
+    radial-gradient(at 99% 41%, hsla(171,72%,77%,1) 0px, transparent 50%),
+    radial-gradient(at 55% 24%, hsla(138,60%,62%,1) 0px, transparent 50%);
+}
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #fdfefedc;
+  transition: .4s;
+  border-radius: 30px;
+}
+.slider:before {
+  position: absolute;
+  content: &quot;&quot;;
+  height: 1.4em; width: 1.4em;
+  left: 0.3em; bottom: 0.35em;
+  transition: .4s;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -10px 10px 0px inset, rgba(0, 0, 0, 0.09) 0px -1px 15px -8px;
+  background-color: #ff99fd;
+  background-image: radial-gradient(at 81% 39%, hsla(327,79%,79%,1) 0px, transparent 50%),
+    radial-gradient(at 11% 72%, hsla(264,64%,79%,1) 0px, transparent 50%),
+    radial-gradient(at 23% 20%, hsla(75,98%,71%,1) 0px, transparent 50%);
+}
+.input__check:checked + .slider { background-color: #17202A; }
+.input__check:checked + .slider:before { transform: translateX(1.5em); }
+@keyframes toggle__animation {
+  0%, 100% { transform: translateY(-10px) rotateX(15deg) rotateY(-20deg); }
+  50% { transform: translateY(0px) rotateX(15deg) rotateY(-20deg); }
+}
+
+</style>
+</head>
+<body>
+<label class=&quot;switch&quot;>
+  <input type=&quot;checkbox&quot; class=&quot;input__check&quot;>
+  <span class=&quot;slider&quot;></span>
+</label>
+
+</body>
+</html>"></iframe>
+  </section>
+
+  <section class="code-panel">
+    <div class="code-bar">
+      <span class="label">HTML + CSS</span>
+      <button class="copy-btn" type="button" data-copy="#src">复制全部代码</button>
+    </div>
+    <pre class="code" id="src"><code>&lt;label class="switch"&gt;
+  &lt;input type="checkbox" class="input__check"&gt;
+  &lt;span class="slider"&gt;&lt;/span&gt;
+&lt;/label&gt;
+
+&lt;style&gt;
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+  transform-style: preserve-3d;
+  perspective: 500px;
+  animation: toggle__animation 3s infinite;
+}
+.switch::before {
+  content: "";
+  position: absolute;
+  width: 100%; height: 100%;
+  left: 0; top: 0;
+  filter: blur(20px);
+  z-index: -1;
+  border-radius: 50px;
+  background-color: #d8ff99;
+  background-image: radial-gradient(at 21% 46%, hsla(183,65%,60%,1) 0px, transparent 50%),
+    radial-gradient(at 23% 25%, hsla(359,74%,70%,1) 0px, transparent 50%),
+    radial-gradient(at 20% 1%, hsla(267,83%,75%,1) 0px, transparent 50%),
+    radial-gradient(at 86% 87%, hsla(204,69%,68%,1) 0px, transparent 50%),
+    radial-gradient(at 99% 41%, hsla(171,72%,77%,1) 0px, transparent 50%),
+    radial-gradient(at 55% 24%, hsla(138,60%,62%,1) 0px, transparent 50%);
+}
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #fdfefedc;
+  transition: .4s;
+  border-radius: 30px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em; width: 1.4em;
+  left: 0.3em; bottom: 0.35em;
+  transition: .4s;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -10px 10px 0px inset, rgba(0, 0, 0, 0.09) 0px -1px 15px -8px;
+  background-color: #ff99fd;
+  background-image: radial-gradient(at 81% 39%, hsla(327,79%,79%,1) 0px, transparent 50%),
+    radial-gradient(at 11% 72%, hsla(264,64%,79%,1) 0px, transparent 50%),
+    radial-gradient(at 23% 20%, hsla(75,98%,71%,1) 0px, transparent 50%);
+}
+.input__check:checked + .slider { background-color: #17202A; }
+.input__check:checked + .slider:before { transform: translateX(1.5em); }
+@keyframes toggle__animation {
+  0%, 100% { transform: translateY(-10px) rotateX(15deg) rotateY(-20deg); }
+  50% { transform: translateY(0px) rotateX(15deg) rotateY(-20deg); }
+}
+&lt;/style&gt;</code></pre>
+  </section>
+</div>
+<script src="../assets/site.js"></script>
+<footer class="site-footer">
+  <div class="wrap">
+    <a href="https://github.com/Hiweny/ui-animations" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+<button id="toTop" class="to-top" type="button" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+</body>
+</html>
